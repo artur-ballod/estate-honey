@@ -1,0 +1,63 @@
+<template>
+	<span class="ui-shape-icon" :class="shapeIconClasses" :style="shapeIconStyles" aria-hidden="true">
+		<svg viewBox="0 0 50 52" fill="none" xmlns="http://www.w3.org/2000/svg" class="ui-shape-icon__shape">
+			<path
+				d="M24.9639 51.958V52L24.9629 51.9619M24.9639 51.958L24.9629 51.9619M24.9639 51.958L24.9629 51.9619M24.9639 51.958V51.9521L24.9629 51.9619M24.96 0.5C26.8359 0.519762 28.7084 0.883087 30.4746 1.59863C30.7083 1.69329 31.1601 1.88884 31.4033 1.99609C35.536 3.81777 39.4354 6.09288 43.0322 8.72656L43.0332 8.72754C43.0436 8.73511 43.0668 8.75116 43.0879 8.7666C43.0986 8.77441 43.1094 8.78237 43.1172 8.78809C43.1232 8.79247 43.1259 8.79515 43.127 8.7959L43.1299 8.79785C46.2255 11.0987 48.2957 14.4971 48.918 18.2637L48.9736 18.6289L49.0098 18.9443C49.2776 21.2598 49.4199 23.6125 49.4199 25.998C49.4199 28.0855 49.3112 30.1483 49.1045 32.1826L49.0098 33.0527C48.9968 33.164 48.9862 33.2631 48.9736 33.3682C48.429 37.2717 46.3335 40.8097 43.1494 43.1846C43.1487 43.1851 43.1475 43.186 43.1455 43.1875C43.1417 43.1903 43.1359 43.1939 43.1299 43.1982C43.1178 43.207 43.1022 43.2187 43.0859 43.2305C43.0539 43.2536 43.0182 43.2797 43 43.293L42.998 43.2939C39.1978 46.0722 35.0827 48.444 30.6904 50.3105C30.5777 50.3585 30.5719 50.3629 30.4785 50.4023C28.7164 51.1163 26.849 51.4792 24.9775 51.499L24.96 51.498L24.9414 51.499C23.1878 51.4803 21.4376 51.161 19.7744 50.5332L19.4414 50.4023C19.3481 50.3629 19.3422 50.3584 19.2295 50.3105C14.8372 48.444 10.7221 46.0722 6.92187 43.2939L6.91992 43.293C6.90166 43.2797 6.86598 43.2536 6.83398 43.2305L6.77539 43.1875C6.77304 43.1858 6.77122 43.1851 6.77051 43.1846C3.68577 40.8838 1.62285 37.4913 1.00195 33.7324L0.946289 33.3682L0.910156 33.0527C0.642328 30.7371 0.5 28.3837 0.5 25.998C0.500013 23.9107 0.608796 21.8485 0.81543 19.8145L0.910156 18.9443C0.923159 18.8329 0.93368 18.7341 0.946289 18.6289C1.49188 14.7173 3.59474 11.1728 6.79004 8.79785L6.79297 8.7959C6.79397 8.79517 6.79741 8.7927 6.80371 8.78809C6.81147 8.7824 6.82146 8.77433 6.83203 8.7666C6.85314 8.75117 6.87631 8.73513 6.88672 8.72754L6.88769 8.72656C10.4845 6.09288 14.384 3.81777 18.5166 1.99609C18.7598 1.88885 19.2116 1.6933 19.4453 1.59863C21.2115 0.883098 23.0841 0.519772 24.96 0.5Z"
+				class="ui-shape-icon__shape-path" />
+		</svg>
+
+		<span class="ui-shape-icon__content">
+			<slot>
+				<UiIcon v-if="icon" :name="icon" class="ui-shape-icon__icon" />
+			</slot>
+		</span>
+	</span>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+
+interface Props {
+	icon?: string
+	size?: number | string
+	width?: number | string
+	height?: number | string
+	iconSize?: number | string
+	position?: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+	icon: '',
+	size: '',
+	iconSize: '',
+	position: '',
+})
+
+const resolvedWidth = computed(() => props.width ?? props.size)
+
+const resolvedHeight = computed(() => {
+	if (props.height) {
+		return props.height
+	}
+
+	const numericSize = Number(props.size)
+	return Number.isNaN(numericSize) ? 52 : Math.round(numericSize * 1.04)
+})
+
+const shapeIconClasses = computed(() => ({
+	[`ui-shape-icon--${props.position}`]: props.position,
+}))
+
+const shapeIconStyles = computed(() => ({
+	'--ui-shape-icon-width':
+		typeof resolvedWidth.value === 'number' ? `${resolvedWidth.value}px` : resolvedWidth.value,
+	'--ui-shape-icon-height':
+		typeof resolvedHeight.value === 'number' ? `${resolvedHeight.value}px` : resolvedHeight.value,
+	'--ui-shape-icon-icon-size':
+		typeof props.iconSize === 'number' ? `${props.iconSize}px` : props.iconSize,
+}))
+</script>
+
+<style scoped lang="scss">
+	@use './ui-shape-icon.scss';
+</style>

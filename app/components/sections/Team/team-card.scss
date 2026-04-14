@@ -1,0 +1,133 @@
+@use '@/assets/styles/abstracts' as *;
+
+.team-card {
+	width: 100%;
+	max-width: to-rem(335);
+
+	display: flex;
+	flex-direction: column;
+	background-color: $secondary-color;
+	border-radius: to-rem(28);
+
+	text-decoration: none;
+
+	@media screen and (min-width: 1440px) {
+		height: to-rem(510);
+		max-width: to-rem(332);
+
+		&:hover {
+			.team-card__icon,
+			.team-card__consultation {
+				display: flex;
+			}
+		}
+	}
+
+	&__top {
+		width: 100%;
+		height: 100%;
+		position: relative;	
+	}
+
+	&__image {
+		display: flex;
+		height: 100%;
+		width: 100%;
+
+		& > * {
+			object-fit: cover;
+			object-position: top;
+		}
+	}
+
+	&__icon {
+		position: absolute;
+		top: to-rem(12);
+		right: to-rem(12);
+		width: to-rem(50);
+		height: to-rem(52);
+		--ui-button-arrow-color: #050042;
+		--ui-button-shape-color: #ffffff;
+    	--ui-button-shape-bg: #ffffff;
+		transition: 0.2s ease-in;
+
+		@media screen and (min-width: 1440px) {
+			display: none;
+
+			&:hover {
+				--ui-button-arrow-color: #ffffff;
+				--ui-button-shape-color: #050042;
+				--ui-button-shape-bg: #050042;
+			}
+		}
+	}
+
+	&__body {
+		position: relative;
+		width: 100%;
+		min-height: to-rem(190);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: to-rem(20) to-rem(15) to-rem(15) to-rem(15);
+
+		@media screen and (min-width: 1440px) {
+			min-height: to-rem(210);
+			height: 100%;
+			padding: to-rem(16) to-rem(20) to-rem(20) to-rem(20);
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(2);
+	}
+
+	&__name {
+		color: $primary-color;
+	}
+
+	&__position {
+		color: $primary-color;
+	}
+
+	&__meta {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__rating {
+		display: flex;
+		align-items: center;
+		gap: to-rem(5);
+
+		&-icon {
+			width: to-rem(13);
+			height: to-rem(13);
+			--star-fill-color: #5887FF;
+		}
+
+		&-value {
+			color: $primary-color;
+		}
+	}
+
+	&__reviews {
+		color: $primary-color;
+	}
+
+	&__consultation {
+		position: absolute;
+		bottom: to-rem(12);
+		right: to-rem(12);
+		white-space: pre-line;
+		text-align: center;
+		justify-content: center;
+		color: $primary-color;
+
+		@media screen and (min-width: 1440px) {
+			display: none;
+		}
+	}
+}

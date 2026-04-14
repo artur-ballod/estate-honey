@@ -1,0 +1,102 @@
+@use '@/assets/styles/abstracts'as *;
+
+.faq-item {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid transparentize($secondary-color, 0.5);
+
+	&[open] {
+		padding-bottom: to-rem(12);
+
+		@media screen and (min-width: 1440px) {
+			padding-bottom: to-rem(20);
+		}
+
+		.faq-item__arrow {
+			transform: scaleY(-1);
+		}
+	}
+
+	&__summary {
+		width: 100%;
+		height: to-rem(92);
+		display: grid;
+		grid-template-columns: to-rem(60) 1fr to-rem(26);
+		column-gap: to-rem(12);
+		list-style: none;
+
+		@media screen and (min-width: 1440px) {
+			width: 100%;
+			height: to-rem(120);
+			grid-template-columns: to-rem(166) 1fr to-rem(75);
+			column-gap: to-rem(16);
+			cursor: pointer;
+
+			&:hover {
+				.faq-item__arrow {
+					--ui-button-shape-bg: #{$secondary-color};
+					--ui-button-shape-color: #{$secondary-color};
+					--ui-button-arrow-color: #{$purple-color};
+				}
+			}
+		}
+
+		&::-webkit-details-marker {
+			display: none;
+		}
+
+		&::marker {
+			display: none;
+			content: '';
+		}
+	}
+
+	&__number {
+		color: $secondary-color;
+	}
+
+	&__question {
+		color: $secondary-color;
+		letter-spacing: 0.01em;
+		margin-right: to-rem(10);
+	}
+
+	&__arrow {
+		flex-shrink: 0;
+		margin-left: auto;
+
+		&--mobile {
+			width: to-rem(25);
+			height: to-rem(23);
+			--ui-icon-w: #{to-rem(25)};
+			--ui-icon-h: #{to-rem(24)};
+			--ui-icon-color: #{$secondary-color};
+		}
+
+		&--desktop {
+			transition: 0.2s ease;
+			width: to-rem(75);
+			height: to-rem(78);
+			--ui-button-shape-bg: transparent;
+			--ui-button-shape-color: transparent;
+			--ui-button-arrow-color: #{$secondary-color};
+		}
+	}
+
+	&__content {
+		padding-inline: to-rem(73) to-rem(10);
+
+		@media screen and (min-width: 1440px) {
+			padding-inline: to-rem(182) to-rem(430);
+		}
+	}
+
+	&__answer {
+		color: transparentize($secondary-color, 0.2);
+
+		@media screen and (min-width: 1440px) {
+			color: $secondary-color;
+		}
+	}
+}

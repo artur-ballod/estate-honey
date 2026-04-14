@@ -1,0 +1,64 @@
+@use '@/assets/styles/abstracts' as *;
+
+.awards {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	border-top: 1px solid $primary-color;
+
+	&__controls {
+		position: absolute;
+		top: to-rem(40);
+		right: 5.5555vw;
+		display: grid;
+		grid-template-columns: repeat(2, to-rem(50));
+		column-gap: to-rem(10);
+		align-items: center;
+		z-index: 9;
+
+		@media screen and (min-width: 1440px) {
+			width: calc(100% - to-rem(360));
+			justify-content: space-between;
+			top: auto;
+			bottom: to-rem(54);
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	&__control {
+		width: to-rem(50);
+		height: to-rem(52);
+		display: grid;
+		place-items: center;
+		background-color: transparent;
+		border: none;
+		padding: 0;
+
+		&:disabled {
+			opacity: 0;
+			transition: 0.2s ease-in;
+		}
+
+		&--prev {
+			transform: scaleX(-1);
+		}
+
+		@media screen and (min-width: 1440px) {
+			width: to-rem(48);
+			height: to-rem(52);
+		}
+	}
+
+	&__slide {
+		height: auto;
+		&:not(:first-child) {
+			border-left: 1px solid $primary-color;
+		}
+
+		@media screen and (min-width: 1440px) {
+			cursor: pointer;
+			max-width: to-rem(1182);
+		}
+	}
+}

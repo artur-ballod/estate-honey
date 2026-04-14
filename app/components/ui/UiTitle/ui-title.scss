@@ -1,0 +1,60 @@
+@use '@/assets/styles/abstracts'as *;
+
+.ui-title {
+    font-family: $font-family-primary;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.ui-title--uppercase {
+    text-transform: uppercase;
+}
+
+.ui-title--primary {
+    font-size: to-rem(40);
+    line-height: 0.9;
+}
+
+.ui-title--secondary {
+    font-size: to-rem(36);
+    line-height: 1;
+}
+
+.ui-title--subtitle {
+    font-size: to-rem(20);
+    line-height: 1.2;
+}
+
+.ui-title--accent {
+    font-size: to-rem(15);
+    line-height: 1.3;
+}
+
+.ui-title--micro {
+	font-size: to-rem(8);
+	line-height: 1.4;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+@media screen and (min-width: 1440px) {
+    .ui-title--primary {
+        font-size: to-rem(88);
+    }
+
+    .ui-title--secondary {
+        font-size: to-rem(74);
+    }
+
+    .ui-title--subtitle {
+        font-size: to-rem(32);
+    }
+
+    .ui-title--accent {
+        font-size: to-rem(16);
+    }
+
+	.ui-title--micro {
+		font-size: to-rem(9);
+	}
+}

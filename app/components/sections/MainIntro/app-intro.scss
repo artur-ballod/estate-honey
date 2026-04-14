@@ -1,0 +1,60 @@
+@use '@/assets/styles/abstracts' as *;
+
+.app-intro {
+	position: relative;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	background-color: $primary-color;
+	padding: to-rem(17) to-rem(10) to-rem(415) to-rem(10);
+
+	@media screen and (min-width: 1440px) {
+		padding: to-rem(34) to-rem(25) to-rem(418);
+	}
+
+	&__content {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	&__lead {
+		color: $secondary-color;
+		text-align: left;
+		margin-bottom: to-rem(160);
+
+		@media screen and (min-width: 1440px) {
+			margin-bottom: to-rem(183);
+		}
+	}
+
+	&__title {
+		color: $secondary-color;
+		margin-bottom: to-rem(24);
+
+		@media screen and (min-width: 1440px) {
+			max-width: 50%;
+			margin-bottom: to-rem(38);
+		}
+	}
+
+	&__actions {
+		width: auto;
+		display: flex;
+		flex-direction: column;
+		row-gap: to-rem(8);
+
+		@media screen and (min-width: 1440px) {
+			flex-direction: row;
+			column-gap: to-rem(16);
+		}
+	}
+
+	&__action {
+		gap: to-rem(38);
+	}
+
+	&__action-icon .ui-button-arrow__icon {
+		transform-origin: center;
+		transform: rotate(-45deg);
+	}
+}

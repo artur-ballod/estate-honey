@@ -1,0 +1,74 @@
+@use '@/assets/styles/abstracts'as *;
+
+.ui-tab-button {
+	width: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: to-rem(24);
+	background-color: transparent;
+	white-space: pre-line;
+	text-align: left;
+	transition: 0.2s ease-in;
+
+	@media screen and (min-width: 1440px) {
+		border-radius: to-rem(28);
+	}
+
+	&--default {
+		padding: to-rem(16) to-rem(17);
+		border: none;
+		background-color: transparentize($secondary-color, 0.88);
+		color: $tab-text-color;
+
+		&.is-active {
+			background-color: $tab-active-color;
+			color: $secondary-color;
+		}
+
+		@media screen and (min-width: 1440px) {
+			padding: to-rem(19) to-rem(24);
+			border: 1px solid transparentize($secondary-color, 0.3);
+			color: transparentize($secondary-color, 0.3);
+			background-color: transparent;
+			cursor: pointer;
+
+			&:hover {
+				border-color: $secondary-color;
+				color: $secondary-color;
+			}
+
+			&.is-active {
+				border-color: $tab-active-color;
+			}
+		}
+	}
+
+	&--accent {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: to-rem(30);
+		padding: to-rem(21) to-rem(14) to-rem(21) to-rem(18);
+		border: 1px solid $primary-color;
+		background-color: transparent;
+		color: $primary-color;
+
+		&.is-active {
+			background-color: $primary-color;
+			border-color: $primary-color;
+			color: $secondary-color;
+		}
+
+		@media screen and (min-width: 1440px) {
+			padding: to-rem(23) to-rem(19) to-rem(23) to-rem(23);
+			cursor: pointer;
+			
+			&:hover {
+				background-color: $tab-light-hover-color;
+				border-color: $tab-light-hover-color;
+				color: $secondary-color;
+			}
+		}
+	}
+}

@@ -1,0 +1,151 @@
+@use '@/assets/styles/abstracts' as *;
+
+.app-header-nav {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: to-rem(16);
+
+	@media screen and (min-width: 1440px) {
+		width: auto;
+		margin-left: auto;
+		padding-left: to-rem(50);
+		padding-right: to-rem(33);
+		border-left: 1px solid $border-light-color;
+		border-right: 1px solid $border-light-color;
+	}
+
+	&__title {
+		@include font-setting($font-family-primary, to-rem(8.5), 140%, 400, $secondary-color);
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		opacity: 0.3;
+	}
+
+	&__subgroup {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: to-rem(16);
+	}
+
+	&__list,
+	&__sublist {
+		@include flex-setting(column, flex-start, flex-end);
+		gap: to-rem(12);
+	}
+
+	&__list {
+		@media screen and (min-width: 1440px) {
+			height: 100%;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			gap: to-rem(20);
+		}
+	}
+
+	&__sublist {
+		@media screen and (min-width: 1440px) {
+			gap: to-rem(8);
+		}
+	}
+
+	&__item {
+		width: fit-content;
+		display: inline-flex;
+		justify-content: flex-end;
+
+		@media screen and (min-width: 1440px) {
+			position: relative;
+		}
+	}
+
+	&__link,
+	&__sublink {
+		@include font-setting($font-family-secondary, to-rem(16), 130%, 400, $secondary-color);
+		letter-spacing: 0.01em;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	&__link {
+		@media screen and (min-width: 1440px) {
+			padding: to-rem(7) to-rem(10);
+			font-size: to-rem(12);
+			line-height: to-rem(15);
+			border-radius: to-rem(10);
+			transition: background-color 0.2s ease;
+
+			&--button {
+				background-color: transparent;
+				border: none;
+				@include flex-setting(row, center, center);
+				gap: to-rem(6);
+
+				&[aria-expanded="true"] {
+					.app-header-nav__link-btn {
+						background-color: $menu-link-bg;
+						border-color: $menu-link-bg;
+					}
+				}
+			}
+
+			&:hover {
+				background-color: $menu-link-hover;
+			}
+		}
+
+		&-btn {
+			@include flex-setting(column, center, center);
+			width: to-rem(13);
+			height: to-rem(13);
+			background-color: transparent;
+			border: 1px solid $menu-link-border;
+			border-radius: to-rem(5);
+			transition: 0.2s ease-in;
+		}
+
+		&-icon {
+			margin-top: to-rem(1);
+			width: 50%;
+			height: 50%;
+		}
+	}
+
+	&__sublink {
+		@media screen and (min-width: 1440px) {
+			@include font-setting($font-family-secondary, to-rem(13), to-rem(20), 400, $secondary-color);
+			text-decoration: none;
+		}
+	}
+
+	&__dropdown {
+		position: absolute;
+		top: calc(100% + to-rem(10));
+		right: 0;
+		@include flex-setting(column, flex-start, flex-end);
+		gap: to-rem(20);
+		background-color: $dropdown-bg-color;
+		padding: to-rem(30) to-rem(36);
+		border-radius: to-rem(28);
+
+		&::before {
+			position: absolute;
+			content: '';
+			top: to-rem(-11);
+			width: to-rem(22);
+			height: to-rem(22);
+			background-color: $dropdown-bg-color;
+			transform: rotate(45deg);
+		}
+	}
+
+	&--mobile {
+		.app-header-nav__item.has-children {
+			margin-top: to-rem(28);
+			order: 98;
+		}
+	}
+}

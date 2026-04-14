@@ -1,0 +1,419 @@
+@use '@/assets/styles/abstracts' as *;
+
+.app-footer {
+	position: relative;
+	width: 100%;
+	background-color: $primary-color;
+	display: grid;
+	grid-template-columns: 1fr;
+	row-gap: to-rem(100);
+	padding-bottom: to-rem(38);
+
+	@media screen and (min-width: 1440px) {
+		row-gap: 0;
+		padding-bottom: 0;
+	}
+	
+	&__top {
+		padding-top: to-rem(20);
+		padding-left: to-rem(10);
+		padding-right: to-rem(10);
+		border-top: 1px solid $border-light-color;
+
+		@media screen and (min-width: 1440px) {
+			display: flex;
+			justify-content: space-between;
+			padding: to-rem(30) to-rem(25) to-rem(100) to-rem(25);
+		}
+	}
+
+	&__logo {
+		display: grid;
+		place-content: center;
+		width: fit-content;
+
+		@media screen and (min-width: 1440px) {
+			width: to-rem(212);
+			height: to-rem(90);
+			place-content: start;
+
+			.app-footer__logo-image {
+				width: inherit;
+				height: inherit;
+			}
+		}
+	}
+
+	&__up {
+		position: absolute;
+		right: to-rem(12);
+		bottom: to-rem(344);
+		width: to-rem(167);
+		height: to-rem(176);
+		padding: 0;
+		background-color: transparent;
+		border: none;
+
+		@media screen and (min-width: 1440px) {
+			position: relative;
+			right: auto;
+			bottom: auto;
+			width: to-rem(142);
+			height: to-rem(150);
+		}
+
+		&-shape {
+			pointer-events: none;
+
+			@media screen and (min-width: 1440px) {
+				width: to-rem(142);
+				height: to-rem(150);
+			}
+		}
+
+		&-icon {
+			position: absolute;
+			top: to-rem(28);
+			left: 50%;
+			transform: translateX(-50%);
+			width: to-rem(30);
+			height: to-rem(28);
+
+			@media screen and (min-width: 1440px) {
+				top: to-rem(24);
+				width: to-rem(24);
+				height: to-rem(25);
+			}
+		}
+
+		&-text {
+			position: absolute;
+			bottom: to-rem(50);
+			left: 50%;
+			transform: translateX(-50%);
+			@include font-setting($font-family-primary, to-rem(9.5), to-rem(14), 550, $secondary-color);
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
+
+			@media screen and (min-width: 1440px) {
+				bottom: to-rem(43);
+			}
+		}
+	}
+
+	&__main {
+		display: grid;
+		row-gap: to-rem(90);
+		padding: 0 to-rem(10) to-rem(60) to-rem(10);
+
+		@media screen and (min-width: 1440px) {
+			grid-template-columns: 2fr 1fr;
+			justify-content: space-between;
+			align-items: end;
+			row-gap: 0;
+			padding: 0 to-rem(24) to-rem(30) to-rem(24);
+		}
+	}
+
+	&__menus {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		row-gap: to-rem(36);
+
+		@media screen and (min-width: 1440px) {
+			grid-template-columns: repeat(3, 1fr);
+			max-width: to-rem(636);
+			row-gap: 0;
+		}
+	}
+
+	&__menu {
+		display: flex;
+		flex-direction: column;
+		row-gap: to-rem(16);
+
+		@media scree and (min-width: 1440px) {
+			row-gap: to-rem(22);
+		}
+
+		&:first-of-type {
+			grid-row: 1 / 3;
+
+			@media scree and (min-width: 1440px) {
+				grid-row: 1 / 2;
+			}
+		}
+
+		&-title {
+			@include font-setting($font-family-primary, to-rem(8.5), 140%, 400, $secondary-color);
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
+			opacity: 0.3;
+
+			@media screen and (min-width: 1440px) {
+				font-size: to-rem(9.5);
+				line-height: to-rem(10);
+			}
+		}
+
+		&-list {
+			@include flex-setting(column, flex-start, flex-start);
+			gap: to-rem(8);
+
+			@media screen and (min-width: 1440px) {
+				gap: to-rem(6);
+			}
+		}
+
+		&-item {
+			width: fit-content;
+		}
+
+		&-link {
+			@include font-setting($font-family-secondary, to-rem(13), 150%, 400, $secondary-color);
+			text-decoration: none;
+
+			@media screen and (min-width: 1440px) {
+				font-size: to-rem(14);
+			}
+		}
+	}
+
+	&__side {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: end;
+
+		@media screen and (min-width: 1440px) {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			justify-content: space-between;
+			align-items: flex-end;
+		}
+	}
+
+	&__contacts {
+		display: flex;
+		flex-direction: column;
+		row-gap: to-rem(16);
+
+		@media screen and (min-width: 1440px) {
+			row-gap: to-rem(22);
+		}
+
+		&-title {
+			@include font-setting($font-family-primary, to-rem(8.5), 140%, 400, $secondary-color);
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
+			opacity: 0.3;
+
+			@media screen and (min-width: 1440px) {
+				font-size: to-rem(9.5);
+				line-height: to-rem(10);
+				visibility: hidden;
+			}
+		}
+
+		&-list {
+			@include flex-setting(column, flex-start, flex-start);
+			gap: to-rem(8);
+
+			@media screen and (min-width: 1440px) {
+				align-items: flex-end;
+				gap: to-rem(6);
+			}
+		}
+
+		&-item {
+			width: fit-content;
+		}
+
+		&-link {
+			@include font-setting($font-family-secondary, to-rem(13), 150%, 400, $secondary-color);
+			text-decoration: none;
+
+			@media screen and (min-width: 1440px) {
+				font-size: to-rem(14);
+			}
+		}
+	}
+
+	&__socials {
+		width: auto;
+		
+		&-list {
+			width: auto;
+			display: grid;
+			grid-template-columns: repeat(3, to-rem(50));
+			column-gap: to-rem(10);
+
+			@media screen and (min-width: 1440px) {
+				grid-template-columns: repeat(3, to-rem(36));
+				column-gap: to-rem(13);
+			}
+		}
+
+		&-item {
+			width: fit-content;
+		}
+
+		&-link {
+			display: grid;
+			width: to-rem(50);
+			height: to-rem(50);
+			place-content: center;
+			border: 1px solid transparentize($secondary-color, 0.6);
+			border-radius: to-rem(20);
+
+			@media screen and (min-width: 1440px) {
+				width: to-rem(36);
+				height: to-rem(36);
+				border-radius: to-rem(13);
+				transition: 0.2s ease-in;
+
+				&:hover {
+					border-color: $secondary-color;
+					background-color: $secondary-color;
+
+					.app-footer__socials-icon path {
+						fill: $primary-color;
+					}
+				}
+			}
+
+			&[aria-label="tg-icon"] {
+				.app-footer__socials-icon {
+					width: to-rem(17);
+					height: to-rem(14);
+				}
+			}
+
+			&[aria-label="vk-icon"] {
+				.app-footer__socials-icon {
+					width: to-rem(16.49);
+					height: to-rem(9.46);
+				}
+			}
+
+			&[aria-label="in-icon"] {
+				.app-footer__socials-icon {
+					width: to-rem(16);
+					height: to-rem(16);
+				}
+			}
+		}
+
+		&-icon {
+			@media screen and (min-width: 1440px) {
+				transition: 0.2s ease-in;
+			}
+		}
+	}
+
+	&__bottom {
+		display: flex;
+		flex-direction: column;
+		padding: to-rem(20) to-rem(10) 0 to-rem(10);
+		border-top: 1px solid $border-light-color;
+
+		@media screen and (min-width: 1440px) {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			column-gap: to-rem(25);
+			padding: 0 to-rem(25);
+		}
+
+		&-left {
+			display: flex;
+			flex-direction: column;
+			row-gap: to-rem(8);
+			margin-bottom: to-rem(74);
+
+			@media screen and (min-width: 1440px) {
+				justify-content: space-between;
+				margin-bottom: 0;
+				padding: to-rem(20) to-rem(25) to-rem(25) 0;
+				border-right: 1px solid $border-light-color;
+			}
+		}
+
+		&-center {
+			display: flex;
+			flex-direction: column;
+			row-gap: to-rem(8);
+			margin-bottom: to-rem(31);
+
+			@media only screen and (min-width: 1440px) {
+				padding: to-rem(20) to-rem(25) to-rem(25) 0;
+				row-gap: to-rem(28);
+				margin-bottom: 0;
+			}
+		}
+
+		&-right {
+			@media screen and (min-width: 1440px) {
+				display: grid;
+				justify-content: end;
+				align-items: end;
+				padding: to-rem(25) 0;
+			}
+		}
+	}
+
+	&__policy {
+		@include font-setting($font-family-secondary, to-rem(13), 150%, 400, $secondary-color);
+		text-decoration: underline;
+
+		@media screen and (min-width: 1440px) {
+			letter-spacing: 0.01em;
+		}
+	}
+
+	&__copyright {
+		@include font-setting($font-family-secondary, to-rem(12), 150%, 400, transparentize($secondary-color, 0.6));
+
+		@media screen and (min-width: 1440px) {
+			letter-spacing: 0.01em;
+		}
+	}
+
+	&__summary {
+		@include font-setting($font-family-secondary, to-rem(12), 150%, 400, $secondary-color);
+	}
+
+	&__disclaimer {
+		@include font-setting($font-family-secondary, to-rem(12), 150%, 400, $secondary-color);
+
+		&-link {
+			white-space: nowrap;
+			color: $secondary-color;
+			
+			&:not(:first-of-type) {
+				text-decoration: none;
+			}
+		}
+	}
+
+	&__developer {
+		display: flex;
+		align-items: center;
+		column-gap: to-rem(5);
+		@include font-setting($font-family-secondary, to-rem(12), 150%, 400, transparentize($secondary-color, 0.6));
+		text-decoration: none;
+
+		@media screen and (min-width: 1440px) {
+			justify-self: end;
+			align-self: end;
+		}
+
+		&-icon {
+			width: to-rem(19);
+			height: to-rem(13);
+		}
+
+		&-icon path {
+			fill: transparentize($secondary-color, 0.6);
+		}
+	}
+}

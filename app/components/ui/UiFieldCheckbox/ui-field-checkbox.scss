@@ -1,0 +1,112 @@
+@use '@/assets/styles/abstracts'as *;
+
+.ui-field-checkbox {
+	$self: &;
+
+	position: relative;
+	width: 100%;
+	display: grid;
+	grid-template-columns: to-rem(22) 1fr;
+	column-gap: to-rem(8);
+
+	@media screen and (min-width: 1440px) {
+		grid-template-columns: to-rem(24) 1fr;
+		column-gap: to-rem(12);
+	}
+
+	&__input {
+		display: none;
+	}
+
+	&__input + #{$self}__label::before {
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: to-rem(22);
+		height: to-rem(22);
+		border: 1px solid transparentize($secondary-color, 0.5);
+		border-radius: to-rem(9);
+
+		@media screen and (min-width: 1440px) {
+			width: to-rem(24);
+			height: to-rem(24);
+			border-radius: to-rem(10);
+		}
+	}
+
+	&__input:checked + #{$self}__label::after {
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: to-rem(22);
+		height: to-rem(22);
+		background-color: $secondary-color;
+		background-image: url("data:image/svg+xml,%3Csvg width='12' height='9' viewBox='0 0 12 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.691284 3.90791L4.06848 7.13932L10.7746 0.722656' stroke='%234D1EE0' stroke-width='2'/%3E%3C/svg%3E%0A");
+		background-position: 50% 50%;
+		background-size: to-rem(12) to-rem(9);
+		background-repeat: no-repeat;
+		border-radius: to-rem(9);
+
+		@media screen and (min-width: 1440px) {
+			width: to-rem(24);
+			height: to-rem(24);
+		}
+	}
+
+	&__input:checked + #{$self}__label {
+		color: $secondary-color;
+	}
+
+	&__label {
+		grid-column: 2 / 3;
+		color: transparentize($secondary-color, 0.2);
+		transition: 0.2s ease-in;
+
+		@media screen and (min-width: 1440px) {
+			cursor: pointer;
+
+			&:hover {
+				opacity: 1;
+				color: $secondary-color;
+			}
+		}
+	}
+
+	&--policy {
+		&.is-error {
+			#{$self}__label {
+				color: $error-color;
+			}
+
+			#{$self}__input + #{$self}__label::before {
+				border-color: $error-color;
+			}
+		}
+
+		@media screen and (min-width: 1440px) {
+			column-gap: to-rem(6);
+		}
+
+		#{$self}__input + #{$self}__label::before {
+			top: 0;
+			transform: none;
+		}
+
+		#{$self}__input:checked + #{$self}__label::after {
+			top: 0;
+			transform: none;
+			background-image: url("data:image/svg+xml,%3Csvg width='18' height='17' viewBox='0 0 18 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='18' height='17' rx='7' fill='white'/%3E%3C/svg%3E%0A");
+			background-size: to-rem(18) to-rem(18);
+			background-color: transparent;
+			border: 1px solid $secondary-color;
+		}
+
+		#{$self}__input:checked + #{$self}__label {
+			opacity: 1;
+		}
+	}
+}

@@ -1,0 +1,87 @@
+@use '@/assets/styles/abstracts'as *;
+
+.ui-caption {
+    font-family: $font-family-secondary;
+    font-weight: 450;
+    letter-spacing: 0.01em
+}
+
+.ui-caption--uppercase {
+    text-transform: uppercase;
+}
+
+.ui-caption--accent {
+    font-size: to-rem(15);
+    line-height: 1.3;
+}
+
+.ui-caption--description {
+    font-size: to-rem(15);
+    line-height: 1.1;
+	opacity: 0.8;
+}
+
+.ui-caption--description-sm {
+    font-size: to-rem(13);
+    line-height: 1.5;
+}
+
+.ui-caption--error {
+    font-size: to-rem(13);
+    line-height: 1.5;
+    color: $error-color;
+}
+
+.ui-caption--micro {
+    font-family: $font-family-primary;
+	font-size: to-rem(9);
+	line-height: 1.4;
+    font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.ui-caption--counter {
+    font-family: $font-family-primary;
+	font-size: to-rem(36);
+	line-height: 1;
+    font-weight: 600;
+	text-transform: uppercase;
+}
+
+.ui-caption--number {
+    font-family: $font-family-primary;
+	font-size: to-rem(40);
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+@media screen and (min-width: 1440px) {
+    .ui-caption--accent {
+        font-size: to-rem(19);
+        line-height: 1.4;
+    }
+
+    .ui-caption--description {
+        font-size: to-rem(16);
+        line-height: 1.6;
+		opacity: 1;
+    }
+
+    .ui-caption--description-sm {
+        font-size: to-rem(14);
+        line-height: 1.7;
+    }
+
+    .ui-caption--micro {
+		font-size: to-rem(9.5);
+	}
+
+    .ui-caption--counter {
+        font-size: to-rem(74);
+    }
+
+    .ui-caption--number {
+        font-size: to-rem(88);
+    }
+}

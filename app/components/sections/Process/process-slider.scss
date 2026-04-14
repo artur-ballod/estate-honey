@@ -1,0 +1,229 @@
+@use '@/assets/styles/abstracts'as *;
+
+.process-slider {
+	position: relative;
+	width: 100%;
+	height: to-rem(610);
+	overflow: hidden;
+
+	@media only screen and (min-width: 1440px) {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		height: to-rem(1030);
+		overflow: visible;
+		padding-bottom: to-rem(213);
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: to-rem(558);
+		height: to-rem(610);
+		pointer-events: none;
+
+		@media only screen and (min-width: 1440px) {
+			width: to-rem(943);
+			height: to-rem(1030);
+		}
+	}
+
+	&__swiper {
+		margin-bottom: to-rem(50);
+		max-width: to-rem(340);
+
+		@media only screen and (min-width: 1440px) {
+			max-width: to-rem(705);
+			margin-bottom: to-rem(103);
+		}
+	}
+
+	&__slide {
+		display: flex;
+		flex-direction: column;
+		padding: to-rem(24) to-rem(10) 0 to-rem(10);
+
+		@media only screen and (min-width: 1440px) {
+			padding: 0;
+			display: grid;
+			grid-template-columns: to-rem(480) min-content;
+			align-items: start;
+			justify-content: space-between;
+		}
+	}
+
+	&__top {
+		width: auto;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		min-height: to-rem(90);
+		margin-bottom: to-rem(60);
+
+		@media only screen and (min-width: 1440px) {
+			grid-column: 2 / 3;
+			grid-row: 1 / 2;
+			min-height: to-rem(175);
+			margin-bottom: 0;
+		}
+	}
+
+	&__step {
+		width: to-rem(38);
+		height: to-rem(90);
+		fill: $secondary-color;
+
+		@media only screen and (min-width: 1440px) {
+			width: auto;
+			min-width: to-rem(74);
+			height: to-rem(175);
+		}
+	}
+
+	&__arrow {
+		position: absolute;
+		top: to-rem(40);
+		right: 5.5555vw;
+		width: to-rem(56);
+		height: to-rem(56);
+		border: none;
+		padding: 0;
+		background-color: transparent;
+		z-index: 2;
+
+		@media only screen and (min-width: 1440px) {
+			top: auto;
+			bottom: to-rem(322);
+			right: to-rem(66);
+			width: to-rem(74);
+			height: to-rem(74);
+		}
+	}
+
+	&__data {
+		display: grid;
+		grid-template-columns: 1fr;
+
+		@media only screen and (min-width: 1440px) {
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+		}
+
+		&-title {
+			color: $secondary-color;
+			text-align: left;
+			margin-bottom: to-rem(36);
+
+			@media only screen and (min-width: 1440px) {
+				margin-bottom: to-rem(60);
+			}
+		}
+
+		&-list {
+			display: flex;
+			flex-direction: column;
+			gap: to-rem(20);
+			margin-bottom: to-rem(20);
+
+			@media only screen and (min-width: 1440px) {
+				margin-bottom: to-rem(28);
+			}
+		}
+
+		&-item {
+			width: fit-content;
+		}
+
+		&-text {
+			color: $secondary-color;
+			text-align: left;
+		}
+	}
+
+	&__controls {
+		position: relative;
+		width: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: to-rem(20);
+
+		@media only screen and (min-width: 1440px) {
+			gap: to-rem(30);
+		}
+
+		&-nav {
+			background-color: transparent;
+			padding: 0;
+			border: none;
+			width: to-rem(22);
+			height: to-rem(23);
+
+			&--prev {
+				transform: scaleX(-1);
+			}
+
+			&.ui-button--icon-only {
+				--ui-button-shape-color: #9478EC;
+				--ui-button-arrow-color: #9478EC;
+    			--ui-button-shape-bg: transparent;
+			}
+
+			@media only screen and (min-width: 1440px) {
+				&:hover {
+					&.ui-button--icon-only {
+						--ui-button-shape-color: #ffffff;
+						--ui-button-arrow-color: #ffffff;
+    					--ui-button-shape-bg: transparent;
+					}
+				}
+			}
+		}
+	}
+
+	&__pagination {
+		width: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: to-rem(20);
+
+		@media only screen and (min-width: 1440px) {
+			gap: to-rem(26);
+		}
+
+		&-item {
+			width: fit-content;
+		}
+
+		&-button {
+			background-color: transparent;
+			border: none;
+			padding: 0;
+
+			&.is-active {
+				.process-slider__pagination-step {
+					color: $secondary-color;
+				}
+			}
+
+			@media only screen and (min-width: 1440px) {
+				cursor: pointer;
+
+				&:hover {
+					.process-slider__pagination-step {
+						color: $secondary-color;
+					}
+				}
+			}
+		}
+
+		&-step {
+			color: $pagination-color;
+			transition: 0.2s ease-in;
+		}
+	}
+}

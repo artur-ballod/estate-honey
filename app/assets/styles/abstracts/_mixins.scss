@@ -1,0 +1,34 @@
+$units: 1px !default;
+@mixin screen($res-first, $res-last: $res-first) {
+    @if $res-first == $res-last {
+        @media screen and (max-width: if(sass(unitless($res-first)): ($res-first - 1) * $units; else: $res-first)) {
+            @content;
+        }
+    }
+    @else if $res-first < $res-last {
+        @media screen and (min-width: if(sass(unitless($res-first)): $res-first * $units; else: $res-first)) and (max-width: if(sass(unitless($res-last)): $res-last * $units; else: $res-last)) {
+            @content;
+        }
+    }
+}
+
+@mixin min-screen($res) {
+    @media screen and (min-width: if(sass(unitless($res)): $res * $units; else: $res)) {
+        @content;
+    }
+}
+
+@mixin flex-setting($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin font-setting($family, $size, $line-height, $font-width, $color) {
+  font-family: $family;
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $font-width;
+  color: $color;
+}

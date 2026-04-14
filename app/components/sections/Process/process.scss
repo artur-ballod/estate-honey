@@ -1,0 +1,83 @@
+@use '@/assets/styles/abstracts'as *;
+
+.process {
+	width: 100%;
+	background-color: $primary-color;
+	padding-bottom: to-rem(104);
+
+	@media only screen and (min-width: 1440px) {
+		padding-bottom: to-rem(70);
+	}
+
+	&__head {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		padding: to-rem(186) to-rem(10) to-rem(391) to-rem(10);
+
+		@media only screen and (min-width: 1440px) {
+			position: relative;
+			padding: to-rem(662) to-rem(230) to-rem(252) to-rem(497);
+		}
+	}
+
+	&__title {
+		color: $secondary-color;
+	}
+
+	&__visual {
+		position: absolute;
+	}
+
+	&__layout {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		row-gap: to-rem(46);
+
+		@media only screen and (min-width: 1440px) {
+			padding: 0 to-rem(25);
+			display: grid;
+			grid-template-columns: to-rem(447) to-rem(943);
+		}
+	}
+
+	&__aside {
+		width: 100%;
+		padding: 0 to-rem(10);
+		display: flex;
+		flex-direction: column;
+		row-gap: to-rem(20);
+
+		@media only screen and (min-width: 1440px) {
+			padding-top: to-rem(80);
+			padding-inline: 0;
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+			row-gap: to-rem(109);
+		}
+	}
+
+	&__intro {
+		color: $secondary-color;
+	}
+
+	&__tabs {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: to-rem(7);
+		align-items: center;
+
+		@media only screen and (min-width: 1440px) {
+			gap: to-rem(12);
+		}
+	}
+
+	&__content {
+		@media only screen and (min-width: 1440px) {
+			grid-column: 2 / 3;
+			grid-row: 1 / 2;
+		}
+	}
+}

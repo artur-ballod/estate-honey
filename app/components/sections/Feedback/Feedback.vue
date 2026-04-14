@@ -1,0 +1,139 @@
+<template>
+	<section class="feedback">
+		<div class="feedback__head">
+			<UiTitle tag="h2" variant="secondary" class="feedback__title">
+				{{ FEEDBACK_SECTION_CONTENT.title }}
+			</UiTitle>
+
+			<UiTitle tag="p" variant="subtitle" class="feedback__description">
+				<template v-for="(line, index) in descriptionLines" :key="`feedback-description-${index}`">
+					<span>{{ line }}</span>
+					<br v-if="index < descriptionLines.length - 1">
+				</template>
+			</UiTitle>
+		</div>
+
+		<form class="feedback__form" @submit.prevent="handleSubmit">
+			<div class="feedback__card feedback__card--topics">
+				<div class="feedback__card-top">
+					<UiCaption tag="span" variant="description-sm" class="feedback__card-step">
+						(01)
+					</UiCaption>
+
+					<UiCaption tag="p" variant="accent" class="feedback__card-title">
+						{{ FEEDBACK_SECTION_CONTENT.topicsLabel }}
+					</UiCaption>
+				</div>
+
+				<ul class="feedback__topics">
+					<li v-for="topic in FEEDBACK_TOPICS" :key="topic.id" class="feedback__topics-item"
+						:class="{ 'is-active': form.topics.includes(topic.value) }">
+						<UiFieldCheckbox :id="`feedback-topic-${topic.id}`"
+							:model-value="form.topics.includes(topic.value)" :name="`feedback-topic-${topic.id}`"
+							:label="topic.label" variant="card" @update:model-value="setTopic(topic.value, $event)" />
+					</li>
+				</ul>
+
+				<UiCaption v-if="errors.topics" tag="span" variant="error" class="feedback__topics-error">
+					{{ errors.topics }}
+				</UiCaption>
+			</div>
+
+			<div class="feedback__card feedback__card--data">
+				<div class="feedback__card-top">
+					<UiCaption tag="span" variant="description-sm" class="feedback__card-step">
+						(02)
+					</UiCaption>
+
+					<UiCaption tag="p" variant="accent" class="feedback__card-title">
+						{{ FEEDBACK_SECTION_CONTENT.contactsLabel }}
+					</UiCaption>
+				</div>
+
+				<div class="feedback__fields">
+					<UiFieldInput id="feedback-name" v-model="form.name" name="name" type="text"
+						:placeholder="FEEDBACK_SECTION_CONTENT.namePlaceholder" autocomplete="name" :error="errors.name"
+						@blur="validateName" />
+
+					<UiFieldInput id="feedback-phone" v-model="form.phone" name="phone" type="tel"
+						:placeholder="FEEDBACK_SECTION_CONTENT.phonePlaceholder" autocomplete="tel" inputmode="numeric"
+						mask="phone" :error="errors.phone" @blur="validatePhoneField" />
+				</div>
+
+				<div class="feedback__date">
+					<UiCaption tag="span" variant="description-sm" class="feedback__date-label">
+						{{ FEEDBACK_SECTION_CONTENT.callDayLabel }}
+					</UiCaption>
+
+					<div class="feedback__date-controls">
+						<UiFieldRadio v-for="option in FEEDBACK_CALL_DAY_OPTIONS" :key="option.id"
+							v-model="form.callDay" name="feedback-call-day" :value="option.value"
+							:label="option.label" :id="option.id" />
+
+						<UiFieldSelect v-model="form.callTime" name="call-time" :options="FEEDBACK_CALL_TIME_OPTIONS"
+							:placeholder="FEEDBACK_SECTION_CONTENT.callTimePlaceholder" class="feedback__date-select" />
+					</div>
+				</div>
+
+				<UiFieldCheckbox id="feedback-privacy" v-model="form.isPrivacyAccepted" name="privacy"
+					:label="FEEDBACK_SECTION_CONTENT.privacyLabel" :error="errors.privacy" variant="policy"
+					class="feedback__privacy" @blur="validatePrivacy" />
+
+				<div class="feedback__submit">
+					<UiButton type="submit" :text="FEEDBACK_SECTION_CONTENT.submitText" class="feedback__submit-btn">
+						<template #right>
+							<UiButtonArrow class="feedback__submit-icon" />
+						</template>
+					</UiButton>
+
+					<UiCaption v-if="errors.submit" tag="span" variant="error" class="feedback__submit-error">
+						{{ errors.submit }}
+					</UiCaption>
+				</div>
+			</div>
+		</form>
+
+		<div class="feedback__visual">
+			<div class="feedback__visual-item" />
+			<div class="feedback__visual-item" />
+		</div>
+	</section>
+</template>
+
+<script setup lang="ts">
+	import { computed } from 'vue'
+	import { useFeedbackForm } from '~/composables/forms/useFeedbackForm'
+	import {
+		FEEDBACK_CALL_DAY_OPTIONS,
+		FEEDBACK_CALL_TIME_OPTIONS,
+		FEEDBACK_SECTION_CONTENT,
+		FEEDBACK_TOPICS,
+	} from './constants'
+
+	const {
+		form,
+		errors,
+		setTopic,
+		validateName,
+		validatePhoneField,
+		validatePrivacy,
+		validateForm,
+		getPayload,
+	} = useFeedbackForm()
+
+	const descriptionLines = computed(() => FEEDBACK_SECTION_CONTENT.description.split('\n'))
+
+	const handleSubmit = () => {
+		if (!validateForm()) {
+			return
+		}
+
+		const payload = getPayload()
+
+		console.log('feedback form submit', payload)
+	}
+</script>
+
+<style scoped lang="scss">
+	@use './feedback.scss';
+</style>

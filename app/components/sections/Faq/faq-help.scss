@@ -1,0 +1,149 @@
+@use '@/assets/styles/abstracts'as *;
+
+.faq-help {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: to-rem(34) to-rem(20) to-rem(23) to-rem(20);
+	background-color: $primary-color;
+	border-radius: to-rem(28);
+
+	@media screen and (min-width: 1440px) {
+		height: to-rem(667);
+		justify-content: space-between;
+		padding: to-rem(50) to-rem(40);
+		margin-bottom: to-rem(-84);
+	}
+
+	&__title {
+		color: $secondary-color;
+		margin-bottom: to-rem(250);
+
+		@media screen and (min-width: 1440px) {
+			margin-bottom: auto;
+		}
+	}
+
+	&__contacts {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		row-gap: to-rem(40);
+
+		@media screen and (min-width: 1440px) {
+			flex-direction: row;
+			column-gap: to-rem(160);
+		}
+	}
+
+	&__phone {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		row-gap: to-rem(10);
+
+		@media screen and (min-width: 1440px) {
+			row-gap: to-rem(27);
+		}
+
+		&-label {
+			color: $secondary-color;
+		}
+
+		&-link {
+			display: flex;
+			flex-direction: column;
+			gap: to-rem(24);
+			text-decoration: none;
+			white-space: nowrap;
+			@include font-setting($font-family-primary, to-rem(36), 1.1, 600, $secondary-color);
+
+			@media screen and (min-width: 1440px) {
+				flex-direction: row;
+				font-size: to-rem(74);
+				line-height: 1;
+				transition: 0.2s ease-in;
+
+				&:hover {
+					opacity: 0.4;
+				}
+			}
+		}
+
+		&-prefix {
+			opacity: 0.4;
+
+			@media screen and (min-width: 1440px) {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__messengers {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		row-gap: to-rem(10);
+
+		@media screen and (min-width: 1440px) {
+			row-gap: to-rem(27);
+		}
+
+		&-label {
+			color: $secondary-color;
+		}
+
+		&-list {
+			width: auto;
+			display: flex;
+			align-items: center;
+			column-gap: to-rem(10);
+			
+			@media screen and (min-width: 1440px) {
+				column-gap: to-rem(13);
+			}
+		}
+
+		&-item {
+			width: to-rem(66);
+			height: to-rem(66);
+		}
+
+		&-link {
+			display: grid;
+			place-items: center;
+			width: inherit;
+			height: inherit;
+			color: $secondary-color;
+			border: 1px solid transparentize($secondary-color, 0.4);
+			border-radius: to-rem(27);
+			transition: 0.2s ease-in;
+
+			@media screen and (min-width: 1440px) {
+				&:hover {
+					background-color: $secondary-color;
+					border-color: $secondary-color;
+					color: $primary-color;
+				}
+			}
+		}
+
+		&-icon {
+			&[data-type="telegram"] {
+				--ui-icon-w: #{to-rem(17)};
+				--ui-icon-h: #{to-rem(14)};
+			}
+
+			&[data-type="vk"] {
+				--ui-icon-w: #{to-rem(17)};
+				--ui-icon-h: #{to-rem(10)};
+			}
+
+			&[data-type="instagram"] {
+				--ui-icon-w: #{to-rem(16)};
+				--ui-icon-h: #{to-rem(16)};
+			}
+		}
+	}
+}

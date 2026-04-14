@@ -1,0 +1,21 @@
+@use 'sass:math';
+
+@function to-rem($value, $base: 16) {
+  @if math.is-unitless($value) {
+    $value: $value * 1px;
+  }
+
+  @if math.is-unitless($base) {
+    $base: $base * 1px;
+  }
+
+  @if math.unit($value) != 'px' {
+    @error 'to-rem($value) принимает только число или px.';
+  }
+
+  @if math.unit($base) != 'px' {
+    @error 'to-rem($base) должен быть числом или px.';
+  }
+
+  @return math.div($value, $base) * 1rem;
+}

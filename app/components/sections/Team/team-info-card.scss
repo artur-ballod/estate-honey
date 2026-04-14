@@ -1,0 +1,53 @@
+@use '@/assets/styles/abstracts' as *;
+
+.team-info-card {
+	width: 100%;
+	height: to-rem(250);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: to-rem(35) to-rem(15) to-rem(20) to-rem(15);
+	border-radius: to-rem(28);
+	background-color: $dropdown-bg-color;
+
+	&--career {
+		padding-inline: to-rem(35);
+	}
+
+	&--about {
+		@media screen and (min-width: 1440px) {
+			height: to-rem(510);
+		}
+	}
+
+	&__text {
+		color: $secondary-color;
+	}
+
+	&__actions {
+		width: 100%;
+
+		@media screen and (min-width: 1440px) {
+			display: flex;
+			flex-direction: column;
+			gap: to-rem(15);
+		}
+	}
+
+	// TODO: разобраться с кнопками	
+	&__btn {
+		width: 100%;
+		
+		&-icon {
+			width: to-rem(50);
+			height: to-rem(50);
+		}
+	}
+
+	&__career {
+		--ui-button-shape-color: #050042;
+        --ui-button-arrow-color: #ffffff;
+        --ui-button-shape-bg: #050042;
+	}
+}

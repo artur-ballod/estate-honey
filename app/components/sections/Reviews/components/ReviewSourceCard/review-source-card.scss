@@ -1,0 +1,101 @@
+@use '@/assets/styles/abstracts'as *;
+
+.review-source-card {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	row-gap: to-rem(13);
+	padding: to-rem(40) to-rem(30) to-rem(42) to-rem(30);
+	background-color: $card-bg-light;
+	border-radius: to-rem(23);
+
+	@media screen and (min-width: 1440px) {
+		row-gap: to-rem(20);
+	}
+
+	@media screen and (min-width: 1440px) {
+		padding-top: to-rem(50);
+		padding-inline: to-rem(40);
+	}
+
+	&__head {
+		display: grid;
+		grid-template-columns: to-rem(50) 1fr;
+		column-gap: to-rem(17);
+		row-gap: to-rem(2);
+	}
+
+	&__logo {
+		grid-column: 1 / 2;
+		grid-row: 1 / 3;
+		display: grid;
+		place-items: center;
+		width: to-rem(50);
+		height: to-rem(50);
+		border-radius: to-rem(20);
+	}
+
+	&__icon {
+		width: inherit;
+		height: inherit;
+	}
+
+	&__link {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: to-rem(10);
+		text-decoration: none;
+		color: $btn-light-color;
+
+		&-text {
+			color: $btn-light-color;
+			transition: 0.2s ease-in;
+		}
+
+		&-icon {
+			width: to-rem(12);
+			height: to-rem(12);
+			transform: rotate(-45deg);
+			transform-origin: center;
+			transition: 0.2s ease-in;
+		}
+
+		@media screen and (min-width: 1440px) {
+			&:hover {
+				color: $primary-color;
+				
+				.review-source-card__link-text {
+					color: $primary-color;
+				}
+
+				.review-source-card__link-icon path{
+					stroke: $primary-color;
+				}
+			}
+		}
+	}
+
+	&[data-type="ya-icon"] {
+		.review-source-card__logo {
+			background-color: $ya-bg;
+		}
+
+		.review-source-card__icon {
+			width: to-rem(17);
+			height: to-rem(25);
+		}
+	}
+
+	&[data-type="vk-icon"] {
+		.review-source-card__logo {
+			background-color: $vk-bg;
+		}
+
+		.review-source-card__icon {
+			width: to-rem(28);
+			height: to-rem(18);
+		}
+	}
+}

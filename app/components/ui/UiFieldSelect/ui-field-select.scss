@@ -1,0 +1,56 @@
+@use '@/assets/styles/abstracts'as *;
+
+.ui-field-select {
+	position: relative;
+	background-color: transparent;
+	border-radius: to-rem(12);
+	border: 1px solid transparentize($secondary-color, 0.3);
+	@include font-setting($font-family-secondary, to-rem(13), 1.5, 400, $secondary-color);
+
+	&.is-open {
+		.ui-field-select__icon {
+			transform: rotate(180deg);
+		}
+	}
+
+	&__trigger {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: to-rem(15);
+		background-color: transparent;
+		border: none;
+		padding: to-rem(2) to-rem(10);
+		white-space: nowrap;
+		color: $secondary-color;
+	}
+
+	&__icon {
+		width: to-rem(11);
+		height: to-rem(6);
+	}
+
+	&__dropdown {
+		position: absolute;
+		background-color: $dropdown-bg-color;
+
+		top: 100%;
+		left: 0;
+		z-index: 2;
+		padding: to-rem(24) to-rem(24);
+		border-radius: to-rem(12);
+	}
+
+	&__option {
+		width: 100%;
+		padding-block: to-rem(8);
+		padding-inline: 0;
+		background-color: transparent;
+		border: none;
+		text-align: left;
+	}
+
+	&__text {
+		color: $secondary-color;
+	}
+}

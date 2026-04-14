@@ -1,0 +1,194 @@
+@use '@/assets/styles/abstracts' as *;
+
+.app-header {
+	position: relative;
+	width: 100%;
+	background-color: $primary-color;
+	z-index: 10;
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid $border-light-color;
+
+		@media screen and (min-width: 1440px) {
+			height: to-rem(66);
+			align-items: stretch;
+			justify-content: flex-end;	
+		}
+	}
+
+	&__logo {
+		display: flex;
+		align-items: center;
+		width: fit-content;
+		padding-left: to-rem(10);
+
+		@media screen and (min-width: 1440px) {
+			padding-left: to-rem(25);
+			padding-right: to-rem(25);
+		}
+
+		&-image {
+			@media screen and (min-width: 1440px) {
+				width: to-rem(91.65);
+				height: to-rem(39);
+			}
+		}
+	}
+
+	&__actions {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		margin-left: auto;
+
+		@media screen and (min-width: 1440px) {
+			height: 100%;
+			margin-left: 0;
+		}
+
+		&-trigger {
+			background-color: transparent;
+			padding: to-rem(26) to-rem(40) to-rem(24) to-rem(40);
+			border: none;
+			border-left: 1px solid $border-light-color;
+			border-right: 1px solid $border-light-color;
+			@include font-setting($font-family-primary, to-rem(11), to-rem(14), 400, $secondary-color);
+		}
+
+		&-toggle {
+			height: min-content;
+			width: to-rem(66);
+			display: grid;
+			place-content: center;
+			row-gap: to-rem(6);
+			background-color: transparent;
+			border: none;
+
+			&[aria-expanded="false"] {
+				.app-header__actions-toggle-icon {
+					width: to-rem(20);
+					height: to-rem(7);
+				}
+			}
+
+			&[aria-expanded="true"] {
+				.app-header__actions-toggle-icon {
+					width: to-rem(15.14);
+					height: to-rem(14.28);
+				}
+			}
+		}
+	}
+
+	&__mobile-panel {
+		position: absolute;
+		top: to-rem(65);
+		left: 0;
+		width: 100%;
+		background-color: $primary-color;
+		padding: to-rem(40) to-rem(20);
+	}
+
+	&__phone {
+		width: auto;
+		height: 100%;
+		display: flex;		
+		justify-content: center;
+		align-items: center;
+		padding: 0 to-rem(30);
+		@include font-setting($font-family-secondary, to-rem(12), to-rem(15), 400, $secondary-color);
+		opacity: 0.8;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	&__dropdown-control {
+		position: relative;
+		height: 100%;
+
+		&--messengers {
+			border-left: 1px solid $border-light-color;
+			border-right: 1px solid $border-light-color;
+		}
+	}
+
+	&__dropdown-trigger {
+		background-color: transparent;
+		border: none;
+		@include font-setting($font-family-secondary, to-rem(12), to-rem(15), 400, $secondary-color);
+		opacity: 0.8;
+		white-space: nowrap;
+		transition: 0.2s ease-in;
+		cursor: pointer;
+
+		&--messengers {
+			height: 100%;
+			padding: 0 to-rem(36);
+		}
+
+		&--socials {
+			padding: 0 to-rem(24);
+			height: 100%;
+			
+			.app-header__dropdown-icon {
+				width: to-rem(22.46);
+				height: to-rem(23.29);
+			}
+		}
+
+		&[aria-expanded="true"] {
+			opacity: 1;
+		}
+	}
+
+	&__dropdown-item {
+		position: absolute;
+		top: 99%;
+		right: 0;
+		@include flex-setting(column, flex-start, flex-end);
+		gap: to-rem(20);
+		background-color: $dropdown-bg-color;
+		padding: to-rem(36);
+		border-radius: to-rem(28);
+
+		&::before {
+			position: absolute;
+			content: '';
+			top: to-rem(-11);
+			width: to-rem(22);
+			height: to-rem(22);
+			background-color: $dropdown-bg-color;
+			transform: rotate(45deg);
+		}
+
+		&--messengers {
+			&::before {
+				right: to-rem(58);
+			}
+		}
+
+		&--socials {
+			min-width: to-rem(251);
+			&::before {
+				right: to-rem(22);
+			}
+		}
+	}
+
+	&__dropdown-title {
+		@include font-setting($font-family-primary, to-rem(9.5), 140%, 400, $secondary-color);
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		white-space: nowrap;
+		opacity: 0.4;
+	}
+
+	&__dropdown-note {
+		@include font-setting($font-family-secondary, to-rem(10), 120%, 400, $secondary-color);
+		opacity: 0.4;
+		letter-spacing: 0.01em;
+		text-align: right;
+	}
+}

@@ -1,0 +1,107 @@
+@use '@/assets/styles/abstracts'as *;
+
+.catalog-card {
+	display: flex;
+	flex-direction: column;
+	max-width: to-rem(446);
+
+	&__image {
+		border-radius: to-rem(28) to-rem(28) 0 0;
+		overflow: hidden;
+		object-fit: cover;
+		max-width: to-rem(446);
+
+		& > * {
+			object-position: center;
+			object-fit: cover;
+		}
+	}
+
+	&__body {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+		height: to-rem(290);
+		padding: to-rem(20) to-rem(15) to-rem(18) to-rem(15);
+		border-radius: to-rem(28);
+		background-color: $card-bg-light;
+		margin-top: to-rem(-26);
+
+		@media screen and (min-width: 1440px) {
+			padding: to-rem(21) to-rem(26) to-rem(26) to-rem(26);
+		}
+	}
+
+	&__main {
+		display: flex;
+		flex-direction: column;
+		gap: to-rem(2);
+
+		&[data-location="blue"] {
+			.catalog-card__location::before {
+				background-color: var(--loc-blue-tag);
+			}
+		}
+
+		&[data-location="red"] {
+			.catalog-card__location::before {
+				background-color: var(--loc-red-tag);
+			}
+		}
+
+		&[data-location="green"] {
+			.catalog-card__location::before {
+				background-color: var(--loc-green-tag);
+			}
+		}
+
+		&[data-location="orange"] {
+			.catalog-card__location::before {
+				background-color: var(--loc-orange-tag);
+			}
+		}
+	}
+
+	&__title {
+		color: $primary-color;
+	}
+
+	&__location {
+		position: relative;
+		color: $primary-color;
+		padding-left: to-rem(7);
+
+		&::before {
+			position: absolute;
+			content: '';
+			width: to-rem(2);
+			height: to-rem(13);
+			left: 0;
+			top: 45%;
+			transform: translateY(-50%);
+		}
+	}
+
+	&__action {
+		position: absolute;
+		bottom: to-rem(10);
+		right: to-rem(10);
+		width: to-rem(74);
+		height: to-rem(77);
+		--ui-button-arrow-color: #050042;
+		--ui-button-shape-color: #ffffff;
+    	--ui-button-shape-bg: #ffffff;
+		transition: 0.2s ease-in;
+
+		@media screen and (min-width: 1440px) {
+			cursor: pointer;
+			&:hover {
+				--ui-button-arrow-color: #ffffff;
+				--ui-button-shape-color: #050042;
+				--ui-button-shape-bg: #050042;
+			}
+		}
+	}
+}

@@ -1,0 +1,176 @@
+@use '@/assets/styles/abstracts' as *;
+
+.app-header-contacts {
+	width: 100%;
+	@include flex-setting(column, flex-start, flex-end);
+	gap: to-rem(40);
+	padding-top: to-rem(28);
+
+	&__phone {
+		@include flex-setting(row, flex-end, center);
+		gap: to-rem(10);
+		@include font-setting($font-family-secondary, to-rem(16), 130%, 400, $secondary-color);
+		text-decoration: none;
+
+		&-icon {
+			width: to-rem(14);
+			height: to-rem(14);
+		}
+	}
+
+	&__group {
+		width: 100%;
+		@include flex-setting(column, flex-start, flex-end);
+		gap: to-rem(16);
+	}
+
+	&__title {
+		@include font-setting($font-family-primary, to-rem(8.5), 140%, 400, $secondary-color);
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		opacity: 0.3;
+	}
+
+	&__list {
+		width: 100%;
+		@include flex-setting(column, flex-start, flex-end);
+		gap: to-rem(12);
+
+		@include min-screen(1440px) {
+			gap: to-rem(8);
+		}
+
+		&--messengers {
+			.app-header-contacts__link {
+				height: to-rem(50);
+				@include flex-setting(row, center, center);
+				column-gap: to-rem(10);
+				padding: 0 to-rem(18);
+				border: 1px solid rgba(255, 255, 255, 0.6);
+				border-radius: to-rem(28);
+				@include font-setting($font-family-primary, to-rem(8.5), 140%, 400, $secondary-color);
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+				white-space: nowrap;
+
+				@media screen and (min-width: 1440px) {
+					font-size: to-rem(9.5);
+					line-height: to-rem(10);
+
+					&:hover {
+						background-color: $secondary-color;
+						border-color: $secondary-color;
+						color: $primary-color;
+
+						.app-header-contacts__icon path { 
+							fill: $primary-color;
+						}
+					}
+				}
+
+				&[name="tg-icon"] {
+					.app-header-contacts__icon {
+						width: to-rem(15);
+						height: to-rem(12);
+					}
+				}
+
+				&[name="max-icon"] {
+					.app-header-contacts__icon {
+						width: to-rem(15.29);
+						height: to-rem(15.22);
+					}
+				}
+
+				&[name="vk-icon"] {
+					.app-header-contacts__icon {
+						width: to-rem(15);
+						height: to-rem(10);
+					}
+				}
+			}
+		}
+
+		&--socials {
+			.app-header-contacts__link {
+				@include font-setting($font-family-secondary, to-rem(16), 130%, 400, $secondary-color);
+				text-decoration: none;
+
+				@media screen and (min-width: 1440px) {
+					font-size: to-rem(9.5);
+					line-height: to-rem(10);
+					height: to-rem(50);
+					@include flex-setting(row, center, center);
+					column-gap: to-rem(10);
+					padding: 0 to-rem(18);
+					border: 1px solid rgba(255, 255, 255, 0.6);
+					border-radius: to-rem(28);
+					letter-spacing: 0.04em;
+					text-transform: uppercase;
+					white-space: nowrap;
+
+					&[name="tg-icon"] {
+						.app-header-contacts__icon {
+							width: to-rem(15);
+							height: to-rem(12);
+						}
+					}
+
+					&[name="vk-icon"] {
+						.app-header-contacts__icon {
+							width: to-rem(15);
+							height: to-rem(10);
+						}
+					}
+
+					&[name="in-icon"] {
+						.app-header-contacts__icon {
+							width: to-rem(13);
+							height: to-rem(13);
+						}
+					}
+
+					&[name="yt-icon"] {
+						.app-header-contacts__icon {
+							width: to-rem(15);
+							height: to-rem(12);
+						}
+					}
+
+					&[name="dz-icon"] {
+						.app-header-contacts__icon {
+							width: to-rem(15);
+							height: to-rem(15);
+						}
+					}
+
+					&:hover {
+						background-color: $secondary-color;
+						border-color: $secondary-color;
+						color: $primary-color;
+
+						.app-header-contacts__icon path { 
+							fill: $primary-color;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__item {
+		width: fit-content;
+	}
+
+	&__link {
+		width: auto;
+		text-decoration: none;
+	}
+
+	&__note {
+		@include font-setting($font-family-secondary, to-rem(8.5), 120%, 400, $secondary-color);
+		opacity: 0.4;
+		letter-spacing: 0.01em;
+		text-align: right;
+	}
+}

@@ -1,0 +1,158 @@
+@use '@/assets/styles/abstracts'as *;
+
+.faq {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: $purple-color;
+	padding-block: to-rem(170) to-rem(110);
+
+	@media screen and (min-width: 1440px) {
+		padding-top: to-rem(300);
+		padding-inline: to-rem(25);
+		padding-bottom: 0;
+		margin-bottom: to-rem(84);
+	}
+
+	&__title {
+		color: $secondary-color;
+		margin-bottom: to-rem(70);
+		padding-inline: to-rem(10);
+
+		@media screen and (min-width: 1440px) {
+			margin-bottom: to-rem(120);
+			padding-inline: 0;
+		}
+	}
+
+	&__list {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		padding-inline: to-rem(10);
+		row-gap: to-rem(12);
+		margin-bottom: to-rem(12);
+
+		@media screen and (min-width: 1440px) {
+			padding-inline: 0;
+			row-gap: to-rem(20);
+			margin-bottom: to-rem(20);
+		}
+	}
+
+	&__item {
+		&:first-of-type {
+			border-top: 1px solid transparentize($secondary-color, 0.5);
+			padding-top: to-rem(12);
+
+			@media screen and (min-width: 1440px) {
+				padding-top: to-rem(20);
+			}
+		}
+	}
+
+	&__more {
+		width: calc(100% - to-rem(20));
+		height: to-rem(92);
+		align-self: center;
+		display: grid;
+		grid-template-columns: to-rem(60) 1fr to-rem(26);
+		column-gap: to-rem(12);
+		padding: 0;
+		margin-bottom: to-rem(12);
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid transparentize($secondary-color, 0.5);
+
+		@media screen and (min-width: 1440px) {
+			width: 100%;
+			height: to-rem(120);
+			grid-template-columns: to-rem(166) 1fr to-rem(75);
+			column-gap: to-rem(16);
+			margin-bottom: to-rem(48);
+		}
+
+		&-count {
+			text-align: left;
+			color: transparentize($secondary-color, 0.5);
+		}
+
+		&-text {
+			text-align: left;
+			color: $secondary-color;
+		}
+
+		&-icon {
+			--ui-icon-w: #{to-rem(26)};
+			--ui-icon-h: #{to-rem(25)};
+			--ui-icon-color: #{$secondary-color};
+
+			@media screen and (min-width: 1440px) {
+				justify-self: center;
+				--ui-icon-w: #{to-rem(30)};
+				--ui-icon-h: #{to-rem(28)};
+			}
+		}
+	}
+
+	&__cta {
+		position: relative;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		row-gap: to-rem(20);
+		padding-inline: to-rem(83) to-rem(10);
+		margin-bottom: to-rem(108);
+
+		@media screen and (min-width: 1440px) {
+			padding-inline: to-rem(50) 0;
+			margin-bottom: to-rem(236);
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		&::before {
+			position: absolute;
+			content: '';
+			left: to-rem(10);
+			top: 0;
+			width: to-rem(32);
+			height: to-rem(30);
+			background-image: url("data:image/svg+xml,%3Csvg width='32' height='30' viewBox='0 0 32 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M26.1145 0L5.88548 0C2.63503 0 0 2.66359 0 5.94928V19.3049C0 22.5906 2.63503 25.2541 5.88548 25.2541H14.3035L24.03 30V25.2541H26.1145C29.365 25.2541 32 22.5906 32 19.3049V5.94928C32 2.66359 29.365 0 26.1145 0Z' fill='white'/%3E%3Cpath d='M14.248 14.27C14.192 14.018 14.164 13.808 14.164 13.64C14.164 13.276 14.2433 12.968 14.402 12.716C14.5607 12.4547 14.752 12.24 14.976 12.072C15.2 11.904 15.494 11.7173 15.858 11.512C16.1753 11.3253 16.418 11.1713 16.586 11.05C16.7633 10.9287 16.9127 10.784 17.034 10.616C17.1553 10.4387 17.216 10.2333 17.216 10C17.216 9.636 17.048 9.33267 16.712 9.09C16.376 8.838 15.9233 8.712 15.354 8.712C14.6913 8.712 14.1593 8.866 13.758 9.174C13.366 9.482 13.0813 9.79 12.904 10.098L11.462 9.356C11.5553 9.104 11.756 8.796 12.064 8.432C12.372 8.068 12.806 7.746 13.366 7.466C13.9353 7.17667 14.6073 7.032 15.382 7.032C16.166 7.032 16.8427 7.16267 17.412 7.424C17.9907 7.68533 18.4293 8.03067 18.728 8.46C19.036 8.88 19.19 9.33267 19.19 9.818C19.19 10.3127 19.1013 10.728 18.924 11.064C18.756 11.3907 18.546 11.6567 18.294 11.862C18.0513 12.058 17.734 12.2773 17.342 12.52C17.0247 12.716 16.7773 12.8793 16.6 13.01C16.4227 13.1407 16.2733 13.304 16.152 13.5C16.04 13.696 15.984 13.9293 15.984 14.2V14.27H14.248ZM15.102 17.14C14.7753 17.14 14.5093 17.042 14.304 16.846C14.0987 16.6407 13.996 16.398 13.996 16.118C13.996 15.8473 14.0987 15.614 14.304 15.418C14.5093 15.222 14.7753 15.124 15.102 15.124C15.4193 15.124 15.676 15.222 15.872 15.418C16.0773 15.614 16.18 15.8473 16.18 16.118C16.18 16.398 16.0773 16.6407 15.872 16.846C15.676 17.042 15.4193 17.14 15.102 17.14Z' fill='%234D1EE0'/%3E%3C/svg%3E%0A");
+			background-position: 50% 50%;
+			background-size: contain;
+			background-repeat: no-repeat;
+
+			@media screen and (min-width: 1440px) {
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+
+		&-text {
+			color: $secondary-color;
+			max-width: to-rem(234);
+
+			@media screen and (min-width: 1440px) {
+				max-width: none;
+			}
+		}
+
+		&-button {
+			white-space: nowrap;
+			justify-content: space-between;
+			gap: to-rem(72);
+
+			@media screen and (min-width: 1440px) {
+				gap: to-rem(80);
+			}
+		}
+
+		&-icon {
+			width: to-rem(24);
+			height: to-rem(25);
+		}
+	}
+}

@@ -1,0 +1,29 @@
+@use '@/assets/styles/abstracts'as *;
+
+.ui-rating {
+	width: auto;
+	display: flex;
+	align-items: center;
+	gap: to-rem(7);
+
+	&__stars {
+		width: auto;
+		display: grid;
+		place-items: center;
+		grid-template-columns: repeat(5, to-rem(13));
+		gap: to-rem(3);
+	}
+
+	&__item {
+		--ui-icon-w: #{to-rem(11)};
+		--ui-icon-h: #{to-rem(11)};
+		display: grid;
+		place-items: center;
+		width: fit-content;
+		height: fit-content;
+	}
+
+	&__value {
+		line-height: 1;
+	}
+}

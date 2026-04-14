@@ -1,0 +1,35 @@
+@use '@/assets/styles/abstracts'as *;
+
+.ui-field-input {
+	width: 100%;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid transparentize($secondary-color, 0.5);
+	padding-bottom: to-rem(8);
+	@include font-setting($font-family-secondary, to-rem(17), 1.4, 450, $secondary-color);
+	letter-spacing: 0.01em;
+	transition: 0.2s ease-in;
+
+	@media screen and (min-width: 1440px) {
+		font-size: to-rem(19);
+		padding-bottom: to-rem(5);
+
+		&:hover {
+			border-color: $secondary-color;
+		}
+	}
+
+	&::placeholder {
+		color: transparentize($secondary-color, 0.7);
+	}
+
+	&:focus-within {
+		border-color: $secondary-color;
+	}
+
+	&.is-error {
+		&::placeholder {
+			color: $error-color;
+		}
+	}
+}
