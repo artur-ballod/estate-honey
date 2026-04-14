@@ -1,7 +1,7 @@
 import type { SocialsSectionContent } from "./types";
 
 export const SOCIALS_SECTION_CONTENT: SocialsSectionContent = {
-  title: "Смотрите\nи&nbsp;читайте нас\nв&nbsp;соцсетях",
+  title: "Смотрите\nи\u00A0читайте нас\nв\u00A0соцсетях",
   description:
     "Говорим простым и понятным языком о недвижимости, подписывайтесь!",
 

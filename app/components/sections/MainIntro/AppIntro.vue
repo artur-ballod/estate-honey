@@ -1,10 +1,7 @@
 <template>
 	<section class="app-intro" aria-labelledby="app-intro-title">
 		<div class="app-intro__content">
-			<UiCaption
-				tag="p"
-				class="app-intro__lead"
-			>
+			<UiCaption tag="p" class="app-intro__lead">
 				<template v-for="(line, index) in introContent.lead" :key="`lead-${index}`">
 					{{ line }}
 					<br v-if="index !== introContent.lead.length - 1">
@@ -18,9 +15,9 @@
 			<div class="app-intro__actions">
 				<UiButton v-for="action in introContent.actions" :key="action.id" :text="action.text" :to="action.to"
 					:href="action.href" :target="action.target" :rel="action.rel" :type="action.type"
-					:size="action.size" :theme="action.theme" class="app-intro__action">
+					:variant="action.variant" class="app-intro__action">
 					<template v-if="action.icon" #right>
-						<UiButtonArrow class="app-intro__action-icon" />
+						<UiButtonArrow class="app-intro__action-icon" variant="small" position="rotated" />
 					</template>
 				</UiButton>
 			</div>

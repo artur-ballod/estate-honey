@@ -80,9 +80,9 @@
 					class="feedback__privacy" @blur="validatePrivacy" />
 
 				<div class="feedback__submit">
-					<UiButton type="submit" :text="FEEDBACK_SECTION_CONTENT.submitText" class="feedback__submit-btn">
+					<UiButton type="submit" :text="FEEDBACK_SECTION_CONTENT.submitText" class="feedback__submit-btn" variant="neutral-border" >
 						<template #right>
-							<UiButtonArrow class="feedback__submit-icon" />
+							<UiButtonArrow class="feedback__submit-icon" variant="small" />
 						</template>
 					</UiButton>
 

@@ -17,6 +17,7 @@
 	&__item {
 		--ui-icon-w: #{to-rem(11)};
 		--ui-icon-h: #{to-rem(11)};
+		--ui-icon-color: #{$primary-color};
 		display: grid;
 		place-items: center;
 		width: fit-content;

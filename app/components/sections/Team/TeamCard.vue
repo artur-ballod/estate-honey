@@ -44,8 +44,7 @@
 			</div>
 
 			<UiButton
-				:theme="TEAM_CARD_CONSULTATION_ACTION.theme"
-				:size="TEAM_CARD_CONSULTATION_ACTION.size"
+				:variant="TEAM_CARD_CONSULTATION_ACTION.variant"
 				:text="TEAM_CARD_CONSULTATION_ACTION.label"
 				class="team-card__consultation"
 				@click.prevent.stop="handleConsultationClick"

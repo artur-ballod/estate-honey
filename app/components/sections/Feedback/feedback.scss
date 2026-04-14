@@ -235,20 +235,10 @@
 
 		&-btn {
 			width: 100%;
-			justify-content: space-between;
-			--ui-button-shape-color: #050042;
-			--ui-button-arrow-color: #050042;
-			--ui-button-shape-bg: #ffffff;
-
 			@media screen and (min-width: 1440px) {
-				width: auto;
+				width: fit-content;
 				column-gap: to-rem(70);
 			}
-		}
-
-		&-icon {
-			width: to-rem(24);
-			height: to-rem(25);
 		}
 	}
 

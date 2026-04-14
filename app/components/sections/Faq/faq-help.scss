@@ -19,6 +19,7 @@
 	&__title {
 		color: $secondary-color;
 		margin-bottom: to-rem(250);
+		white-space: pre-line;
 
 		@media screen and (min-width: 1440px) {
 			margin-bottom: auto;

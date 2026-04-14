@@ -3,7 +3,7 @@ import type { FaqSectionContent } from "./types";
 export const FAQ_INITIAL_VISIBLE_COUNT = 4;
 
 export const FAQ_SECTION_CONTENT: FaqSectionContent = {
-  title: "Частые вопросы<br>и&nbsp;ответы&nbsp;на&nbsp;них",
+  title: "Частые вопросы\nи\u00A0ответы на них",
 
   items: [
     {
@@ -41,7 +41,7 @@ export const FAQ_SECTION_CONTENT: FaqSectionContent = {
   },
 
   helpCard: {
-    title: "Нужна помощь<br>с&nbsp;недвижимостью?",
+    title: "Нужна помощь\nс\u00A0недвижимостью?",
     phoneLabel: "Свяжитесь с нами по телефону:",
     phonePrefix: "+7 812",
     phoneMain: "509 62 09",

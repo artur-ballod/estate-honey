@@ -14,8 +14,13 @@
 			<nav class="blog__categories" :aria-label="BLOG_CONTENT.categoriesAriaLabel">
 				<ul class="blog__categories-list">
 					<li v-for="link in BLOG_LINKS" :key="link.id" class="blog__categories-item">
-						<UiButton :to="link.to" :text="link.label" :count="link.count" theme="tab" size="sm"
-							class="blog__categories-button" />
+						<UiButton :to="link.to" :text="link.label" :count="link.count" variant="tab" class="blog__categories-button">
+							<template #right>
+								<UiCaption tag="span" variant="micro" >
+									{{ link.count }}
+								</UiCaption>
+							</template>
+						</UiButton>
 					</li>
 				</ul>
 			</nav>
@@ -27,10 +32,10 @@
 			</li>
 		</ul>
 
-		<UiButton :to="BLOG_CONTENT.buttonTo" :text="BLOG_CONTENT.buttonText" theme="dark" size="lg"
+		<UiButton :to="BLOG_CONTENT.buttonTo" :text="BLOG_CONTENT.buttonText" variant="large-dark"
 			class="blog__button">
 			<template #right>
-				<UiButtonArrow class="blog__button-icon" />
+				<UiButtonArrow class="blog__button-icon" variant="small" />
 			</template>
 		</UiButton>
 	</section>

@@ -38,7 +38,7 @@
 						</li>
 					</ul>
 
-					<UiButton :to="slide.buttonTo" :text="slide.buttonText" theme="light" size="sm"
+					<UiButton :to="slide.buttonTo" :text="slide.buttonText" variant="simple-light"
 						class="process-slider__button" />
 				</div>
 			</SwiperSlide>
@@ -48,7 +48,7 @@
 			<UiButton icon-only type="button" class="process-slider__controls-nav process-slider__controls-nav--prev"
 				aria-label="Предыдущий шаг" @click="slidePrev">
 				<template #right>
-					<UiButtonArrow />
+					<UiButtonArrow variant="small" />
 				</template>
 			</UiButton>
 
@@ -66,7 +66,7 @@
 			<UiButton icon-only type="button" class="process-slider__controls-nav process-slider__controls-nav--next"
 				aria-label="Следующий шаг" @click="slideNext">
 				<template #right>
-					<UiButtonArrow />
+					<UiButtonArrow variant="small" />
 				</template>
 			</UiButton>
 		</div>

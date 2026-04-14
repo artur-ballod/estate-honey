@@ -21,7 +21,7 @@
 					class="service-card__description">
 					{{ item.description }}
 				</UiCaption>
-				<UiButton v-if="item.buttonText" :to="item.to" :text="item.buttonText" theme="dark" size="sm"
+				<UiButton v-if="item.buttonText" :to="item.to" :text="item.buttonText" variant="primary"
 					class="service-card__button">
 					<template #right>
 						<UiIcon name="arrow-right" class="service-card__button-icon" />

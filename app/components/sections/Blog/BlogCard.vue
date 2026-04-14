@@ -27,14 +27,14 @@
 					<div class="blog-card__stats">
 						<span class="blog-card__stat">
 							<UiIcon name="eye-icon" class="blog-card__stat-icon" />
-							<UiCaption tag="span" variant="micro" class="blog-card__stat-value">
+							<UiCaption tag="span" variant="description-sm" class="blog-card__stat-value">
 								{{ article.meta.views }}
 							</UiCaption>
 						</span>
 
 						<span class="blog-card__stat">
 							<UiIcon name="like-icon" class="blog-card__stat-icon" />
-							<UiCaption tag="span" variant="micro" class="blog-card__stat-value">
+							<UiCaption tag="span" variant="description-sm" class="blog-card__stat-value">
 								{{ article.meta.likes }}
 							</UiCaption>
 						</span>

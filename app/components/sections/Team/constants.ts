@@ -12,8 +12,7 @@ export const TEAM_VISIBLE_PERSONS_COUNT_DESKTOP = 7;
 export const TEAM_CARD_CONSULTATION_ACTION = {
   id: "open-consultation-modal",
   label: "Записаться\nна консультацию",
-  theme: "transparent" as const,
-  size: "sm" as const,
+  variant: "transparent" as const,
 };
 
 export const TEAM_INFO_CARDS: TeamInfoCard[] = [
@@ -26,7 +25,7 @@ export const TEAM_INFO_CARDS: TeamInfoCard[] = [
         id: "show-more-experts",
         label: "Показать ещё экспертов",
         type: "shuffle",
-        theme: "transparent",
+        variant: "simple",
         hideOnMobile: true,
       },
       {
@@ -34,7 +33,7 @@ export const TEAM_INFO_CARDS: TeamInfoCard[] = [
         label: "Подробнее о ЦН МЁД",
         type: "link",
         to: "/about",
-        theme: "primary",
+        variant: "simple-purple",
       },
     ],
   },
@@ -48,7 +47,7 @@ export const TEAM_INFO_CARDS: TeamInfoCard[] = [
         label: "Хочу в вашу команду",
         type: "link",
         to: "/career",
-        theme: "ghost",
+        variant: "ghost",
         showArrow: true,
       },
     ],

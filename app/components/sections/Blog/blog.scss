@@ -125,10 +125,6 @@
 
 	&__button {
 		width: 100%;
-		justify-content: space-between;
-		--ui-button-shape-bg: #16154E;
-		--ui-button-shape-color: #16154E;
-		--ui-button-arrow-color: #ffffff;
 
 		@media screen and (min-width: 1440px) {
 			justify-content: center;
@@ -136,9 +132,6 @@
 		}
 
 		&-icon {
-			width: to-rem(24);
-			height: to-rem(25);
-
 			@media screen and (min-width: 1440px) {
 				width: to-rem(34);
 				height: to-rem(36);

@@ -8,16 +8,14 @@ export const APP_INTRO_CONTENT: AppIntroContent = {
       id: "catalog",
       text: "Посмотреть каталог ЖК",
       to: "/catalog",
-      size: "sm",
-      theme: "light",
+      variant: "neutral-border",
       icon: "btn-arrow",
     },
     {
       id: "services",
       text: "Наши услуги",
       to: "/services",
-      size: "sm",
-      theme: "transparent",
+      variant: "simple",
     },
   ],
   images: [

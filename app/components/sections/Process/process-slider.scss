@@ -24,10 +24,15 @@
 		width: to-rem(558);
 		height: to-rem(610);
 		pointer-events: none;
+		--ui-icon-color: #{$purple-color};
+		--ui-icon-w: #{to-rem(558)};
+		--ui-icon-h: #{to-rem(610)};
 
 		@media only screen and (min-width: 1440px) {
 			width: to-rem(943);
 			height: to-rem(1030);
+			--ui-icon-w: #{to-rem(943)};
+			--ui-icon-h: #{to-rem(1030)};
 		}
 	}
 
@@ -72,12 +77,11 @@
 	}
 
 	&__step {
-		width: to-rem(38);
+		width: auto;
 		height: to-rem(90);
-		fill: $secondary-color;
+		color: $secondary-color;
 
 		@media only screen and (min-width: 1440px) {
-			width: auto;
 			min-width: to-rem(74);
 			height: to-rem(175);
 		}

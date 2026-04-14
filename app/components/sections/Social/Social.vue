@@ -1,8 +1,10 @@
 <template>
-	<section class="social">
+	<section class="social" aria-labelledby="social-title">
 		<div class="social__top">
 			<div class="social__head">
-				<UiTitle v-html="content.title" tag="h2" variant="secondary" class="social__title" />
+				<UiTitle id="social-title" tag="h2" variant="secondary" class="social__title">
+					{{ content.title }}
+				</UiTitle>
 				<UiCaption variant="accent" class="social__description">
 					{{ content.description }}
 				</UiCaption>

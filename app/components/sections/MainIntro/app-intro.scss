@@ -51,10 +51,9 @@
 
 	&__action {
 		gap: to-rem(38);
-	}
 
-	&__action-icon .ui-button-arrow__icon {
-		transform-origin: center;
-		transform: rotate(-45deg);
+		@media screen and (min-width: 1440px) {
+			gap: to-rem(40);
+		}
 	}
 }

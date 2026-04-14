@@ -1,6 +1,8 @@
 <template>
 	<div class="faq-help">
-		<UiTitle v-html="title" tag="h3" variant="subtitle" class="faq-help__title" />
+		<UiTitle tag="h3" variant="subtitle" class="faq-help__title">
+			{{ title }}
+		</UiTitle>
 
 		<div class="faq-help__contacts">
 			<div class="faq-help__phone">

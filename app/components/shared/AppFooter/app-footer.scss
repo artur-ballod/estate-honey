@@ -53,6 +53,7 @@
 		padding: 0;
 		background-color: transparent;
 		border: none;
+		color: $secondary-color;
 
 		@media screen and (min-width: 1440px) {
 			position: relative;
@@ -60,14 +61,30 @@
 			bottom: auto;
 			width: to-rem(142);
 			height: to-rem(150);
+			transition: 0.2s ease-in;
+			cursor: pointer;
+
+			&:hover {
+				color: $primary-color;
+
+				.app-footer__up-shape {
+					color: $secondary-color;
+				}
+
+				.app-footer__up-text {
+					color: $primary-color;
+				}
+			}
 		}
 
 		&-shape {
 			pointer-events: none;
+			color: $tag-blue-color;
 
 			@media screen and (min-width: 1440px) {
 				width: to-rem(142);
 				height: to-rem(150);
+				transition: 0.2s ease-in;
 			}
 		}
 
@@ -83,6 +100,7 @@
 				top: to-rem(24);
 				width: to-rem(24);
 				height: to-rem(25);
+				transition: 0.2s ease-in;
 			}
 		}
 
@@ -97,6 +115,7 @@
 
 			@media screen and (min-width: 1440px) {
 				bottom: to-rem(43);
+				transition: 0.2s ease-in;
 			}
 		}
 	}
@@ -174,7 +193,29 @@
 			text-decoration: none;
 
 			@media screen and (min-width: 1440px) {
+				position: relative;
 				font-size: to-rem(14);
+
+				&::before {
+					position: absolute;
+					content: '';
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					width: calc(100% + to-rem(12));
+					height: calc(100% + to-rem(8));
+					border-radius: to-rem(10);
+					background-color: transparentize($secondary-color, 0.95);
+					opacity: 0;
+					pointer-events: none;
+					transition: 0.2s ease-in;
+				}
+
+				&:hover {
+					&::before {
+						opacity: 1;
+					}
+				}
 			}
 		}
 	}
@@ -265,6 +306,7 @@
 			place-content: center;
 			border: 1px solid transparentize($secondary-color, 0.6);
 			border-radius: to-rem(20);
+			color: $secondary-color;
 
 			@media screen and (min-width: 1440px) {
 				width: to-rem(36);
@@ -275,32 +317,23 @@
 				&:hover {
 					border-color: $secondary-color;
 					background-color: $secondary-color;
-
-					.app-footer__socials-icon path {
-						fill: $primary-color;
-					}
+					color: $primary-color;
 				}
 			}
 
 			&[aria-label="tg-icon"] {
-				.app-footer__socials-icon {
-					width: to-rem(17);
-					height: to-rem(14);
-				}
+				--ui-icon-w: #{to-rem(17)};
+				--ui-icon-h: #{to-rem(14)};
 			}
 
 			&[aria-label="vk-icon"] {
-				.app-footer__socials-icon {
-					width: to-rem(16.49);
-					height: to-rem(9.46);
-				}
+				--ui-icon-w: #{to-rem(17)};
+				--ui-icon-h: #{to-rem(10)};
 			}
 
 			&[aria-label="in-icon"] {
-				.app-footer__socials-icon {
-					width: to-rem(16);
-					height: to-rem(16);
-				}
+				--ui-icon-w: #{to-rem(16)};
+				--ui-icon-h: #{to-rem(16)};
 			}
 		}
 
@@ -367,6 +400,12 @@
 
 		@media screen and (min-width: 1440px) {
 			letter-spacing: 0.01em;
+			transition: 0.2s ease-in;
+
+			&:hover {
+				color: $tag-blue-color;
+				text-decoration-color: $tag-blue-color;
+			}
 		}
 	}
 
@@ -405,15 +444,17 @@
 		@media screen and (min-width: 1440px) {
 			justify-self: end;
 			align-self: end;
+
+			transition: 0.2s ease-in;
+
+			&:hover {
+				color: $secondary-color;
+			}
 		}
 
 		&-icon {
 			width: to-rem(19);
 			height: to-rem(13);
-		}
-
-		&-icon path {
-			fill: transparentize($secondary-color, 0.6);
 		}
 	}
 }

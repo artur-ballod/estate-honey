@@ -161,23 +161,11 @@
 	&__link {
 		width: 100%;
 		transition: 0.2s ease-in;
+		--ui-icon-w: #{to-rem(24)};
+		--ui-icon-h: #{to-rem(28)};
 
 		&-icon {
-			width: to-rem(24);
-			height: to-rem(28);
 			transition: 0.2s ease-in;
-		}
-
-		@media screen and (min-width: 1440px) {
-			&:hover {
-				background-color: $primary-color;
-				color: $secondary-color;
-
-				.catalog__link-icon {
-					transition: 0.2s ease-in;
-					fill: $secondary-color;
-				}
-			}
 		}
 	}
 

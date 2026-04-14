@@ -28,7 +28,7 @@
 				</div>
 
 				<div v-if="columnIndex === 0 && activeTab.mapLink" class="catalog__item catalog__item--map">
-					<UiButton size="lg" theme="large" :to="activeTab.mapLink.to" class="catalog__link"
+					<UiButton variant="large-shape" :to="activeTab.mapLink.to" class="catalog__link"
 						:text="activeTab.mapLink.label">
 						<template #right>
 							<UiIcon name="map-pin" class="catalog__link-icon" />
@@ -53,10 +53,10 @@
 					{{ content.promo.title }}
 				</UiTitle>
 
-				<UiButton :text="content.promo.buttonLabel" :to="content.promo.buttonTo" theme="dark"
+				<UiButton :text="content.promo.buttonLabel" :to="content.promo.buttonTo" variant="primary-border"
 					class="catalog__promo-button">
 					<template #right>
-						<UiButtonArrow position="rotated" class="catalog__promo-button-icon" />
+						<UiButtonArrow position="rotated" class="catalog__promo-button-icon" variant="small" />
 					</template>
 				</UiButton>
 			</div>

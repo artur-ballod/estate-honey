@@ -69,20 +69,15 @@
 
 	&__more {
 		width: 100%;
-		justify-content: space-between;
-		padding: to-rem(36) to-rem(30);
-		--ui-button-shape-color: #16154E;
-        --ui-button-arrow-color: #ffffff;
-        --ui-button-shape-bg: #16154E;
 
 		@media screen and (min-width: 1440px) {
 			justify-content: center;
 			gap: to-rem(44);
-		}
 
-		&-icon {
-			width: to-rem(25);
-			height: to-rem(25);
+			&-icon {
+				width: to-rem(34);
+				height: to-rem(36)
+			}
 		}
 	}
 }

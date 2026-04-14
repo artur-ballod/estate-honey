@@ -27,7 +27,7 @@ export interface TeamInfoCardAction {
   label: string;
   type: TeamInfoCardActionType;
   to?: string;
-  theme?: "primary" | "secondary" | "ghost" | "transparent"
+  variant?: "simple-purple" | "simple" | "ghost"
   hideOnMobile?: boolean;
   showArrow?: boolean;
 }

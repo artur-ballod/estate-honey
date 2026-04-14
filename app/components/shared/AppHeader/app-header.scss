@@ -65,19 +65,16 @@
 			row-gap: to-rem(6);
 			background-color: transparent;
 			border: none;
+			color: $secondary-color;
 
 			&[aria-expanded="false"] {
-				.app-header__actions-toggle-icon {
-					width: to-rem(20);
-					height: to-rem(7);
-				}
+				--ui-icon-w: #{to-rem(20)};
+				--ui-icon-h: #{to-rem(7)};
 			}
 
 			&[aria-expanded="true"] {
-				.app-header__actions-toggle-icon {
-					width: to-rem(15.14);
-					height: to-rem(14.28);
-				}
+				--ui-icon-w: #{to-rem(15.14)};
+				--ui-icon-h: #{to-rem(14.28)};
 			}
 		}
 	}

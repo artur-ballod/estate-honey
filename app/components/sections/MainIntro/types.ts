@@ -6,8 +6,7 @@ export interface AppIntroAction {
   target?: string;
   rel?: string;
   type?: "button" | "submit" | "reset";
-  size?: "sm" | "lg";
-  theme?: "light" | "dark" | "large" | "transparent";
+  variant?: "neutral-border" | "simple";
   icon?: string;
 }
 

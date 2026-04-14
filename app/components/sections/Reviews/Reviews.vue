@@ -32,14 +32,13 @@
 
 					<li class="reviews__item reviews__item--last">
 						<UiButton
-							size="lg"
-							theme="large"
+							variant="large"
 							:text="REVIEWS_SECTION_MORE_BUTTON.text"
 							:to="REVIEWS_SECTION_MORE_BUTTON.to"
 							class="reviews__more"
 						>
 							<template #right>
-								<UiButtonArrow class="reviews__more-icon" />
+								<UiButtonArrow class="reviews__more-icon" variant="small" />
 							</template>
 						</UiButton>
 					</li>

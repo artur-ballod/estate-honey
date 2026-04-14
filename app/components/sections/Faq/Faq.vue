@@ -1,6 +1,8 @@
 <template>
-	<section class="faq">
-		<UiTitle v-html="content.title" tag="h2" variant="secondary" class="faq__title" />
+	<section class="faq" aria-labelledby="faq-title">
+		<UiTitle id="faq-title" tag="h2" variant="secondary" class="faq__title">
+			{{ content.title }}
+		</UiTitle>
 
 		<ol class="faq__list">
 			<li v-for="(item, index) in visibleItems" :key="item.id" class="faq__item">
@@ -33,12 +35,11 @@
 			<UiButton
 				type="button"
 				:text="content.questionCta.buttonText"
-				size="sm"
-				theme="light"
+				variant="neutral-border"
 				class="faq__cta-button"
 			>
 				<template #right>
-					<UiButtonArrow class="faq__cta-icon" />
+					<UiButtonArrow class="faq__cta-icon" variant="small" />
 				</template>
 			</UiButton>
 		</div>

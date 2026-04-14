@@ -11,10 +11,10 @@
 			</li>
 		</ul>
 
-		<UiButton :to="servicesData.moreLink.to" :text="servicesData.moreLink.text" theme="dark" size="lg"
+		<UiButton :to="servicesData.moreLink.to" :text="servicesData.moreLink.text" variant="large-dark"
 			class="services__more">
 			<template #right>
-				<UiButtonArrow class="services__more-icon" />
+				<UiButtonArrow class="services__more-icon" variant="small" />
 			</template>
 		</UiButton>
 	</section>

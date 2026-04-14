@@ -5,13 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid $secondary-color;
-    padding: to-rem(27) to-rem(27);
     border-radius: to-rem(28);
-    background-color: transparent;
-    color: $secondary-color;
-    @include font-setting($font-family-primary, to-rem(9), 1, 450, $secondary-color);
-    text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
 
@@ -21,79 +15,216 @@
         border-color 0.2s ease,
         opacity 0.2s ease;
     
+    // dark bg + arrow
     &--primary {
         width: 100%;
-        background-color: $purple-color;
-        border-color: $purple-color;
-        color: $secondary-color;
-    }
-
-    &--sm {
-        padding: to-rem(19) to-rem(19) to-rem(19) to-rem(27);
-        border-radius: to-rem(28);
-    }
-
-    &--lg {
-        padding: to-rem(37) to-rem(21);
-        border-radius: to-rem(28);
-        border-color: $primary-color;
-        color: $primary-color;
-    }
-
-    &--with-addon {
-        --ui-button-shape-color: #050042;
-        --ui-button-arrow-color: #050042;
-        --ui-button-shape-bg: transparent;
-    }
-
-    &--large {
-        border-color: $primary-color;
-        color: $primary-color;
-        justify-content: space-between;
-
-        @media screen and (min-width: 1440px) {
-            &:hover {
-                --ui-button-arrow-color: $secondary-color;
-                --ui-button-shape-color: $secondary-color;
-                --ui-button-shape-bg: $primary-color;
-            }
-        }
-    }
-
-    &--transparent {
-        background-color: transparent;
-        border-color: $border-light-color;
-        color: $secondary-color;
-
-        @media screen and (min-width: 1440px) {
-            &:hover {
-                background-color: $secondary-color;
-                border-color: $secondary-color;
-                color: $primary-color;
-            }
-        }
-    }
-
-    &--light {
-        background-color: #ffffff;
-        color: $primary-color;
-        border-color: $secondary-color;
-
-        @media screen and (min-width: 1440px) {
-            &:hover {
-                background-color: transparent;
-                color: $secondary-color;
-            }
-        }
-    }
-
-    &--dark {
+        height: to-rem(63);
         background-color: $primary-color;
         color: $secondary-color;
-        border-color: $secondary-color;
 
         @media screen and (min-width: 1440px) {
-            
+            height: to-rem(65);
+
+            &:hover {
+                background-color: $purple-color;
+            }
+        }
+    }
+
+    // dark bg + arrow in shape
+    &--primary-border {
+        height: to-rem(63);
+        background-color: $primary-color;
+        border: none;
+        color: $secondary-color;
+        padding: to-rem(19) to-rem(18) to-rem(19) to-rem(26);
+
+        --ui-button-shape-color: #{$secondary-color};
+        --ui-button-arrow-color: #{$secondary-color};
+        --ui-button-shape-bg: transparent;
+
+        @media screen and (min-width: 1440px) {
+            height: to-rem(65);
+            padding: to-rem(20) to-rem(20) to-rem(20) to-rem(20);
+
+            &:hover {
+                --ui-button-arrow-color: #{$primary-color};
+                --ui-button-shape-bg: #{$secondary-color};
+            }
+        }
+    }
+
+    // light bg + arrow
+    &--neutral {
+
+    }
+
+    // light bg + arrow in shape
+    &--neutral-border {
+        height: to-rem(63);
+        background-color: $secondary-color;
+        border: none;
+        color: $primary-color;
+        padding: to-rem(19) to-rem(18) to-rem(19) to-rem(26);
+
+        --ui-button-shape-color: #{$primary-color};
+        --ui-button-arrow-color: #{$primary-color};
+        --ui-button-shape-bg: transparent;
+
+        @media screen and (min-width: 1440px) {
+            height: to-rem(65);
+            padding: to-rem(20) to-rem(20) to-rem(20) to-rem(20);
+
+            &:hover {
+                --ui-button-arrow-color: #{$secondary-color};
+                --ui-button-shape-bg: #{$primary-color};
+            }
+        }
+    }
+
+    // simple transparent with border
+    &--simple {
+        background-color: transparent;
+        border: 1px solid $menu-link-border;
+        color: $secondary-color;
+        padding: to-rem(25) to-rem(25);
+        height: to-rem(63);
+
+        @media screen and (min-width: 1440px) {
+            height: to-rem(65);
+            padding: to-rem(26) to-rem(27) to-rem(25) to-rem(27);
+
+            &:hover {
+                border-color: $secondary-color;
+                color: $primary-color;
+                background-color: $secondary-color;
+            }
+        }
+    }
+
+    // simple white-bg
+    &--simple-light {
+        background-color: $secondary-color;
+        color: $primary-color;
+        padding: to-rem(26) to-rem(26);
+        height: to-rem(63);
+
+        @media screen and (min-width: 1440px) {
+            height: to-rem(65);
+            padding: to-rem(27) to-rem(28) to-rem(26) to-rem(28);
+
+            &:hover {
+                color: $secondary-color;
+                background-color: $dark-purple-color;
+            }
+        }
+    }
+
+    &--simple-purple {
+        background-color: $purple-color;
+        color: $secondary-color;
+        border: 1px solid $purple-color;
+        padding: to-rem(25) to-rem(25);
+        height: to-rem(63);
+
+        @media screen and (min-width: 1440px) {
+            height: to-rem(65);
+            padding: to-rem(26) to-rem(27) to-rem(25) to-rem(27);
+
+            &:hover {
+                color: $secondary-color;
+                border-color: $menu-link-border;
+                background-color: transparent;
+            }
+        }
+    }
+
+    // large transparent with icon
+    &--large {
+        height: to-rem(97);
+        padding: to-rem(35) to-rem(29);
+        border: 1px solid $primary-color;
+        justify-content: space-between;
+        color: $primary-color;
+
+        --ui-button-shape-color: #{$primary-color};
+        --ui-button-arrow-color: #{$primary-color};
+        --ui-button-shape-bg: transparent;
+
+        @media screen and (min-width: 1440px) {
+            height: to-rem(100);
+            padding: to-rem(36) to-rem(21) to-rem(36) to-rem(39);
+
+            &:hover {
+                background-color: $primary-color;
+                color: $secondary-color;
+
+                --ui-button-shape-color: #{$secondary-color};
+                --ui-button-arrow-color: #{$primary-color};
+                --ui-button-shape-bg: #{$secondary-color};
+            }
+        }
+    }
+
+    &--large-dark {
+        height: to-rem(97);
+        padding: to-rem(35) to-rem(29);
+        border: 1px solid $primary-color;
+        justify-content: space-between;
+        color: $secondary-color;
+        background-color: $primary-color;
+
+        --ui-button-shape-color: #{$dark-color};
+        --ui-button-arrow-color: #{$secondary-color};
+        --ui-button-shape-bg: #{$dark-color};
+
+        @media screen and (min-width: 1440px) {
+            height: to-rem(100);
+            padding: to-rem(36) to-rem(21) to-rem(36) to-rem(39);
+
+            &:hover {
+                --ui-button-shape-color: #{$secondary-color};
+                --ui-button-arrow-color: #{$primary-color};
+                --ui-button-shape-bg: #{$secondary-color};
+            }
+        }
+    }
+
+    // large button with uiicon
+    &--large-shape {
+       height: to-rem(97);
+        padding: to-rem(35) to-rem(29);
+        border: 1px solid $primary-color;
+        justify-content: space-between;
+        color: $primary-color;
+
+        --ui-icon-color: $primary-color;
+
+        @media screen and (min-width: 1440px) {
+            height: to-rem(100);
+            padding: to-rem(36) to-rem(21) to-rem(36) to-rem(39);
+
+            &:hover {
+                background-color: $primary-color;
+                color: $secondary-color;
+
+                --ui-icon-color: $secondary-color;
+            }
+        } 
+    }
+
+    // btn for cards
+    &--transparent {
+        padding: to-rem(17) to-rem(23);
+        background-color: transparent;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+
+        @media screen and (min-width: 1440px) {
+            &:hover {
+                background-color: $primary-color;
+                color: $secondary-color;
+            }
         }
     }
 
@@ -106,9 +237,17 @@
         background-color: transparent;
         color: $secondary-color;
 
-        --ui-button-shape-color: #050042;
-        --ui-button-arrow-color: #ffffff;
-        --ui-button-shape-bg: #050042;
+        --ui-button-shape-color: #{$primary-color};
+        --ui-button-arrow-color: #{$secondary-color};
+        --ui-button-shape-bg: #{$primary-color};
+
+        @media screen and (min-width: 1440px) {
+            &:hover {
+                --ui-button-shape-color: #{$secondary-color};
+                --ui-button-arrow-color: #{$primary-color};
+                --ui-button-shape-bg: #{$secondary-color};
+            }
+        }
     }
 
     &--icon-only {
@@ -138,6 +277,18 @@
         @media screen and (min-width: 1440px) {
             gap: to-rem(60);
             padding: to-rem(23) to-rem(19) to-rem(23) to-rem(23);
+
+            &:hover {
+                background-color: $purple-color;
+                border-color: $purple-color;
+                color: $secondary-color;
+            }
         }
+    }
+
+    &__addon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

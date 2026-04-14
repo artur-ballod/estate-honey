@@ -120,6 +120,12 @@
 		width: 100%;
 		justify-content: space-between;
 		padding: to-rem(25) to-rem(22) to-rem(22) to-rem(26);
+
+		@media screen and (min-width: 1440px) {
+			width: fit-content;
+			justify-content: center;
+			gap: to-rem(60);
+		}
 	}
 
 	&__button-icon {

@@ -23,7 +23,7 @@ export const PROCESS_TABS: ProcessTab[] = [
       {
         id: "perfect-flat-step-2",
         step: 2,
-        stepIcon: "",
+        stepIcon: "two-icon",
         title: "Подбираем подходящие варианты",
         description: [
           "— Составим первичный пул объектов под ваш бюджет и запрос",
@@ -35,7 +35,7 @@ export const PROCESS_TABS: ProcessTab[] = [
       {
         id: "perfect-flat-step-3",
         step: 3,
-        stepIcon: "one-icon",
+        stepIcon: "three-icon",
         title: "Организуем просмотры",
         description: [
           "— Согласуем удобный маршрут и график показов",
@@ -65,7 +65,7 @@ export const PROCESS_TABS: ProcessTab[] = [
       {
         id: "mortgage-step-2",
         step: 2,
-        stepIcon: "",
+        stepIcon: "two-icon",
         title: "Подбираем решение",
         description: [
           "— Сравним условия банков и формат подачи",
@@ -95,7 +95,7 @@ export const PROCESS_TABS: ProcessTab[] = [
       {
         id: "investment-step-2",
         step: 2,
-        stepIcon: "",
+        stepIcon: "two-icon",
         title: "Сравниваем объекты",
         description: [
           "— Оценим доходность, ликвидность и риски",
@@ -113,7 +113,7 @@ export const PROCESS_TABS: ProcessTab[] = [
       {
         id: "new-build-step-1",
         step: 1,
-        stepIcon: "",
+        stepIcon: "one-icon",
         title: "Определяем формат экскурсии",
         description: [
           "— Подберем жилые комплексы под ваш запрос",
@@ -125,7 +125,7 @@ export const PROCESS_TABS: ProcessTab[] = [
       {
         id: "new-build-step-2",
         step: 2,
-        stepIcon: "",
+        stepIcon: "two-icon",
         title: "Показываем и сравниваем",
         description: [
           "— Разберем сильные и слабые стороны каждого проекта",

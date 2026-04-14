@@ -52,6 +52,7 @@
 				letter-spacing: 0.04em;
 				text-transform: uppercase;
 				white-space: nowrap;
+				transition: 0.2s ease-in;
 
 				@media screen and (min-width: 1440px) {
 					font-size: to-rem(9.5);
@@ -61,32 +62,22 @@
 						background-color: $secondary-color;
 						border-color: $secondary-color;
 						color: $primary-color;
-
-						.app-header-contacts__icon path { 
-							fill: $primary-color;
-						}
 					}
 				}
 
 				&[name="tg-icon"] {
-					.app-header-contacts__icon {
-						width: to-rem(15);
-						height: to-rem(12);
-					}
+					--ui-icon-w: #{to-rem(15)};
+					--ui-icon-h: #{to-rem(12)};
 				}
 
 				&[name="max-icon"] {
-					.app-header-contacts__icon {
-						width: to-rem(15.29);
-						height: to-rem(15.22);
-					}
+					--ui-icon-w: #{to-rem(15.29)};
+					--ui-icon-h: #{to-rem(12.22)};
 				}
 
 				&[name="vk-icon"] {
-					.app-header-contacts__icon {
-						width: to-rem(15);
-						height: to-rem(10);
-					}
+					--ui-icon-w: #{to-rem(15)};
+					--ui-icon-h: #{to-rem(10)};
 				}
 			}
 		}
@@ -108,50 +99,37 @@
 					letter-spacing: 0.04em;
 					text-transform: uppercase;
 					white-space: nowrap;
+					transition: 0.2s ease-in;
 
 					&[name="tg-icon"] {
-						.app-header-contacts__icon {
-							width: to-rem(15);
-							height: to-rem(12);
-						}
+						--ui-icon-w: #{to-rem(15)};
+						--ui-icon-h: #{to-rem(12)};
 					}
 
 					&[name="vk-icon"] {
-						.app-header-contacts__icon {
-							width: to-rem(15);
-							height: to-rem(10);
-						}
+						--ui-icon-w: #{to-rem(15)};
+						--ui-icon-h: #{to-rem(10)};
 					}
 
 					&[name="in-icon"] {
-						.app-header-contacts__icon {
-							width: to-rem(13);
-							height: to-rem(13);
-						}
+						--ui-icon-w: #{to-rem(13)};
+						--ui-icon-h: #{to-rem(13)};
 					}
 
 					&[name="yt-icon"] {
-						.app-header-contacts__icon {
-							width: to-rem(15);
-							height: to-rem(12);
-						}
+						--ui-icon-w: #{to-rem(15)};
+						--ui-icon-h: #{to-rem(12)};
 					}
 
 					&[name="dz-icon"] {
-						.app-header-contacts__icon {
-							width: to-rem(15);
-							height: to-rem(15);
-						}
+						--ui-icon-w: #{to-rem(15)};
+						--ui-icon-h: #{to-rem(15)};
 					}
 
 					&:hover {
 						background-color: $secondary-color;
 						border-color: $secondary-color;
 						color: $primary-color;
-
-						.app-header-contacts__icon path { 
-							fill: $primary-color;
-						}
 					}
 				}
 			}
