@@ -18,6 +18,7 @@ export default defineNuxtConfig({
   modules: ["@nuxt/image", "nuxt-svgo", "@vueuse/nuxt"],
 
   app: {
+    baseURL: '/estate-honey/',
     head: {
       htmlAttrs: {
         lang: "ru",

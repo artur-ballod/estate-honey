@@ -253,9 +253,9 @@
         right: to-rem(12);
         color: $secondary-color;
 
-        --ui-shape-icon-shape-fill: #ffffff;
-        --ui-shape-icon-shape-stroke: #ffffff;
-        --ui-shape-icon-icon-color: #5887FF;
+        --ui-shape-icon-shape-fill: #{$secondary-color};
+        --ui-shape-icon-shape-stroke: #{$secondary-color};
+        --ui-shape-icon-icon-color: #{$tab-blue-color};
 
         @media screen and (min-width: 1440px) {
             width: to-rem(44);

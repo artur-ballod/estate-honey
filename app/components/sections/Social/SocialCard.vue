@@ -21,7 +21,7 @@
 		<template v-else>
 			<div class="social-card__media">
 				<NuxtPicture :src="postImageSrc" :alt="postImageAlt" loading="lazy" class="social-card__image" />
-				<UiShapeIcon :icon="postIcon" :size="50" class="social-card__badge" />
+				<UiShapeIcon :icon="postIcon" class="social-card__badge" />
 			</div>
 
 			<div class="social-card__content">
