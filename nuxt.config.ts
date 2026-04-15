@@ -30,6 +30,15 @@ export default defineNuxtConfig({
     },
   },
 
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/'],
+      ignore: ['/404-test', '/some-broken-page'],
+      failOnError: false,
+    },
+  },
+
   components: [
     {
       path: "~/components",
