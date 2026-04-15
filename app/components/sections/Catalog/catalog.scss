@@ -4,6 +4,7 @@
 	width: 100%;
 	padding-top: to-rem(160);
 	padding-bottom: to-rem(100);
+	overflow: hidden;
 
 	@media screen and (min-width: 1440px) {
 		padding-top: to-rem(270);
@@ -113,6 +114,7 @@
 		justify-items: center;
 		padding-inline: to-rem(10);
 		margin-bottom: to-rem(130);
+		row-gap: to-rem(26);
 
 		@media screen and (min-width: 1440px) {
 			display: grid;
@@ -150,6 +152,7 @@
 	}
 
 	&__item {
+		width: 100%;
 		max-width: to-rem(446);
 
 		&--map {

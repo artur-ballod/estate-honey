@@ -1,9 +1,7 @@
 <template>
 	<article class="review-source-card" :data-type="props.dataType">
 		<div class="review-source-card__head">
-			<span class="review-source-card__logo">
-				<UiIcon :name="icon" class="review-source-card__icon" />
-			</span>
+			<span class="review-source-card__logo" />
 			<UiRating :rating="rating" class="review-source-card__rating" />
 			<UiTitle tag="p" variant="accent" class="review-source-card__count">
 				{{ reviewsCountText }}

@@ -65,14 +65,9 @@
 	&__arrow {
 		flex-shrink: 0;
 		margin-left: auto;
-
-		&--mobile {
-			width: to-rem(25);
-			height: to-rem(23);
-			--ui-icon-w: #{to-rem(25)};
-			--ui-icon-h: #{to-rem(24)};
-			--ui-icon-color: #{$secondary-color};
-		}
+		--ui-icon-w: #{to-rem(25)};
+		--ui-icon-h: #{to-rem(24)};
+		--ui-icon-color: #{$secondary-color};
 
 		&--desktop {
 			transition: 0.2s ease;

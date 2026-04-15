@@ -101,12 +101,9 @@
 		display: flex;
 		align-items: center;
 		gap: to-rem(5);
-
-		&-icon {
-			width: to-rem(13);
-			height: to-rem(13);
-			--star-fill-color: #5887FF;
-		}
+		--ui-icon-color: #{$tag-blue-color};
+		--ui-icon-w: #{to-rem(13)};
+		--ui-icon-h: #{to-rem(13)};
 
 		&-value {
 			color: $primary-color;

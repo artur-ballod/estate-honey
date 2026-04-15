@@ -253,15 +253,38 @@
         right: to-rem(12);
         color: $secondary-color;
 
-        --ui-shape-icon-shape-fill: #{$secondary-color};
-        --ui-shape-icon-shape-stroke: #{$secondary-color};
-        --ui-shape-icon-icon-color: #{$tag-blue-color};
+        display: grid;
+        place-items: center;
+
+        &-bg {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            --ui-icon-w: #{to-rem(35)};
+            --ui-icon-h: #{to-rem(36)};
+            --ui-icon-color: #{$secondary-color};
+        }
+
+        &-icon {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            --ui-icon-w: #{to-rem(14)};
+            --ui-icon-h: #{to-rem(14)};
+            --ui-icon-color: #{$tag-blue-color};
+        }
 
         @media screen and (min-width: 1440px) {
             width: to-rem(44);
             height: to-rem(46);
 
-            --ui-shape-icon-icon-size: #{to-rem(18)};
+            &-bg {
+                --ui-icon-w: #{to-rem(44)};
+                --ui-icon-h: #{to-rem(46)};
+            }
+
+            &-icon {
+                --ui-icon-w: #{to-rem(18)};
+                --ui-icon-h: #{to-rem(18)};
+            }
         }
     }
 

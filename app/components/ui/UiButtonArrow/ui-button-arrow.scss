@@ -6,6 +6,11 @@
   height: auto;
   flex-shrink: 0;
 
+  &--small {
+    width: to-rem(24);
+    height: to-rem(25);
+  }
+
   &--rotated {
     .ui-button-arrow__arrow {
       transform: rotate(-45deg);
@@ -23,7 +28,6 @@
   &__shape {
     fill: var(--ui-button-shape-bg);
     stroke: var(--ui-button-shape-color);
-    stroke-width: var(--ui-button-shape-width);
     transition:
       fill 0.2s ease,
       stroke 0.2s ease;
@@ -31,7 +35,6 @@
 
   &__arrow {
     fill: var(--ui-button-arrow-color);
-    stroke-width: var(--ui-button-shape-width);
     transition: fill 0.2s ease;
   }
 }

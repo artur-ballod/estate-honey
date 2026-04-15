@@ -48,7 +48,7 @@
 			<UiButton icon-only type="button" class="process-slider__controls-nav process-slider__controls-nav--prev"
 				aria-label="Предыдущий шаг" @click="slidePrev">
 				<template #right>
-					<UiButtonArrow variant="small" />
+					<UiButtonArrow variant="small" class="process-slider__controls-icon" />
 				</template>
 			</UiButton>
 
@@ -66,7 +66,7 @@
 			<UiButton icon-only type="button" class="process-slider__controls-nav process-slider__controls-nav--next"
 				aria-label="Следующий шаг" @click="slideNext">
 				<template #right>
-					<UiButtonArrow variant="small" />
+					<UiButtonArrow variant="small" class="process-slider__controls-icon" />
 				</template>
 			</UiButton>
 		</div>

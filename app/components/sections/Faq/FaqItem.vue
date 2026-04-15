@@ -12,11 +12,11 @@
 			<UiIcon
 				v-if="isMobile"
 				name="arrow-down"
-				class="faq-item__arrow faq-item__arrow--mobile"
+				class="faq-item__arrow"
 			/>
 
 			<UiButtonArrow
-				v-else
+				v-if="!isMobile"
 				class="faq-item__arrow faq-item__arrow--desktop"
 				position="down"
 			/>

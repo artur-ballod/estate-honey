@@ -5,6 +5,7 @@
 	display: flex;
 	flex-direction: column;
 	padding-top: to-rem(130);
+	overflow: hidden;
 
 	@media screen and (min-width: 1440px) {
 		padding-top: to-rem(330);

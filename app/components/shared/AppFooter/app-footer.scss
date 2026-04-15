@@ -47,7 +47,7 @@
 	&__up {
 		position: absolute;
 		right: to-rem(12);
-		bottom: to-rem(344);
+		bottom: to-rem(312);
 		width: to-rem(167);
 		height: to-rem(176);
 		padding: 0;
@@ -80,6 +80,8 @@
 		&-shape {
 			pointer-events: none;
 			color: $tag-blue-color;
+			width: to-rem(167);
+			height: to-rem(176);
 
 			@media screen and (min-width: 1440px) {
 				width: to-rem(142);

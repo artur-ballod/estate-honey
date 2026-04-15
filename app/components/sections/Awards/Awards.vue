@@ -10,13 +10,13 @@
 			<UiButton icon-only class="awards__control awards__control--prev" type="button" aria-label="Предыдущая награда"
 				:disabled="isBeginning" @click="slidePrev">
 				<template #right>
-					<UiButtonArrow />
+					<UiButtonArrow class="awards__control-icon" />
 				</template>
 			</UiButton>
 			<UiButton icon-only class="awards__control awards__control--next" type="button" aria-label="Следующая награда"
 				:disabled="isEnd" @click="slideNext">
 				<template #right>
-					<UiButtonArrow />
+					<UiButtonArrow class="awards__control-icon" />
 				</template>
 			</UiButton>
 		</div>

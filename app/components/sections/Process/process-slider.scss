@@ -186,6 +186,11 @@
 				}
 			}
 		}
+
+		&-icon {
+			width: to-rem(22);
+			height: to-rem(23);
+		}
 	}
 
 	&__pagination {
