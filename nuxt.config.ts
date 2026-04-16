@@ -2,6 +2,12 @@
 export default defineNuxtConfig({
   compatibilityDate: "2026-04-01",
 
+  runtimeConfig: {
+		public: {
+      yandexMapsApiKey: '',
+    },
+	},
+
   srcDir: "app/",
 
   devtools: {

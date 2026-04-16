@@ -40,13 +40,20 @@
 			</dl>
 
 			<div class="contacts__map">
-				<iframe :src="content.map.embedSrc" class="contacts__map-frame" loading="lazy" allowfullscreen
-					referrerpolicy="no-referrer-when-downgrade" />
+				<ClientOnly>
+					<ContactsMap
+						:coords="content.map.coords"
+						:zoom="content.map.zoom"
+						:marker-label="content.map.markerLabel"
+						:theme="content.map.theme"
+						class-name="contacts-section__map-widget"
+					/>
+				</ClientOnly>
 
 				<UiButton class="contacts__map-button" :href="content.map.buttonHref" target="_blank"
-					rel="noopener noreferrer" theme="light" size="sm" :text="content.map.buttonText">
+					rel="noopener noreferrer" variant="map" :text="content.map.buttonText">
 					<template #right>
-						<UiButtonArrow class="contacts__map-icon" />
+						<UiButtonArrow class="contacts__map-icon" position="rotated" variant="small" />
 					</template>
 				</UiButton>
 			</div>

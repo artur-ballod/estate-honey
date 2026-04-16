@@ -19,7 +19,10 @@ export interface ContactsSectionItem {
 }
 
 export interface ContactsSectionMap {
-  embedSrc: string;
+  coords: [number, number];
+  zoom: number;
+  markerLabel?: string;
+  theme?: "light" | "dark";
   buttonText: string;
   buttonHref: string;
 }

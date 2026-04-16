@@ -13,7 +13,7 @@ export const CONTACTS_SECTION_CONTENT: ContactsSectionContent = {
         },
         {
           id: "street",
-          text: "ул. Чапаева д. 15, корпус 2, лит В,",
+          text: "ул. Чапаева д. 15, корпус 2, лит. В,",
         },
         {
           id: "office",
@@ -74,8 +74,10 @@ export const CONTACTS_SECTION_CONTENT: ContactsSectionContent = {
     },
   ],
   map: {
-    embedSrc:
-      "https://yandex.ru/map-widget/v1/?um=constructor%3Aexample&amp;source=constructor",
+    coords: [30.331750, 59.961877],
+    zoom: 16,
+    markerLabel: "",
+    theme: "light",
     buttonText: "Смотреть на Яндекс Картах",
     buttonHref: "https://yandex.ru/maps/",
   },
