@@ -20,7 +20,13 @@
 	&__lead {
 		color: $secondary-color;
 		text-align: left;
+		line-height: 1.5;
 		margin-bottom: to-rem(160);
+
+		&.ui-caption--description {
+			font-size: to-rem(14);
+			line-height: 1.5;
+		}
 
 		@media screen and (min-width: 1440px) {
 			margin-bottom: to-rem(183);

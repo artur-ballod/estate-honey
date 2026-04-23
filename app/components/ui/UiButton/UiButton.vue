@@ -21,7 +21,7 @@
     target?: string
     rel?: string
     text?: string
-    variant?: 'large' | 'large-shape' | 'large-dark' | 'primary' | 'neutral' | 'transparent' | 'ghost' | 'primary-border' | 'neutral-border' | 'tab' | 'simple' | 'simple-light' | 'simple-purple' | 'map'
+    variant?: 'large' | 'large-shape' | 'large-dark' | 'primary' | 'neutral' | 'transparent' | 'ghost' | 'primary-border' | 'neutral-border' | 'tab' | 'simple' | 'simple-light' | 'simple-purple' | 'map' | 'menu'
     disabled?: boolean
     iconOnly?: boolean
   }

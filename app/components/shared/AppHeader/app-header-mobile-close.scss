@@ -1,0 +1,19 @@
+@use '@/assets/styles/abstracts' as *;
+
+.app-header-mobile-close {
+	align-self: flex-end;
+	justify-self: flex-end;
+	color: transparentize($secondary-color, 0.2);
+
+	&__bg {
+		grid-column: 1 / 2;
+		grid-row: 1 / 2;
+		--ui-icon-color: #{$dark-color};
+	}
+
+	&__cross {
+		grid-column: 1 / 2;
+		grid-row: 1 / 2;
+		--ui-icon-color: #{$secondary-color};
+	}
+}

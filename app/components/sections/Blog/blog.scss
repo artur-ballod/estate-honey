@@ -125,7 +125,8 @@
 	}
 
 	&__button {
-		width: 100%;
+		width: calc(100% - to-rem(10));
+		margin: 0 auto;
 
 		@media screen and (min-width: 1440px) {
 			justify-content: center;

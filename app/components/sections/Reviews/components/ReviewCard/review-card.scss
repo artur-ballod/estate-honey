@@ -15,6 +15,7 @@
 	&__head {
 		display: grid;
 		grid-template-columns: to-rem(50) 1fr;
+		align-items: center;
 		column-gap: to-rem(17);
 		row-gap: to-rem(2);
 		margin-bottom: to-rem(26);
@@ -40,6 +41,7 @@
 	&__rating {
 		grid-column: 2 / 3;
 		grid-row: 2 / 3;
+		align-self: start;
 	}
 
 	&__body {
@@ -52,11 +54,15 @@
 		}
 	}
 
+	&__text {
+		letter-spacing: 0;
+	}
+
 	&__link {
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		align-items: flex-start;
 		gap: to-rem(10);
 		text-decoration: none;
 		color: $btn-light-color;

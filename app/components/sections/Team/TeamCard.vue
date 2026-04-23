@@ -14,7 +14,8 @@
 			/>
 
 			<span class="team-card__icon">
-				<UiButtonArrow position="rotated" />
+				<UiIcon name="shape-bg" class="team-card__icon-bg" />
+				<UiIcon name="arrow-rotated" class="team-card__icon-arrow" />
 			</span>
 		</div>
 

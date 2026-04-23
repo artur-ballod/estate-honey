@@ -35,6 +35,7 @@
 	&__description {
 		color: $secondary-color;
 		white-space: pre-line;
+		text-transform: lowercase;
 
 		@media screen and (min-width: 1440px) {
 			max-width: to-rem(472);
@@ -136,7 +137,7 @@
 
 		&-item {
 			width: auto;
-			padding: to-rem(12) to-rem(12);
+			padding: to-rem(14) to-rem(12);
 			border: 1px solid transparentize($secondary-color, 0.7);
 			border-radius: to-rem(19);
 			background-color: transparent;
@@ -196,7 +197,7 @@
 		&-controls {
 			display: flex;
 			align-items: center;
-			column-gap: to-rem(22);
+			justify-content: space-between;
 
 			@media screen and (min-width: 1440px) {
 				column-gap: to-rem(24);
@@ -216,8 +217,17 @@
 	&__privacy {
 		margin-bottom: to-rem(15);
 
+		.ui-caption--description {
+			font-size: to-rem(13);
+			line-height: 1.5;
+		}
+
 		@media screen and (min-width: 1440px) {
 			margin-bottom: to-rem(22);
+
+			.ui-field-checkbox__label {
+				font-size: to-rem(14);
+			}
 		}
 	}
 

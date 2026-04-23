@@ -172,10 +172,21 @@
 								:type="group.type"
 							/>
 						</div>
-						<p class="app-header-contacts__note">
-							{{ APP_HEADER_NOTE }}
-						</p>
+						<div class="app-header-contacts__footer">
+							<AppHeaderMobileClose
+								class="app-header-contacts__close"
+								@click="closeMobilePanel"
+							/>
+							<p class="app-header-contacts__note">
+								{{ APP_HEADER_NOTE }}
+							</p>
+						</div>
 					</div>
+					<AppHeaderMobileClose
+						v-if="mobileView === 'nav'"
+						class="app-header__mobile-close"
+						@click="closeMobilePanel"
+					/>					
 				</div>
 			</div>
 		</Transition>
@@ -183,8 +194,8 @@
 </template>
 
 <script setup lang="ts">
-	import { onBeforeUnmount, onMounted, ref } from "vue";
-
+	import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
+	import AppHeaderMobileClose from "./AppHeaderMobileClose.vue";
 	import AppHeaderContactLinks from "./AppHeaderContactLinks.vue";
 	import AppHeaderNav from "./AppHeaderNav.vue";
 
@@ -239,6 +250,15 @@
 
 	let mediaQuery: MediaQueryList | null = null;
 
+	function setBodyScrollLock(locked: boolean): void {
+		if (!import.meta.client) {
+			return;
+		}
+
+		document.documentElement.classList.toggle("no-scroll", locked);
+		document.body.classList.toggle("no-scroll", locked);
+	}
+
 	function closeDropdown(): void {
 		openedDropdownId.value = null;
 	}
@@ -277,10 +297,6 @@
 		openMobileMenu();
 	}
 
-	function getSpriteHref(icon?: string): string {
-		return icon ? `#icon-${icon}` : "";
-	}
-
 	function updateIsDesktop(event?: MediaQueryListEvent): void {
 		const nextValue = event ? event.matches : mediaQuery?.matches ?? false;
 
@@ -290,6 +306,10 @@
 			closeMobilePanel();
 		}
 	}
+
+	watch(isMobilePanelOpen, (value) => {
+		setBodyScrollLock(value);
+	});
 
 	onMounted(() => {
 		isMounted.value = true;
@@ -302,6 +322,7 @@
 
 	onBeforeUnmount(() => {
 		mediaQuery?.removeEventListener("change", updateIsDesktop);
+		setBodyScrollLock(false);
 	});
 </script>
 

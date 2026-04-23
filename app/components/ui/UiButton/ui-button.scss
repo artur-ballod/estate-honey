@@ -65,7 +65,7 @@
         background-color: $secondary-color;
         border: none;
         color: $primary-color;
-        padding: to-rem(19) to-rem(18) to-rem(19) to-rem(26);
+        padding-inline: to-rem(26) to-rem(18);
 
         --ui-button-shape-color: #{$primary-color};
         --ui-button-arrow-color: #{$primary-color};
@@ -73,7 +73,7 @@
 
         @media screen and (min-width: 1440px) {
             height: to-rem(65);
-            padding: to-rem(20) to-rem(20) to-rem(20) to-rem(20);
+            padding-inline: to-rem(20) to-rem(20);
 
             &:hover {
                 --ui-button-arrow-color: #{$secondary-color};
@@ -269,10 +269,19 @@
 		justify-content: space-between;
 		align-items: center;
 		gap: to-rem(30);
-		padding: to-rem(21) to-rem(14) to-rem(21) to-rem(18);
+		padding: to-rem(20) to-rem(14) to-rem(20) to-rem(18);
 		border: 1px solid $primary-color;
+        border-radius: to-rem(23);
 		background-color: transparent;
 		color: $primary-color;
+
+        .ui-button__text {
+			line-height: to-rem(12);
+		}
+
+		.ui-button__count {
+			line-height: to-rem(12);
+		}
 
         @media screen and (min-width: 1440px) {
             gap: to-rem(60);
@@ -305,6 +314,27 @@
                 --ui-button-arrow-color: #{$secondary-color};
                 --ui-button-shape-bg: #{$primary-color};
             }
+        }
+    }
+
+    &--menu {
+        justify-content: center;
+        column-gap: to-rem(7);
+        align-items: center;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+        font-size: 10px;
+
+        .ui-button__addon {
+            width: to-rem(25);
+            height: to-rem(25);
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            --ui-shape-width: to-rem(25);
+            --ui-shape-height: to-rem(25);
         }
     }
 

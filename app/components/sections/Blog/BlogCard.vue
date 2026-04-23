@@ -40,8 +40,11 @@
 						</span>
 					</div>
 				</div>
-
-				<UiButtonArrow class="blog-card__icon" position="rotated" />
+				
+				<span class="blog-card__icon">
+					<UiIcon name="shape-bg" class="blog-card__icon-bg" />
+					<UiIcon name="arrow-rotated" class="blog-card__icon-arrow" />
+				</span>
 			</div>
 		</NuxtLink>
 	</article>

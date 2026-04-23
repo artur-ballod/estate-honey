@@ -106,14 +106,21 @@
 		align-items: center;
 		gap: to-rem(8);
 
+		text-transform: lowercase;
+
+		--ui-icon-w: #{to-rem(15)};
+		--ui-icon-h: #{to-rem(15)};
+
 		&-icon {
-			width: to-rem(14);
-			height: to-rem(14);
+			width: to-rem(15);
+			height: to-rem(15);
 		}
 	}
 
 	&__description {
-		color: transparentize($primary-color, $amount: 0.7);
+		line-height: 1.2;
+		color: transparentize($primary-color, 0.7);
+		margin-bottom: to-rem(20);	
 	}
 
 	&__button {

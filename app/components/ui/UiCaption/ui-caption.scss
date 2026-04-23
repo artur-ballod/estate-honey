@@ -11,7 +11,7 @@
 }
 
 .ui-caption--accent {
-    font-size: to-rem(15);
+    font-size: to-rem(16);
     line-height: 1.3;
 }
 
@@ -34,7 +34,7 @@
 
 .ui-caption--micro {
     font-family: $font-family-primary;
-	font-size: to-rem(9);
+	font-size: to-rem(8);
 	line-height: 1.4;
     font-weight: 600;
 	text-transform: uppercase;
@@ -74,7 +74,7 @@
     }
 
     .ui-caption--micro {
-		font-size: to-rem(9.5);
+		font-size: to-rem(9);
 	}
 
     .ui-caption--counter {

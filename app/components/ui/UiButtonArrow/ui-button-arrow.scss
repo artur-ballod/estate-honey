@@ -35,6 +35,8 @@
 
   &__arrow {
     fill: var(--ui-button-arrow-color);
+    width: var(--ui-button-arrow-w);
+    height: var(--ui-button-arrow-h);
     transition: fill 0.2s ease;
   }
 }

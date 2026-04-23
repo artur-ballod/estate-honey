@@ -1,7 +1,7 @@
 <template>
 	<section class="app-intro" aria-labelledby="app-intro-title">
 		<div class="app-intro__content">
-			<UiCaption tag="p" class="app-intro__lead">
+			<UiCaption tag="p" variant="description" class="app-intro__lead">
 				<template v-for="(line, index) in introContent.lead" :key="`lead-${index}`">
 					{{ line }}
 					<br v-if="index !== introContent.lead.length - 1">

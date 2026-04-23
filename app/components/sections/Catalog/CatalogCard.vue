@@ -21,7 +21,8 @@
 				</UiCaption>
 			</div>
 			<NuxtLink :to="item.to" class="catalog-card__action" :aria-label="item.detailsLabel" >
-				<UiButtonArrow position="rotated" />
+				<UiIcon name="shape-bg" class="catalog-card__action-bg" />
+				<UiIcon name="arrow-rotated" class="catalog-card__action-arrow" />
 			</NuxtLink>
 		</div>
 	</article>

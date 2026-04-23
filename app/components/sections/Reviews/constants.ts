@@ -2,7 +2,7 @@ import type { ReviewsSectionImage, ReviewsSectionItem } from "./types";
 
 export const REVIEWS_SECTION_TITLE = "Путь к дому, которому доверяют";
 
-export const REVIEWS_SECTION_LEAD = "нам пишут теплые слова о сотрудничестве:";
+export const REVIEWS_SECTION_LEAD = "нам пишут теплые слова о\u00A0сотрудничестве:";
 
 export const REVIEWS_SECTION_IMAGE: ReviewsSectionImage = {
   src: "/images/reviews/reviews-main-image.png",

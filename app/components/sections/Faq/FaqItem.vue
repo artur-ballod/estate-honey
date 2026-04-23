@@ -23,7 +23,7 @@
 		</summary>
 
 		<div class="faq-item__content">
-			<UiCaption tag="p" variant="description" class="faq-item__answer">
+			<UiCaption tag="p" variant="description-sm" class="faq-item__answer">
 				{{ answer }}
 			</UiCaption>
 		</div>

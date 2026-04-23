@@ -7,7 +7,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	padding: to-rem(35) to-rem(15) to-rem(20) to-rem(15);
+	padding: to-rem(35) to-rem(35) to-rem(20) to-rem(35);
 	border-radius: to-rem(28);
 	background-color: $dropdown-bg-color;
 
@@ -23,6 +23,8 @@
 
 	&__text {
 		color: $secondary-color;
+		font-size: to-rem(14);
+		line-height: 1.5;
 	}
 
 	&__actions {

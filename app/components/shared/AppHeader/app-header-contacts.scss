@@ -145,6 +145,14 @@
 		text-decoration: none;
 	}
 
+	&__footer {
+		width: 100%;
+		display: grid;
+		row-gap: to-rem(15);
+		margin-top: auto;
+		margin-bottom: to-rem(33);
+	}
+
 	&__note {
 		@include font-setting($font-family-secondary, to-rem(8.5), 120%, 400, $secondary-color);
 		opacity: 0.4;

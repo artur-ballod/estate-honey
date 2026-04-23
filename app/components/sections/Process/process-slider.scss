@@ -38,7 +38,6 @@
 
 	&__swiper {
 		margin-bottom: to-rem(50);
-		max-width: to-rem(340);
 
 		@media only screen and (min-width: 1440px) {
 			max-width: to-rem(705);
@@ -90,7 +89,7 @@
 	&__arrow {
 		position: absolute;
 		top: to-rem(40);
-		right: 5.5555vw;
+		right: to-rem(10);
 		width: to-rem(56);
 		height: to-rem(56);
 		border: none;
@@ -98,12 +97,22 @@
 		background-color: transparent;
 		z-index: 2;
 
+		&-icon {
+			width: to-rem(56);
+			height: to-rem(56);
+		}
+
 		@media only screen and (min-width: 1440px) {
 			top: auto;
 			bottom: to-rem(322);
 			right: to-rem(66);
 			width: to-rem(74);
 			height: to-rem(74);
+
+			&-icon {
+				width: to-rem(74);
+				height: to-rem(74);
+			}
 		}
 	}
 
@@ -149,11 +158,11 @@
 
 	&__controls {
 		position: relative;
-		width: auto;
+		width: 100%;
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 		align-items: center;
-		gap: to-rem(20);
+		padding-inline: to-rem(10);
 
 		@media only screen and (min-width: 1440px) {
 			gap: to-rem(30);

@@ -10,8 +10,10 @@
 		overflow: hidden;
 		object-fit: cover;
 		max-width: to-rem(446);
+		aspect-ratio: 16 / 13;
 
 		& > * {
+			height: 100%;
 			object-position: center;
 			object-fit: cover;
 		}
@@ -23,7 +25,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: flex-start;
-		height: to-rem(290);
+		height: to-rem(220);
 		padding: to-rem(20) to-rem(15) to-rem(18) to-rem(15);
 		border-radius: to-rem(28);
 		background-color: $card-bg-light;
@@ -86,14 +88,29 @@
 
 	&__action {
 		position: absolute;
+		display: grid;
+		place-items: center;
 		bottom: to-rem(10);
 		right: to-rem(10);
 		width: to-rem(74);
 		height: to-rem(77);
-		--ui-button-arrow-color: #050042;
-		--ui-button-shape-color: #ffffff;
-    	--ui-button-shape-bg: #ffffff;
 		transition: 0.2s ease-in;
+
+		&-bg {
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+			--ui-icon-color: #{$secondary-color};
+			--ui-icon-w: #{to-rem(74)};
+			--ui-icon-h: #{to-rem(77)};
+		}
+
+		&-arrow {
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+			--ui-icon-color: #{$primary-color};
+			--ui-icon-w: #{to-rem(19)};
+			--ui-icon-h: #{to-rem(19)};
+		}
 
 		@media screen and (min-width: 1440px) {
 			cursor: pointer;

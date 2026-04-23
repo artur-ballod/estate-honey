@@ -163,14 +163,28 @@
 
 	&__icon {
 		position: absolute;
+		display: grid;
+		place-items: center;
 		bottom: to-rem(10);
 		right: to-rem(10);
 		width: to-rem(74);
 		height: to-rem(77);
 
-		--ui-button-shape-bg: #ffffff;
-		--ui-button-shape-color: #ffffff;
-		--ui-button-arrow-color: #16154E;
+		&-bg {
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+			--ui-icon-color: #{$secondary-color};
+			--ui-icon-w: #{to-rem(74)};
+			--ui-icon-h: #{to-rem(77)};
+		}
+
+		&-arrow {
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+			--ui-icon-color: #{$primary-color};
+			--ui-icon-w: #{to-rem(19)};
+			--ui-icon-h: #{to-rem(19)};
+		}
 
 		@media screen and (min-width: 1440px) {
 			top: to-rem(18);

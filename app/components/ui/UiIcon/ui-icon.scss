@@ -1,5 +1,6 @@
 .ui-icon {
-	display: inline-block;
+	display: grid;
+	place-items: center;
 	width: var(--ui-icon-w);
 	height: var(--ui-icon-h);
 	flex-shrink: 0;

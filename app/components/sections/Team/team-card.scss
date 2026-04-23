@@ -42,14 +42,30 @@
 
 	&__icon {
 		position: absolute;
+		display: grid;
+		place-items: center;
 		top: to-rem(12);
 		right: to-rem(12);
 		width: to-rem(50);
 		height: to-rem(52);
-		--ui-button-arrow-color: #050042;
-		--ui-button-shape-color: #ffffff;
-    	--ui-button-shape-bg: #ffffff;
+
 		transition: 0.2s ease-in;
+
+		&-bg {
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+			--ui-icon-color: #{$secondary-color};
+			--ui-icon-w: #{to-rem(50)};
+			--ui-icon-h: #{to-rem(52)};
+		}
+
+		&-arrow {
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+			--ui-icon-color: #{$primary-color};
+			--ui-icon-w: #{to-rem(13)};
+			--ui-icon-h: #{to-rem(13)};
+		}
 
 		@media screen and (min-width: 1440px) {
 			display: none;
@@ -121,6 +137,7 @@
 		white-space: pre-line;
 		text-align: center;
 		justify-content: center;
+		border-radius: to-rem(22);
 
 		@media screen and (min-width: 1440px) {
 			display: none;

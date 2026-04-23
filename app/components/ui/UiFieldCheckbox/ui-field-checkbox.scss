@@ -77,6 +77,15 @@
 	}
 
 	&--policy {
+		.ui-caption--description {
+			font-size: to-rem(13);
+			line-height: 1.5;
+
+			@media screen and (min-width: 1440px) {
+				font-size: to-rem(14);
+			}
+		}
+
 		&.is-error {
 			#{$self}__label {
 				color: $error-color;

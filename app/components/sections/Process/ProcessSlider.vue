@@ -5,7 +5,6 @@
 		</div>
 
 		<UiButton
-			icon-only
 			class="process-slider__arrow"
 			aria-label="Следующий шаг"
 			size="free"
@@ -45,12 +44,12 @@
 		</Swiper>
 
 		<div class="process-slider__controls">
-			<UiButton icon-only type="button" class="process-slider__controls-nav process-slider__controls-nav--prev"
+			<!-- <UiButton icon-only type="button" class="process-slider__controls-nav process-slider__controls-nav--prev"
 				aria-label="Предыдущий шаг" @click="slidePrev">
 				<template #right>
 					<UiButtonArrow variant="small" class="process-slider__controls-icon" />
 				</template>
-			</UiButton>
+			</UiButton> -->
 
 			<ul class="process-slider__pagination">
 				<li v-for="(slide, index) in slides" :key="slide.id" class="process-slider__pagination-item">

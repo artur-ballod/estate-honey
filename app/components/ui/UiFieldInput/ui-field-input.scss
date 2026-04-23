@@ -5,6 +5,7 @@
 	background-color: transparent;
 	border: none;
 	border-bottom: 1px solid transparentize($secondary-color, 0.5);
+	padding: 0;
 	padding-bottom: to-rem(8);
 	@include font-setting($font-family-secondary, to-rem(17), 1.4, 450, $secondary-color);
 	letter-spacing: 0.01em;

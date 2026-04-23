@@ -54,7 +54,7 @@
 			border: none;
 			border-left: 1px solid $border-light-color;
 			border-right: 1px solid $border-light-color;
-			@include font-setting($font-family-primary, to-rem(11), to-rem(14), 400, $secondary-color);
+			@include font-setting($font-family-secondary, to-rem(11), to-rem(14), 450, transparentize($secondary-color, 0.2));
 		}
 
 		&-toggle {
@@ -70,11 +70,13 @@
 			&[aria-expanded="false"] {
 				--ui-icon-w: #{to-rem(20)};
 				--ui-icon-h: #{to-rem(7)};
+				--ui-icon-color: #{$secondary-color};
 			}
 
 			&[aria-expanded="true"] {
 				--ui-icon-w: #{to-rem(15.14)};
 				--ui-icon-h: #{to-rem(14.28)};
+				--ui-icon-color: #{$secondary-color};
 			}
 		}
 	}
@@ -84,8 +86,19 @@
 		top: to-rem(65);
 		left: 0;
 		width: 100%;
+		height: 100dvh;
 		background-color: $primary-color;
 		padding: to-rem(40) to-rem(20);
+	}
+
+	&__mobile-body {
+		width: 100%;
+		display: grid;
+		row-gap: to-rem(60);
+	}
+
+	&__mobile-close {
+		align-self: flex-end;
 	}
 
 	&__phone {
