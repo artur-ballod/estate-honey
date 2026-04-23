@@ -171,6 +171,7 @@
 		@media screen and (min-width: 1440px) {
 			margin-top: auto;
 			margin-bottom: to-rem(24);
+			row-gap: to-rem(41);
 		}
 	}
 
@@ -217,6 +218,18 @@
 	&__privacy {
 		margin-bottom: to-rem(15);
 
+		&-link {
+			color: transparentize($secondary-color, 0.5);
+			text-decoration: none;
+			transition: 0.2s ease-in;
+			
+			@media screen and (min-width: 1440px) {
+				&:hover {
+					color: $secondary-color;
+				}
+			}
+		}
+
 		.ui-caption--description {
 			font-size: to-rem(13);
 			line-height: 1.5;
@@ -224,6 +237,7 @@
 
 		@media screen and (min-width: 1440px) {
 			margin-bottom: to-rem(22);
+			max-width: to-rem(542);
 
 			.ui-field-checkbox__label {
 				font-size: to-rem(14);

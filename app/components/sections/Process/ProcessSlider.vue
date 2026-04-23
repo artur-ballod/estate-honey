@@ -16,7 +16,7 @@
 			</template>
 		</UiButton>
 
-		<Swiper :slides-per-view="1" :space-between="0" :speed="700" :modules="swiperModules" effect="fade" :fade-effect="{ crossFade: true } "class="process-slider__swiper"
+		<Swiper :slides-per-view="1" :space-between="0" :speed="700" :modules="swiperModules" effect="fade" :loop="true" :fade-effect="{ crossFade: true } "class="process-slider__swiper"
 			@swiper="handleSwiper" @slideChange="handleSlideChange">
 			<SwiperSlide v-for="slide in slides" :key="slide.id" class="process-slider__slide">
 				<div class="process-slider__top">
@@ -101,11 +101,7 @@
 	}
 
 	const slideTo = (index: number) => {
-		swiperInstance.value?.slideTo(index)
-	}
-
-	const slidePrev = () => {
-		swiperInstance.value?.slidePrev()
+		swiperInstance.value?.slideToLoop(index)
 	}
 
 	const slideNext = () => {
@@ -116,7 +112,7 @@
 		() => props.tabId,
 		() => {
 			activeIndex.value = 0
-			swiperInstance.value?.slideTo(0, 0)
+			swiperInstance.value?.slideToLoop(0, 0)
 		}
 	)
 </script>

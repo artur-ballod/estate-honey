@@ -9,7 +9,10 @@
 				<UiButton v-if="action.type === 'link' && action.to" :to="action.to" :text="action.label"
 					:variant="action.variant" class="team-info-card__btn">
 					<template v-if="action.showArrow" #right>
-						<UiButtonArrow class="team-info-card__btn-icon" variant="small" />
+						<span class="team-info-card__btn-icon">
+							<UiIcon name="shape-bg" class="team-info-card__btn-bg" />
+							<UiIcon name="arrow-right-sm" class="team-info-card__btn-arrow" />
+						</span>
 					</template>
 				</UiButton>
 
@@ -24,6 +27,7 @@
 <script setup lang="ts">
 	import { computed } from 'vue'
 	import type { TeamInfoCard, TeamInfoCardAction } from './types'
+import { U } from 'vue-router/dist/index-BzEKChPW.js'
 
 	interface Props {
 		card: TeamInfoCard

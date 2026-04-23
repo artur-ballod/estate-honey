@@ -10,6 +10,7 @@ export interface BlogCardMeta {
   category: string;
   views: number;
   likes: number;
+  to: string;
 }
 
 export interface BlogCardItem {

@@ -10,8 +10,16 @@
 		<input :id="id" :checked="modelValue" :name="name" :disabled="disabled" :required="required"
 			:aria-invalid="Boolean(error)" :aria-describedby="error ? errorId : undefined" type="checkbox"
 			class="ui-field-checkbox__input" @change="handleChange" @blur="handleBlur">
-		<UiCaption tag="label" variant="description" v-if="label" class="ui-field-checkbox__label" :for="id">
-			{{ label }}
+		<UiCaption
+			v-if="label || $slots.label"
+			tag="label"
+			variant="description"
+			class="ui-field-checkbox__label"
+			:for="id"
+		>
+			<slot name="label">
+				{{ label }}
+			</slot>
 		</UiCaption>
 	</div>
 </template>

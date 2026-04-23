@@ -38,7 +38,29 @@
 		left: 0;
 		z-index: 2;
 		padding: to-rem(24) to-rem(24);
-		border-radius: to-rem(12);
+		border-radius: to-rem(12) 0 0 to-rem(12);
+		width: 100%;
+		max-height: to-rem(200);
+		overflow-y: scroll;
+
+		&::-webkit-scrollbar {
+			width: to-rem(4);
+			height: to-rem(4);
+		}
+
+		&::-webkit-scrollbar-track {
+			background: $purple-color;
+			border-radius: to-rem(2);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: $secondary-color;
+			border-radius: to-rem(2);
+		}
+
+		&::-webkit-scrollbar-thumb:hover {
+			background-color: $border-light-color;
+		}
 	}
 
 	&__option {

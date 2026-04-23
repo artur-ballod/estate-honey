@@ -108,6 +108,9 @@
             }
 
             &:hover {
+                .social-card__badge-icon {
+                    --ui-icon-color: #{$primary-color};
+                }
                 .social-card__content {
                     background: linear-gradient(360deg, #050042 11.54%, rgba(5, 0, 66, 0) 100%);
                 }
@@ -252,7 +255,6 @@
         top: to-rem(12);
         right: to-rem(12);
         color: $secondary-color;
-
         display: grid;
         place-items: center;
 
@@ -270,6 +272,7 @@
             --ui-icon-w: #{to-rem(14)};
             --ui-icon-h: #{to-rem(14)};
             --ui-icon-color: #{$tag-blue-color};
+            transition: 0.2s ease-in;
         }
 
         @media screen and (min-width: 1440px) {

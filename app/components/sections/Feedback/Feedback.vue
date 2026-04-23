@@ -56,7 +56,7 @@
 						@blur="validateName" />
 
 					<UiFieldInput id="feedback-phone" v-model="form.phone" name="phone" type="tel"
-						:placeholder="FEEDBACK_SECTION_CONTENT.phonePlaceholder" autocomplete="tel" inputmode="numeric"
+						:placeholder="FEEDBACK_SECTION_CONTENT.phonePlaceholder" autocomplete="tel" inputmode="numeric" :required="true" 
 						mask="phone" :error="errors.phone" @blur="validatePhoneField" />
 				</div>
 
@@ -75,9 +75,24 @@
 					</div>
 				</div>
 
-				<UiFieldCheckbox id="feedback-privacy" v-model="form.isPrivacyAccepted" name="privacy"
-					:label="FEEDBACK_SECTION_CONTENT.privacyLabel" :error="errors.privacy" variant="policy"
-					class="feedback__privacy" @blur="validatePrivacy" />
+				<UiFieldCheckbox
+					id="feedback-privacy"
+					v-model="form.isPrivacyAccepted"
+					name="privacy"
+					:error="errors.privacy"
+					:required="true"
+					variant="policy"
+					class="feedback__privacy"
+					@blur="validatePrivacy"
+				>
+					<template #label>
+						Согласен с&nbsp;
+						<NuxtLink to="/privacy-policy" class="feedback__privacy-link">
+							политикой конфиденциальности
+						</NuxtLink>
+						&nbsp;и даю разрешение на обработку моих персональных данных
+					</template>
+				</UiFieldCheckbox>
 
 				<div class="feedback__submit">
 					<UiButton type="submit" :text="FEEDBACK_SECTION_CONTENT.submitText" class="feedback__submit-btn" variant="neutral-border" >

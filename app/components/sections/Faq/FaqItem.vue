@@ -15,11 +15,10 @@
 				class="faq-item__arrow"
 			/>
 
-			<UiButtonArrow
-				v-if="!isMobile"
-				class="faq-item__arrow faq-item__arrow--desktop"
-				position="down"
-			/>
+			<span v-if="!isMobile" class="faq-item__arrow faq-item__arrow--desktop">
+				<UiIcon v-if="!isMobile" name="shape-bg" class="faq-item__arrow-bg" />
+				<UiIcon name="arrow-down" class="faq-item__arrow-icon" />
+			</span>
 		</summary>
 
 		<div class="faq-item__content">

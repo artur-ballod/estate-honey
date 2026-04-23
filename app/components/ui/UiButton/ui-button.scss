@@ -45,9 +45,10 @@
 
         @media screen and (min-width: 1440px) {
             height: to-rem(65);
-            padding: to-rem(20) to-rem(20) to-rem(20) to-rem(20);
+            padding: to-rem(20) to-rem(20) to-rem(20) to-rem(28);
 
             &:hover {
+                background-color: $dark-color;
                 --ui-button-arrow-color: #{$primary-color};
                 --ui-button-shape-bg: #{$secondary-color};
             }
@@ -73,7 +74,7 @@
 
         @media screen and (min-width: 1440px) {
             height: to-rem(65);
-            padding-inline: to-rem(20) to-rem(20);
+            padding-inline: to-rem(28) to-rem(20);
 
             &:hover {
                 --ui-button-arrow-color: #{$secondary-color};
@@ -132,9 +133,9 @@
             padding: to-rem(26) to-rem(27) to-rem(25) to-rem(27);
 
             &:hover {
-                color: $secondary-color;
-                border-color: $menu-link-border;
-                background-color: transparent;
+                color: $primary-color;
+                border-color: $secondary-color;
+                background-color: $secondary-color;
             }
         }
     }
@@ -183,6 +184,7 @@
             padding: to-rem(36) to-rem(21) to-rem(36) to-rem(39);
 
             &:hover {
+                background-color: $dark-color;
                 --ui-button-shape-color: #{$secondary-color};
                 --ui-button-arrow-color: #{$primary-color};
                 --ui-button-shape-bg: #{$secondary-color};
@@ -251,13 +253,12 @@
     }
 
     &--icon-only {
-        --ui-button-shape-color: #050042;
-        --ui-button-arrow-color: #050042;
+        --ui-button-shape-color: #{$primary-color};
+        --ui-button-arrow-color: #{$primary-color};
         --ui-button-shape-bg: transparent;
 
         @media screen and (min-width: 1440px) {
             &:hover {
-                --ui-button-shape-color: #ffffff;
                 --ui-button-arrow-color: #ffffff;
                 --ui-button-shape-bg: #050042;
             }  
@@ -308,11 +309,14 @@
 
         @media screen and (min-width: 1440px) {
             height: to-rem(65);
-            padding: to-rem(19) to-rem(19) to-rem(19) to-rem(19);
+            padding: to-rem(19) to-rem(19) to-rem(19) to-rem(27);
 
             &:hover {
-                --ui-button-arrow-color: #{$secondary-color};
-                --ui-button-shape-bg: #{$primary-color};
+                color: $secondary-color;
+                background-color: $primary-color;
+                --ui-button-shape-color: #{$secondary-color};
+                --ui-button-arrow-color: #{$primary-color};
+                --ui-button-shape-bg: #{$secondary-color};
             }
         }
     }

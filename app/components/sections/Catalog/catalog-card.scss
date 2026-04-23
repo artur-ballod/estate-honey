@@ -5,6 +5,18 @@
 	flex-direction: column;
 	max-width: to-rem(446);
 
+	&__link {
+		text-decoration: none;
+
+		@media screen and (min-width: 1440px) {
+			&:hover {
+				.catalog-card__action-bg {
+					
+				}
+			}
+		}
+	}
+
 	&__image {
 		border-radius: to-rem(28) to-rem(28) 0 0;
 		overflow: hidden;
@@ -12,10 +24,18 @@
 		max-width: to-rem(446);
 		aspect-ratio: 16 / 13;
 
+		@media screen and (min-width: 1440px) {
+			aspect-ratio: 8 / 5;
+		}
+
 		& > * {
 			height: 100%;
 			object-position: center;
 			object-fit: cover;
+
+			@media screen and (min-width: 1440px) {
+				height: auto;
+			}
 		}
 	}
 
@@ -33,6 +53,7 @@
 
 		@media screen and (min-width: 1440px) {
 			padding: to-rem(21) to-rem(26) to-rem(26) to-rem(26);
+			height: to-rem(290);
 		}
 	}
 
@@ -84,6 +105,10 @@
 			top: 45%;
 			transform: translateY(-50%);
 		}
+	}
+
+	&__meta {
+		color: $primary-color;
 	}
 
 	&__action {

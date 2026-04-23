@@ -105,6 +105,7 @@ export const BLOG_ARTICLES: BlogCardItem[] = [
       category: "Новости",
       views: 1234,
       likes: 280,
+      to: '/category/news',
     },
   },
   {
@@ -121,6 +122,7 @@ export const BLOG_ARTICLES: BlogCardItem[] = [
       category: "Советы",
       views: 1234,
       likes: 280,
+      to: '/category/advice',
     },
   },
   {
@@ -137,6 +139,7 @@ export const BLOG_ARTICLES: BlogCardItem[] = [
       category: "Новости",
       views: 1234,
       likes: 280,
+      to: '/category/news',
     },
   },
   {
@@ -153,6 +156,7 @@ export const BLOG_ARTICLES: BlogCardItem[] = [
       category: "Новостройки",
       views: 1234,
       likes: 280,
+      to: '/category/new-buildings',
     },
   },
 ];

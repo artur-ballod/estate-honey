@@ -1,20 +1,13 @@
 <template>
 	<section class="awards" aria-labelledby="awards-title">
-		<Swiper class="awards__slider" :slides-per-view="1" :breakpoints="sliderBreakpoints" @swiper="handleSwiper">
-			<SwiperSlide v-for="slide in AWARDS_SLIDES" :key="slide.id" class="awards__slide">
-				<AwardsSlide :slide="slide" />
+		<Swiper class="awards__slider" :slides-per-view="1" :breakpoints="sliderBreakpoints" :loop="true" @swiper="handleSwiper">
+			<SwiperSlide v-for="slide in AWARDS_SLIDES" :key="slide.id" class="awards__slide" v-slot="{ isNext }">
+				<AwardsSlide :slide="slide" :class="isNext ? 'is-next' : ''" />
 			</SwiperSlide>
 		</Swiper>
 
 		<div class="awards__controls">
-			<UiButton icon-only class="awards__control awards__control--prev" type="button" aria-label="Предыдущая награда"
-				:disabled="isBeginning" @click="slidePrev">
-				<template #right>
-					<UiButtonArrow class="awards__control-icon" />
-				</template>
-			</UiButton>
-			<UiButton icon-only class="awards__control awards__control--next" type="button" aria-label="Следующая награда"
-				:disabled="isEnd" @click="slideNext">
+			<UiButton icon-only class="awards__control awards__control--next" type="button" aria-label="Следующая награда" @click="slideNext">
 				<template #right>
 					<UiButtonArrow class="awards__control-icon" />
 				</template>
@@ -33,9 +26,6 @@
 	import { AWARDS_SLIDES } from './constants'
 
 	const swiperInstance = ref<SwiperInstance | null>(null)
-	const isBeginning = ref(true)
-	const isEnd = ref(false)
-
 	const sliderBreakpoints = {
 		360: {
 			slidesPerView: 1.028571428,
@@ -50,13 +40,8 @@
 
 	const updateSliderState = () => {
 		if (!swiperInstance.value) {
-			isBeginning.value = true
-			isEnd.value = false
 			return
 		}
-
-		isBeginning.value = swiperInstance.value.isBeginning
-		isEnd.value = swiperInstance.value.isEnd
 	}
 
 	const handleSwiper = (swiper: SwiperInstance) => {
@@ -67,10 +52,6 @@
 		swiper.on('reachBeginning', updateSliderState)
 		swiper.on('reachEnd', updateSliderState)
 		swiper.on('fromEdge', updateSliderState)
-	}
-
-	const slidePrev = () => {
-		swiperInstance.value?.slidePrev()
 	}
 
 	const slideNext = () => {

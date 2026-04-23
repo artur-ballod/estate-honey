@@ -34,10 +34,15 @@
 			cursor: pointer;
 
 			&:hover {
-				.faq-item__arrow {
-					--ui-button-shape-bg: #{$secondary-color};
-					--ui-button-shape-color: #{$secondary-color};
-					--ui-button-arrow-color: #{$purple-color};
+				.faq-item__arrow-bg {
+					transform-origin: center;
+					transform: rotate(-90deg);
+					--ui-icon-color: #{$secondary-color};
+				}
+
+				.faq-item__arrow-icon {
+					transform: scaleZ(1);
+					--ui-icon-color: #{$purple-color};
 				}
 			}
 		}
@@ -70,12 +75,33 @@
 		--ui-icon-color: #{$secondary-color};
 
 		&--desktop {
+			display: grid;
+			place-items: center;
 			transition: 0.2s ease;
 			width: to-rem(75);
 			height: to-rem(78);
 			--ui-button-shape-bg: transparent;
 			--ui-button-shape-color: transparent;
 			--ui-button-arrow-color: #{$secondary-color};
+
+			.faq-item__arrow-bg {
+				grid-column: 1 / 2;
+				grid-row: 1 / 2;
+				--ui-icon-w: #{to-rem(75)};
+				--ui-icon-h: #{to-rem(78)};
+				--ui-icon-color: transparent;
+				transition: 0.2s ease-in;
+			}
+
+			.faq-item__arrow-icon {
+				grid-column: 1 / 2;
+				grid-row: 1 / 2;
+				--ui-icon-w: #{to-rem(30)};
+				--ui-icon-h: #{to-rem(28)};
+				transition: 0.2s ease-in;
+				--ui-icon-color: #{$secondary-color};
+				transform: scaleZ(1);
+			}
 		}
 	}
 

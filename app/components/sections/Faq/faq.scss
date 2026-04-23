@@ -71,6 +71,20 @@
 			grid-template-columns: to-rem(166) 1fr to-rem(75);
 			column-gap: to-rem(16);
 			margin-bottom: to-rem(48);
+			cursor: pointer;
+
+			&:hover {
+				.faq__more-bg {
+					transform-origin: center;
+					transform: rotate(-90deg);
+					--ui-icon-color: #{$secondary-color};
+				}
+
+				.faq__more-plus {
+					transform: scaleZ(1);
+					--ui-icon-color: #{$purple-color};
+				}
+			}
 		}
 
 		&-count {
@@ -89,10 +103,35 @@
 			--ui-icon-color: #{$secondary-color};
 
 			@media screen and (min-width: 1440px) {
+				display: grid;
+				place-items: center;
 				justify-self: center;
-				--ui-icon-w: #{to-rem(30)};
-				--ui-icon-h: #{to-rem(28)};
+				width: to-rem(75);
+				height: to-rem(78);
+
+				.faq__more-bg {
+					grid-column: 1 / 2;
+					grid-row: 1 / 2;
+					--ui-icon-w: #{to-rem(75)};
+					--ui-icon-h: #{to-rem(78)};
+					--ui-icon-color: transparent;
+					transition: 0.2s ease-in;
+				}
+
+				.faq__more-plus {
+					grid-column: 1 / 2;
+					grid-row: 1 / 2;
+					transition: 0.2s ease-in;
+					--ui-icon-w: #{to-rem(30)};
+					--ui-icon-h: #{to-rem(28)};
+				}
 			}
+		}
+
+		&-plus {
+			--ui-icon-w: #{to-rem(25)};
+			--ui-icon-h: #{to-rem(26)};
+			--ui-icon-color: #{$secondary-color};
 		}
 	}
 

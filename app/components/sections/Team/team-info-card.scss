@@ -13,11 +13,18 @@
 
 	&--career {
 		padding-inline: to-rem(35);
+
+		@media screen and (min-width: 1440px) {
+			height: auto;
+			padding: to-rem(39) to-rem(28) to-rem(24) to-rem(41);
+			row-gap: to-rem(25);
+		}
 	}
 
 	&--about {
 		@media screen and (min-width: 1440px) {
 			height: to-rem(510);
+			padding: to-rem(33) to-rem(28) to-rem(32) to-rem(41);
 		}
 	}
 
@@ -44,6 +51,41 @@
 		&-icon {
 			width: to-rem(34);
 			height: to-rem(36);
+			display: grid;
+			place-items: center;
+			transition: 0.2s ease-in;
+		}
+
+		&-bg {
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+			--ui-icon-color: #{$primary-color};
+			--ui-icon-w: #{to-rem(34)};
+			--ui-icon-h: #{to-rem(36)};
+			transition: 0.2s ease-in;
+		}
+
+		&-arrow {
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+			--ui-icon-color: #{$secondary-color};
+			--ui-icon-w: #{to-rem(13)};
+			--ui-icon-h: #{to-rem(12)};
+			transition: 0.2s ease-in;
+		}
+
+		@media screen and (min-width: 1440px) {
+			width: auto;
+
+			&:hover {
+				.team-info-card__btn-bg {
+					--ui-icon-color: #{$secondary-color};
+				}
+
+				.team-info-card__btn-arrow {
+					--ui-icon-color: #{$primary-color};
+				}
+			}
 		}
 	}
 

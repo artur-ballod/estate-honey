@@ -24,7 +24,10 @@
 				Показать ещё вопросы
 			</UiCaption>
 
-			<UiIcon name="plus" class="faq__more-icon" />
+			<span class="faq__more-icon">
+				<UiIcon v-if="!isMobile" name="shape-bg" class="faq__more-bg" />
+				<UiIcon name="plus" class="faq__more-plus" />
+			</span>
 		</button>
 
 		<div class="faq__cta">

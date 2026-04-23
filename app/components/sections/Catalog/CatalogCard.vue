@@ -1,30 +1,32 @@
 <template>
 	<article class="catalog-card">
-		<NuxtPicture :src="item.image" :alt="item.imageAlt" width="446" height="" loading="lazy" class="catalog-card__image" />
-		<div class="catalog-card__body">
-			<div class="catalog-card__main" :data-location="item.locationTagColor">
-				<UiTitle tag="h3" variant="subtitle" class="catalog-card__title">
-					{{ item.title }}
-				</UiTitle>
+		<NuxtLink :to="item.to" class="catalog-card__link" :aria-label="item.detailsLabel">
+			<NuxtPicture :src="item.image" :alt="item.imageAlt" width="446" height="" loading="lazy" class="catalog-card__image" />
+			<div class="catalog-card__body">
+				<div class="catalog-card__main" :data-location="item.locationTagColor">
+					<UiTitle tag="h3" variant="subtitle" class="catalog-card__title">
+						{{ item.title }}
+					</UiTitle>
 
-				<UiCaption variant="description-sm" class="catalog-card__location">
-					{{ item.location }}
-				</UiCaption>
-			</div>
+					<UiCaption variant="description-sm" class="catalog-card__location">
+						{{ item.location }}
+					</UiCaption>
+				</div>
 
-			<div class="catalog-card__meta">
-				<UiCaption variant="description-sm" class="catalog-card__meta-text">
-					{{ item.flatsLabel }}
-				</UiCaption>
-				<UiCaption variant="description-sm" class="catalog-card__meta-text">
-					{{ item.priceLabel }}
-				</UiCaption>
+				<div class="catalog-card__meta">
+					<UiCaption variant="description-sm" class="catalog-card__meta-text">
+						{{ item.flatsLabel }}
+					</UiCaption>
+					<UiCaption variant="description-sm" class="catalog-card__meta-text">
+						{{ item.priceLabel }}
+					</UiCaption>
+				</div>
+				<span :to="item.to" class="catalog-card__action">
+					<UiIcon name="shape-bg" class="catalog-card__action-bg" />
+					<UiIcon name="arrow-rotated" class="catalog-card__action-arrow" />
+				</span>
 			</div>
-			<NuxtLink :to="item.to" class="catalog-card__action" :aria-label="item.detailsLabel" >
-				<UiIcon name="shape-bg" class="catalog-card__action-bg" />
-				<UiIcon name="arrow-rotated" class="catalog-card__action-arrow" />
-			</NuxtLink>
-		</div>
+		</NuxtLink>
 	</article>
 </template>
 
