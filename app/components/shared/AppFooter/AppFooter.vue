@@ -130,8 +130,8 @@
 
 	const logoSrc = computed(() => {
 		return props.theme === "dark"
-			? "/logo-light.svg"
-			: "/logo-dark.svg";
+			? "/images/logo-light.svg"
+			: "/images/logo-dark.svg";
 	});
 
 	const scrollToTop = (): void => {
