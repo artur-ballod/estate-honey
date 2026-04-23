@@ -27,7 +27,6 @@
 <script setup lang="ts">
 	import { computed } from 'vue'
 	import type { TeamInfoCard, TeamInfoCardAction } from './types'
-import { U } from 'vue-router/dist/index-BzEKChPW.js'
 
 	interface Props {
 		card: TeamInfoCard
