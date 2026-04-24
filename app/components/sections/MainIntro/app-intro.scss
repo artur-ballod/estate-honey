@@ -12,9 +12,133 @@
 		padding: to-rem(34) to-rem(25) to-rem(418);
 	}
 
+	&__media {
+		position: absolute;
+		width: to-rem(750);
+		height: to-rem(579);
+		bottom: to-rem(-5);
+		left: calc((100% - to-rem(446)) / 2);
+		pointer-events: none;
+
+		@media screen and (min-width: 1440px) {
+			width: to-rem(1069);
+			height: to-rem(866);
+			left: calc((100% - to-rem(396)) / 2);
+			bottom: to-rem(-24);
+		}
+
+		&-shape {
+			position: absolute;
+			--ui-icon-color: #{$purple-color};
+
+			&--first {
+				--ui-icon-w: #{to-rem(235)};
+				--ui-icon-h: #{to-rem(247)};
+				top: to-rem(72);
+				left: 0;
+				transform: scaleY(-1);
+
+				@media screen and (min-width: 1440px) {
+					--ui-icon-w: #{to-rem(224)};
+					--ui-icon-h: #{to-rem(235)};
+					top: to-rem(172);
+					left: to-rem(82);
+				}
+			}
+
+			&--second {
+				--ui-icon-w: #{to-rem(157)};
+				--ui-icon-h: #{to-rem(165)};
+				top: 0;
+				left: to-rem(235);
+				transform: scaleX(-1);
+
+				@media screen and (min-width: 1440px) {
+					--ui-icon-w: #{to-rem(262)};
+					--ui-icon-h: #{to-rem(275)};
+					top: to-rem(12);
+					left: to-rem(305);
+				}
+			}
+
+			&--third {
+				--ui-icon-w: #{to-rem(339)};
+				--ui-icon-h: #{to-rem(355)};
+				top: 0;
+				right: 0;
+
+				@media screen and (min-width: 1440px) {
+					--ui-icon-w: #{to-rem(489)};
+					--ui-icon-h: #{to-rem(513)};
+				}
+			}
+
+			&--fourth {
+				--ui-icon-w: #{to-rem(140)};
+				--ui-icon-h: #{to-rem(147)};
+				bottom: 0;
+				left: to-rem(229);
+
+				@media screen and (min-width: 1440px) {
+					--ui-icon-w: #{to-rem(224)};
+					--ui-icon-h: #{to-rem(236)};
+					bottom: 0;
+					left: to-rem(288);
+				}
+			}
+		}
+
+		&-card {
+			position: absolute;
+
+			&--first {
+				width: to-rem(192.41);
+				height: to-rem(201.79);
+				left: to-rem(32);
+				bottom: to-rem(47);
+
+				@media screen and (min-width: 1440px) {
+					width: to-rem(287);
+					height: to-rem(301);
+					left: 0;
+					bottom: to-rem(88);
+				}
+			}
+
+			&--second {
+				width: to-rem(199.11);
+				height: to-rem(209.84);
+				left: to-rem(224.41);
+				bottom: to-rem(156.28);
+
+				@media screen and (min-width: 1440px) {
+					width: to-rem(297);
+					height: to-rem(313);
+					left: to-rem(287);
+					bottom: to-rem(251);
+				}
+			}
+
+			&--third {
+				width: to-rem(141.45);
+				height: to-rem(148.16);
+				right: to-rem(184.03);
+				bottom: to-rem(88.56);
+
+				@media screen and (min-width: 1440px) {
+					width: to-rem(211);
+					height: to-rem(221);
+					right: to-rem(274);
+					bottom: to-rem(150);
+				}
+			}
+		}
+	}
+
 	&__content {
 		display: grid;
 		grid-template-columns: 1fr;
+		z-index: 2;
 	}
 
 	&__lead {

@@ -9,6 +9,7 @@
 	background-color: $purple-color;
 
 	@media screen and (min-width: 1440px) {
+		position: relative;
 		padding: to-rem(300) to-rem(25) to-rem(212) to-rem(25);
 	}
 
@@ -24,6 +25,7 @@
 			row-gap: to-rem(24);
 			padding-inline: 0;
 			margin-bottom: to-rem(150);
+			z-index: 2;
 		}
 
 		&-top {
@@ -89,6 +91,7 @@
 			padding-inline: 0;
 			scroll-padding-inline: 0;
 			overflow: visible;
+			z-index: 2;
 		}
 
 		&::-webkit-scrollbar {
@@ -140,6 +143,7 @@
 			grid-template-columns: repeat(4, to-rem(332));
 			column-gap: 0;
 			padding-inline: 0;
+			z-index: 2;
 		}
 	}
 
@@ -147,5 +151,15 @@
 		@media screen and (min-width: 1440px) {
 			grid-column: 1 / 2;
 		}
+	}
+
+	&__shape {
+		position: absolute;
+		bottom: to-rem(154);
+		left: calc((100% - to-rem(1800)) / 2);
+		--ui-icon-color: $primary-color;
+		--ui-icon-w: #{to-rem(1047)};
+		--ui-icon-h: #{to-rem(1101)};
+		transform: scaleX(-1);
 	}
 }

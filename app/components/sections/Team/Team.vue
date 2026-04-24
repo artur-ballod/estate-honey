@@ -1,5 +1,6 @@
 <template>
 	<section class="team">
+		<UiIcon v-if="!isMobile" name="shape-simple" class="team__shape" />
 		<header class="team__header">
 			<div class="team__header-top">
 				<UiTitle tag="h2" variant="secondary" class="team__title">

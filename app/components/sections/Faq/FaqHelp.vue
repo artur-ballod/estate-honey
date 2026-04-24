@@ -1,5 +1,11 @@
 <template>
 	<div class="faq-help">
+		<div class="faq-help__visual">
+			<UiIcon name="shape-simple" class="faq-help__visual-shape faq-help__visual-shape--first" />
+			<UiIcon name="shape-double" class="faq-help__visual-shape faq-help__visual-shape--second" />
+			<UiIcon name="shape-simple" class="faq-help__visual-shape faq-help__visual-shape--third" />
+		</div>
+
 		<UiTitle tag="h3" variant="subtitle" class="faq-help__title">
 			{{ title }}
 		</UiTitle>
@@ -31,17 +37,12 @@
 				</ul>
 			</div>
 		</div>
-
-		<div class="faq-help__decor" aria-hidden="true">
-			<span class="faq-help__shape faq-help__shape--left"></span>
-			<span class="faq-help__shape faq-help__shape--center"></span>
-			<span class="faq-help__shape faq-help__shape--right"></span>
-		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
-	import type { FaqContactLink } from './types'
+	import { U } from 'vue-router/dist/index-BzEKChPW.js'
+import type { FaqContactLink } from './types'
 
 	interface Props {
 		title: string

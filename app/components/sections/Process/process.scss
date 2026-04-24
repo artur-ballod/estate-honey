@@ -6,7 +6,9 @@
 	padding-bottom: to-rem(104);
 
 	@media only screen and (min-width: 1440px) {
+		position: relative;
 		padding-bottom: to-rem(70);
+		overflow: hidden;
 	}
 
 	&__head {
@@ -23,10 +25,74 @@
 
 	&__title {
 		color: $secondary-color;
+		z-index: 2;
 	}
 
 	&__visual {
 		position: absolute;
+		width: to-rem(522);
+		height: to-rem(424);
+		top: to-rem(238);
+		left: calc((100% - to-rem(498)) / 2);
+		display: flex;
+		pointer-events: none;
+
+		@media only screen and (min-width: 1440px) {
+			width: to-rem(666);
+			height: to-rem(748);
+			top: to-rem(320);
+			left: calc((100% - to-rem(934)) / 2);
+		}
+
+		&-card {
+			position: absolute;
+			width: to-rem(302);
+			height: to-rem(316);
+			left: 0;
+			top: 0;
+
+			@media only screen and (min-width: 1440px) {
+				width: to-rem(385);
+				height: to-rem(403);
+			}
+		}
+
+		&-shape {
+			position: absolute;
+
+			&--first {
+				--ui-icon-stroke: #{transparentize($secondary-color, 0.4)};
+				--ui-icon-color: transparent;
+				--ui-icon-stroke-w: #{to-rem(0.6)};
+				--ui-icon-w: #{to-rem(221)};
+				--ui-icon-h: #{to-rem(231)};
+				bottom: 0;
+				right: 0;
+				transform: rotate(-180deg);
+				transform-origin: center;
+
+				@media only screen and (min-width: 1440px) {
+					--ui-icon-stroke: #{transparentize($secondary-color, 0.5)};
+					--ui-icon-color: transparent;
+					--ui-icon-stroke-w: #{to-rem(0.3)};
+					--ui-icon-w: #{to-rem(282)};
+					--ui-icon-h: #{to-rem(294)};
+					bottom: to-rem(207);
+				}
+			}
+
+			&--second {
+				@media only screen and (min-width: 1440px) {
+					--ui-icon-stroke: #{transparentize($secondary-color, 0.4)};
+					--ui-icon-color: transparent;
+					--ui-icon-stroke-w: #{to-rem(0.6)};
+					--ui-icon-w: #{to-rem(243)};
+					--ui-icon-h: #{to-rem(255)};
+					bottom: 0;
+					left: to-rem(214);
+				}
+			}
+		}
 	}
 
 	&__layout {
@@ -79,5 +145,14 @@
 			grid-column: 2 / 3;
 			grid-row: 1 / 2;
 		}
+	}
+
+	&__bg-shape {
+		position: absolute;
+		bottom: to-rem(-118);
+		right: to-rem(-91);
+		--ui-icon-color: #{$purple-color};
+		--ui-icon-w: #{to-rem(326)};
+		--ui-icon-h: #{to-rem(343)};
 	}
 }

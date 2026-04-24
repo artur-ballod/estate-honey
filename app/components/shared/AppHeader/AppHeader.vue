@@ -135,6 +135,14 @@
 				v-if="isMounted && !isDesktop && isMobilePanelOpen"
 				class="app-header__mobile-panel"
 			>
+				<!-- Menu background shapes -->
+				<div class="app-header__mobile-shapes">
+					<UiIcon name="shape-simple" class="app-header__mobile-shape app-header__mobile-shape--first" />
+					<UiIcon name="shape-simple" class="app-header__mobile-shape app-header__mobile-shape--second" />
+					<UiIcon name="shape-simple" class="app-header__mobile-shape app-header__mobile-shape--third" />
+					<UiIcon name="shape-simple" class="app-header__mobile-shape app-header__mobile-shape--fourth" />
+				</div>
+				
 				<div class="app-header__mobile-body">
 					<AppHeaderNav
 						v-if="mobileView === 'nav'"
@@ -210,7 +218,7 @@
 	import type { AppHeaderMobileView } from "./types";
 
 	import "./app-header.scss";
-
+	
 	interface Props {
 		theme?: "dark" | "light";
 	}

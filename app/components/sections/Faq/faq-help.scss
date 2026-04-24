@@ -16,10 +16,81 @@
 		margin-bottom: to-rem(-84);
 	}
 
+	&__visual {
+		position: absolute;
+		top: to-rem(16);
+		left: calc((100% - to-rem(102)) / 2);
+		width: to-rem(657);
+		height: to-rem(393);
+		z-index: 0;
+		pointer-events: none;
+
+		@media screen and (min-width: 1440px) {
+			width: to-rem(833);
+			height: to-rem(499);
+			top: to-rem(-36);
+			left: calc((100% - to-rem(12)) / 2);
+		}
+
+		&-shape {
+			position: absolute;
+			--ui-icon-color: #{$violet-color};
+
+			&--first {
+				--ui-icon-w: #{to-rem(175)};
+				--ui-icon-h: #{to-rem(183)};
+				top: to-rem(51);
+				left: 0;
+
+				@media screen and (min-width: 1440px) {
+					--ui-icon-w: #{to-rem(222)};
+					--ui-icon-h: #{to-rem(232)};
+					top: auto;
+					bottom: to-rem(65);
+					transform: scaleY(-1);
+				}
+			}
+
+			&--second {
+				--ui-icon-w: #{to-rem(245)};
+				--ui-icon-h: #{to-rem(258)};
+				bottom: 0;
+				left: to-rem(175);
+				transform: scaleY(-1);
+
+				@media screen and (min-width: 1440px) {
+					--ui-icon-w: #{to-rem(312)};
+					--ui-icon-h: #{to-rem(328)};
+					top: 0;
+					bottom: auto;
+					left: to-rem(221);
+					transform: scaleY(1);
+				}
+			}
+
+			&--third {
+				--ui-icon-w: #{to-rem(237)};
+				--ui-icon-h: #{to-rem(249)};
+				top: 0;
+				right: 0;
+				transform: scaleX(-1);
+
+				@media screen and (min-width: 1440px) {
+					--ui-icon-w: #{to-rem(301)};
+					--ui-icon-h: #{to-rem(316)};
+					top: auto;
+					bottom: 0;
+					transform: scaleX(-1) scaleY(-1);
+				}
+			}
+		}
+	}
+
 	&__title {
 		color: $secondary-color;
 		margin-bottom: to-rem(250);
 		white-space: pre-line;
+		z-index: 1;
 
 		@media screen and (min-width: 1440px) {
 			margin-bottom: auto;

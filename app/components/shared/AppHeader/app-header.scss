@@ -101,6 +101,7 @@
 		width: 100%;
 		display: grid;
 		row-gap: to-rem(60);
+		transform: translateZ(0);
 	}
 
 	&__mobile-close {
@@ -206,5 +207,52 @@
 		opacity: 0.4;
 		letter-spacing: 0.01em;
 		text-align: right;
+	}
+
+	&__mobile-shapes {
+		display: flex;
+		position: absolute;
+		top: to-rem(55);
+		left: calc((100% - to-rem(936)) / 2);
+		width: to-rem(468);
+		height: to-rem(472);
+		pointer-events: none;
+
+		.app-header__mobile-shape {
+			position: absolute;
+			--ui-icon-color: #{$purple-color};
+
+			&--first {
+				--ui-icon-w: #{to-rem(221)};
+				--ui-icon-h: #{to-rem(233)};
+				top: 0;
+				left: to-rem(104.52);
+			}
+
+			&--second {
+				--ui-icon-w: #{to-rem(221)};
+				--ui-icon-h: #{to-rem(233)};
+				bottom: to-rem(3);
+				right: to-rem(103.35);
+				transform: rotate(180deg);
+				transform-origin: center;
+			}
+
+			&--third {
+				--ui-icon-w: #{to-rem(143)};
+				--ui-icon-h: #{to-rem(150)};
+				bottom: to-rem(149.58);
+				left: 0;
+			}
+
+			&--fourth {
+				--ui-icon-w: #{to-rem(143)};
+				--ui-icon-h: #{to-rem(150)};
+				top: to-rem(146.94);
+				right: 0;
+				transform: rotate(180deg);
+				transform-origin: center;
+			}
+		}
 	}
 }

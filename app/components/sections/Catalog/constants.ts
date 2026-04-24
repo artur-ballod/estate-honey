@@ -186,7 +186,7 @@ export const CATALOG_SECTION_CONTENT: CatalogSectionContent = {
     title: "больше объектов?",
     buttonLabel: "Смотреть весь каталог",
     buttonTo: "/catalog",
-    image: "/images/catalog/catalog-promo.png",
+    image: "/images/catalog/catalog-visual.png",
     imageAlt: "Каталог недвижимости",
   },
 };

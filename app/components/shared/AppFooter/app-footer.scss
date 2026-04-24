@@ -7,11 +7,89 @@
 	display: grid;
 	grid-template-columns: 1fr;
 	row-gap: to-rem(100);
+	padding-top: to-rem(318);
 	padding-bottom: to-rem(38);
+	overflow: hidden;
 
 	@media screen and (min-width: 1440px) {
 		row-gap: 0;
 		padding-bottom: 0;
+	}
+
+	&__visual {
+		position: absolute;
+		width: to-rem(599);
+		height: to-rem(399);
+		top: to-rem(-48);
+		left: calc((100% - to-rem(596)) / 2);
+		z-index: 0;
+		pointer-events: none;
+
+		@media screen and (min-width: 1440px) {
+			top: to-rem(-115);
+			left: calc((100% - to-rem(682)) / 2);
+			width: to-rem(1020);
+			height: to-rem(676);
+		}
+
+		&-shape {
+			position: absolute;
+			--ui-icon-color: #{$purple-color};
+
+			&--first {
+				--ui-icon-w: #{to-rem(116)};
+				--ui-icon-h: #{to-rem(122)};
+				top: to-rem(98);
+				left: 0;
+
+				@media screen and (min-width: 1440px) {
+					--ui-icon-w: #{to-rem(196)};
+					--ui-icon-h: #{to-rem(206)};
+					top: to-rem(166);
+				}
+			}
+
+			&--second {
+				--ui-icon-w: #{to-rem(186)};
+				--ui-icon-h: #{to-rem(196)};
+				top: 0;
+				right: 0;
+
+				@media screen and (min-width: 1440px) {
+					--ui-icon-w: #{to-rem(315)};
+					--ui-icon-h: #{to-rem(332)};
+				}
+			}
+
+			&--third {
+				--ui-icon-w: #{to-rem(288)};
+				--ui-icon-h: #{to-rem(302)};
+				top: to-rem(13);
+				left: to-rem(123);
+
+				@media screen and (min-width: 1440px) {
+					--ui-icon-w: #{to-rem(488)};
+					--ui-icon-h: #{to-rem(513)};
+					top: to-rem(22);
+					left: to-rem(209);
+				}
+			}
+
+			&--fourth {
+				--ui-icon-w: #{to-rem(186)};
+				--ui-icon-h: #{to-rem(196)};
+				bottom: 0;;
+				right: to-rem(4);
+				transform: rotate(-180deg);
+				transform-origin: center;
+
+				@media screen and (min-width: 1440px) {
+					--ui-icon-w: #{to-rem(315)};
+					--ui-icon-h: #{to-rem(332)};
+					right: to-rem(9);
+				}
+			}
+		}
 	}
 	
 	&__top {
@@ -19,6 +97,7 @@
 		padding-left: to-rem(10);
 		padding-right: to-rem(10);
 		border-top: 1px solid $border-light-color;
+		z-index: 2;
 
 		@media screen and (min-width: 1440px) {
 			display: flex;

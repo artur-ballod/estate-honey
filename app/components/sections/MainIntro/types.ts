@@ -10,7 +10,7 @@ export interface AppIntroAction {
   icon?: string;
 }
 
-export type AppIntroImageName = "building" | "agent-main" | "agent-secondary";
+export type AppIntroImageName = "first" | "second" | "third";
 
 export interface AppIntroImage {
   id: string;

@@ -1,5 +1,10 @@
 <template>
 	<section class="feedback">
+		<div class="feedback__visual">
+			<UiIcon name="shape-simple" class="feedback__visual-shape feedback__visual-shape--first" />
+			<UiIcon name="shape-simple" class="feedback__visual-shape feedback__visual-shape--second" />
+		</div>
+
 		<div class="feedback__head">
 			<UiTitle tag="h2" variant="secondary" class="feedback__title">
 				{{ FEEDBACK_SECTION_CONTENT.title }}
@@ -102,11 +107,6 @@
 				</div>
 			</div>
 		</form>
-
-		<div class="feedback__visual">
-			<div class="feedback__visual-item" />
-			<div class="feedback__visual-item" />
-		</div>
 	</section>
 </template>
 

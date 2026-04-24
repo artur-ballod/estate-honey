@@ -1,5 +1,12 @@
 <template>
 	<footer class="app-footer">
+		<div class="app-footer__visual">
+			<UiIcon name="shape-bg" class="app-footer__visual-shape app-footer__visual-shape--first" />
+			<UiIcon name="shape-bg" class="app-footer__visual-shape app-footer__visual-shape--second" />
+			<UiIcon name="shape-simple" class="app-footer__visual-shape app-footer__visual-shape--third" />
+			<UiIcon name="shape-simple" class="app-footer__visual-shape app-footer__visual-shape--fourth" />
+		</div>
+
 		<div class="app-footer__top">
 			<NuxtLink class="app-footer__logo" to="/" aria-label="Перейти на главную страницу">
 				<img class="app-footer__logo-image" :src="logoSrc" alt="МЁД" width="130" height="55">
@@ -10,6 +17,7 @@
 				<span class="app-footer__up-text">Наверх</span>
 			</button>
 		</div>
+
 		<div class="app-footer__main">
 			<div class="app-footer__menus">
 				<nav v-for="group in footerMenus" :key="group.id" class="app-footer__menu"

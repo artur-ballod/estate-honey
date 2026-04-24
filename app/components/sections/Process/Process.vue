@@ -1,18 +1,18 @@
 <template>
 	<section class="process" aria-labelledby="process-title">
 		<div class="process__head">
+			<div class="process__visual">
+				<div class="process__visual-card">
+					<NuxtPicture src="/images/process/process-image.png" alt="Современный жилой комплекс"
+						width="302" height="" loading="lazy" class="process__visual-image" />
+				</div>
+
+				<UiIcon name="shape-simple" class="process__visual-shape process__visual-shape--first" />
+				<UiIcon v-if="!isMobile" name="shape-stroker" class="process__visual-shape process__visual-shape--second" />
+			</div>
 			<UiTitle tag="h2" variant="secondary" class="process__title" id="process-title">
 				Как мы это делаем?
 			</UiTitle>
-			<div class="process__visual">
-				<div class="process__visual-image-wrap">
-					<NuxtPicture src="/images/process/process-main-image.png" alt="Современный жилой комплекс"
-						width="302" height="316" loading="lazy" class="process__visual-image" />
-				</div>
-
-				<div class="process__visual-shape process__visual-shape--primary" />
-				<div class="process__visual-shape process__visual-shape--secondary" />
-			</div>
 		</div>
 		<div class="process__layout">
 			<div class="process__aside">
@@ -34,11 +34,12 @@
 				<ProcessSlider :tab-id="activeTab.id" :slides="activeTab.slides" />
 			</div>
 		</div>
+		<UiIcon v-if="!isMobile" name="shape-bg" class="process__bg-shape" />
 	</section>
 </template>
 
 <script setup lang="ts">
-	import { computed, ref } from 'vue'
+	import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 	import ProcessSlider from './ProcessSlider.vue'
 	import { PROCESS_INTRO_TEXT, PROCESS_TABS } from './constants'
 	import type { ProcessTab } from './types'
@@ -59,6 +60,29 @@
 	const setActiveTab = (tabId: ProcessTab['id']) => {
 		activeTabId.value = tabId
 	}
+
+	const isMobile = ref(false)
+
+	let mediaQuery: MediaQueryList | null = null
+	let mediaQueryHandler: (() => void) | null = null
+
+	onMounted(() => {
+		mediaQuery = window.matchMedia('(max-width: 1439px)')
+
+		mediaQueryHandler = () => {
+			isMobile.value = mediaQuery?.matches ?? false
+		}
+
+		mediaQueryHandler()
+		mediaQuery.addEventListener('change', mediaQueryHandler)
+	})
+
+	onBeforeUnmount(() => {
+		if (mediaQuery && mediaQueryHandler) {
+			mediaQuery.removeEventListener('change', mediaQueryHandler)
+		}
+	})
+
 </script>
 
 <style scoped lang="scss">

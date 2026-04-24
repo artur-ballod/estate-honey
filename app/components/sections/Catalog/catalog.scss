@@ -8,7 +8,7 @@
 
 	@media screen and (min-width: 1440px) {
 		padding-top: to-rem(270);
-		padding-bottom: to-rem(265);
+		padding-bottom: 0;
 	}
 
 	&__header {
@@ -123,6 +123,7 @@
 			align-items: end;
 			column-gap: 0;
 			padding-inline: to-rem(25);
+			margin-bottom: to-rem(270);
 		}
 	}
 
@@ -176,11 +177,15 @@
 		position: relative;
 		width: 100%;
 		padding-inline: to-rem(10);
+		padding-top: to-rem(310);
 
 		@media screen and (min-width: 1440px) {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
 			column-gap: to-rem(25);
+			padding-bottom: to-rem(265);
+			padding-inline: to-rem(25);
+			padding-top: 0;
 		}
 
 		&-content {
@@ -229,6 +234,66 @@
 					--ui-button-arrow-color: #050042;
 					--ui-button-shape-color: #ffffff;
 					--ui-button-shape-bg: #ffffff;
+				}
+			}
+		}
+	}
+
+	&__visual {
+		position: absolute;
+		width: to-rem(529);
+		height: to-rem(310);
+		top: 0;
+		left: calc((100% - to-rem(580)) / 2);
+
+		@media screen and (min-width: 1440px) {
+			width: to-rem(1044);
+			height: to-rem(612);
+			top: 0;
+			left: calc((100% - to-rem(394)) / 2);
+		}
+
+		&-card {
+			position: absolute;
+			width: to-rem(230);
+			height: to-rem(242);
+			bottom: 0;
+			right: 0;
+
+			@media screen and (min-width: 1440px) {
+				width: to-rem(455);
+				height: to-rem(478);
+			}
+		}
+
+		&-shape {
+			position: absolute;
+			--ui-icon-color: $primary-color;
+
+			&--first {
+				top: to-rem(86);
+				left: 0;
+				--ui-icon-w: #{to-rem(150)};
+				--ui-icon-h: #{to-rem(157)};
+				transform: scaleY(-1);
+
+				@media screen and (min-width: 1440px) {
+					top: to-rem(170);
+					--ui-icon-w: #{to-rem(295)};
+					--ui-icon-h: #{to-rem(310)};
+				}
+			}
+
+			&--second {
+				top: 0;
+				left: to-rem(150);
+				--ui-icon-w: #{to-rem(150)};
+				--ui-icon-h: #{to-rem(157)};
+
+				@media screen and (min-width: 1440px) {
+					left: to-rem(295);
+					--ui-icon-w: #{to-rem(295)};
+					--ui-icon-h: #{to-rem(310)};
 				}
 			}
 		}

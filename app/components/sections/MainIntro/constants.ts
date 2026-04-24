@@ -21,20 +21,20 @@ export const APP_INTRO_CONTENT: AppIntroContent = {
   images: [
     {
       id: "building",
-      name: "building",
-      src: "/images/intro/intro-building.jpg",
+      name: "first",
+      src: "/images/intro/intro-1.png",
       alt: "Жилой комплекс",
     },
     {
       id: "agent-main",
-      name: "agent-main",
-      src: "/images/intro/intro-agent-main.png",
+      name: "second",
+      src: "/images/intro/intro-2.png",
       alt: "Специалист по недвижимости",
     },
     {
       id: "agent-secondary",
-      name: "agent-secondary",
-      src: "/images/intro/intro-agent-secondary.png",
+      name: "third",
+      src: "/images/intro/intro-3.png",
       alt: "Клиент",
     },
   ],

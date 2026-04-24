@@ -1,5 +1,18 @@
 <template>
 	<section class="app-intro" aria-labelledby="app-intro-title">
+		<!-- Image zone -->
+		<div class="app-intro__media" aria-hidden="true">
+			<UiIcon name="shape-simple" class="app-intro__media-shape app-intro__media-shape--first" />
+			<UiIcon name="shape-simple" class="app-intro__media-shape app-intro__media-shape--second" />
+			<UiIcon name="shape-bg" class="app-intro__media-shape app-intro__media-shape--third" />
+			<UiIcon name="shape-bg" class="app-intro__media-shape app-intro__media-shape--fourth" />
+
+			<div v-for="image in introContent.images" :key="image.id" class="app-intro__media-card"
+				:class="`app-intro__media-card--${image.name}`">
+				<NuxtImg :src="image.src" :alt="image.alt" class="app-intro__media-image" />
+			</div>
+		</div>
+		<!-- Content zone -->
 		<div class="app-intro__content">
 			<UiCaption tag="p" variant="description" class="app-intro__lead">
 				<template v-for="(line, index) in introContent.lead" :key="`lead-${index}`">
@@ -20,18 +33,6 @@
 						<UiButtonArrow class="app-intro__action-icon" variant="small" position="rotated" />
 					</template>
 				</UiButton>
-			</div>
-		</div>
-		<!-- Image zone -->
-		<div class="app-intro__media" aria-hidden="true">
-			<div class="app-intro__shape app-intro__shape--top-left" />
-			<div class="app-intro__shape app-intro__shape--top-center" />
-			<div class="app-intro__shape app-intro__shape--top-right" />
-			<div class="app-intro__shape app-intro__shape--bottom-center" />
-
-			<div v-for="image in introContent.images" :key="image.id" class="app-intro__card"
-				:class="`app-intro__card--${image.name}`">
-				<img :src="image.src" :alt="image.alt" class="app-intro__image">
 			</div>
 		</div>
 	</section>

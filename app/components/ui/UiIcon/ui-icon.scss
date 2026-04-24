@@ -5,11 +5,18 @@
 	height: var(--ui-icon-h);
 	flex-shrink: 0;
 	color: var(--ui-icon-color);
+	stroke: var(--ui-icon-stroke);
+	stroke-width: var(--ui-icon-stroke-w);
 	line-height: 0;
 
 	:deep(svg) {
 		display: block;
 		width: 100%;
 		height: 100%;
+	}
+
+	path {
+		stroke: var(--ui-icon-stroke, currentColor);
+		stroke-width: var(--ui-icon-stroke-w);
 	}
 }

@@ -39,9 +39,13 @@
 		</div>
 
 		<div class="catalog__promo">
-			<div class="catalog__promo-visual">
-				<NuxtImg :src="content.promo.image" :alt="content.promo.imageAlt" width="600" height="420"
-					loading="lazy" class="catalog__promo-image" />
+			<div class="catalog__visual">
+				<div class="catalog__visual-card">
+					<NuxtImg :src="content.promo.image" :alt="content.promo.imageAlt" width="" height=""
+						loading="lazy" class="catalog__visual-image" />
+				</div>
+				<UiIcon name="shape-simple" class="catalog__visual-shape catalog__visual-shape--first" />
+				<UiIcon name="shape-double" class="catalog__visual-shape catalog__visual-shape--second" />
 			</div>
 
 			<div class="catalog__promo-content">
