@@ -98,6 +98,7 @@
 		z-index: 2;
 
 		&-icon {
+			--ui-icon-stroke: currentColor;
 			width: to-rem(56);
 			height: to-rem(56);
 		}

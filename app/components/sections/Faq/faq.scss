@@ -101,6 +101,7 @@
 			--ui-icon-w: #{to-rem(26)};
 			--ui-icon-h: #{to-rem(25)};
 			--ui-icon-color: #{$secondary-color};
+			--ui-icon-stroke: currentColor;
 
 			@media screen and (min-width: 1440px) {
 				display: grid;

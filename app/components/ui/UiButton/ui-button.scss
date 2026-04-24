@@ -21,7 +21,8 @@
         height: to-rem(63);
         background-color: $primary-color;
         color: $secondary-color;
-
+        --ui-icon-stroke: currentColor;
+        
         @media screen and (min-width: 1440px) {
             height: to-rem(65);
 
@@ -247,6 +248,7 @@
         --ui-button-shape-color: #{$primary-color};
         --ui-button-arrow-color: #{$secondary-color};
         --ui-button-shape-bg: #{$primary-color};
+        --ui-icon-stroke: currentColor;
 
         @media screen and (min-width: 1440px) {
             &:hover {

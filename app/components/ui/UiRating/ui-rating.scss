@@ -18,6 +18,7 @@
 		--ui-icon-w: #{to-rem(11)};
 		--ui-icon-h: #{to-rem(11)};
 		--ui-icon-color: #{$primary-color};
+		--ui-icon-stroke: currentColor;
 		display: grid;
 		place-items: center;
 		width: fit-content;

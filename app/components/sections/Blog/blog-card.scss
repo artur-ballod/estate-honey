@@ -199,6 +199,7 @@
 			--ui-icon-color: #{$primary-color};
 			--ui-icon-w: #{to-rem(19)};
 			--ui-icon-h: #{to-rem(19)};
+			--ui-icon-stroke: currentColor;
 		}
 
 		@media screen and (min-width: 1440px) {

@@ -16,7 +16,7 @@
 	}
 
 	path {
-		stroke: var(--ui-icon-stroke, currentColor);
+		stroke: var(--ui-icon-stroke, transparent);
 		stroke-width: var(--ui-icon-stroke-w);
 	}
 }

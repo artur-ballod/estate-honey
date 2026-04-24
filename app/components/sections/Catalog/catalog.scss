@@ -167,6 +167,7 @@
 		transition: 0.2s ease-in;
 		--ui-icon-w: #{to-rem(24)};
 		--ui-icon-h: #{to-rem(28)};
+		--ui-icon-stroke: currentColor;
 
 		&-icon {
 			transition: 0.2s ease-in;

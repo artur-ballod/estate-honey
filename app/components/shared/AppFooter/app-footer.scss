@@ -98,6 +98,7 @@
 		padding-right: to-rem(10);
 		border-top: 1px solid $border-light-color;
 		z-index: 2;
+		--ui-icon-stroke: currentColor;
 
 		@media screen and (min-width: 1440px) {
 			display: flex;
