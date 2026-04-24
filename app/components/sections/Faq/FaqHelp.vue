@@ -41,8 +41,7 @@
 </template>
 
 <script setup lang="ts">
-	import { U } from 'vue-router/dist/index-BzEKChPW.js'
-import type { FaqContactLink } from './types'
+	import type { FaqContactLink } from './types'
 
 	interface Props {
 		title: string
