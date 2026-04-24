@@ -83,7 +83,7 @@ export const TEAM_PEOPLE: TeamPerson[] = [
     id: "anna-smirnova",
     name: "Анна Смирнова",
     position: "Эксперт по вторичной недвижимости",
-    imageSrc: "/images/team/team-8.png",
+    imageSrc: "/images/team/team-1.png",
     imageAlt: "Анна Смирнова",
     stats: {
       rating: 5.0,
