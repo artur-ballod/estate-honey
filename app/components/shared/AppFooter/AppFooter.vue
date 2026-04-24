@@ -128,11 +128,14 @@
 		theme: "dark",
 	});
 
+	const runtimeConfig = useRuntimeConfig();
 	const logoSrc = computed(() => {
-		return props.theme === "dark"
-			? "/images/logo-light.svg"
-			: "/images/logo-dark.svg";
-	});
+		const fileName = props.theme === 'dark'
+			? 'logo-light.svg'
+			: 'logo-dark.svg'
+
+		return `${runtimeConfig.app.baseURL}images/${fileName}`
+	})
 
 	const scrollToTop = (): void => {
 		window.scrollTo({
