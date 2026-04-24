@@ -34,6 +34,13 @@ export const useFeedbackForm = () => {
     );
   });
 
+  // NEW: кнопка disabled, пока не заполнены обязательные поля
+  const isSubmitDisabled = computed(() => {
+    return (
+      !isPhoneValid(form.phone) || !form.callTime || !form.isPrivacyAccepted
+    );
+  });
+
   const clearSubmitError = () => {
     errors.submit = "";
   };
@@ -76,22 +83,16 @@ export const useFeedbackForm = () => {
     clearSubmitError();
   };
 
+  // Темы сейчас не блокируют submit.
+  // Метод оставляем, чтобы быстро вернуть обязательность, если ТЗ изменится.
   const validateTopics = (): boolean => {
-    if (!form.topics.length) {
-      errors.topics = FEEDBACK_SECTION_CONTENT.topicsRequiredError;
-      return false;
-    }
-
     errors.topics = "";
     return true;
   };
 
+  // Имя сейчас не блокирует submit.
+  // Метод оставляем, чтобы быстро вернуть обязательность, если ТЗ изменится.
   const validateName = (): boolean => {
-    if (!form.name.trim()) {
-      errors.name = FEEDBACK_SECTION_CONTENT.nameRequiredError;
-      return false;
-    }
-
     errors.name = "";
     return true;
   };
@@ -111,6 +112,15 @@ export const useFeedbackForm = () => {
     return true;
   };
 
+  // NEW: валидация времени звонка
+  const validateCallTime = (): boolean => {
+    if (!form.callTime) {
+      return false;
+    }
+
+    return true;
+  };
+
   const validatePrivacy = (): boolean => {
     if (!form.isPrivacyAccepted) {
       errors.privacy = FEEDBACK_SECTION_CONTENT.privacyRequiredError;
@@ -122,13 +132,15 @@ export const useFeedbackForm = () => {
   };
 
   const validateForm = (): boolean => {
-    const isTopicsValid = validateTopics();
-    const isNameValid = validateName();
     const isPhoneFieldValid = validatePhoneField();
+
+    // NEW
+    const isCallTimeValid = validateCallTime();
+
     const isPrivacyValid = validatePrivacy();
 
-    const isValid =
-      isTopicsValid && isNameValid && isPhoneFieldValid && isPrivacyValid;
+    // NEW: сейчас обязательные поля — телефон, время звонка, согласие
+    const isValid = isPhoneFieldValid && isCallTimeValid && isPrivacyValid;
 
     errors.submit = isValid ? "" : FEEDBACK_SECTION_CONTENT.submitErrorText;
 
@@ -168,6 +180,14 @@ export const useFeedbackForm = () => {
     },
   );
 
+  // NEW: очищаем submit-error при выборе времени
+  watch(
+    () => form.callTime,
+    () => {
+      clearSubmitError();
+    },
+  );
+
   watch(
     () => form.isPrivacyAccepted,
     () => {
@@ -195,10 +215,18 @@ export const useFeedbackForm = () => {
     form,
     errors,
     hasErrors,
+
+    // NEW
+    isSubmitDisabled,
+
     setTopic,
     validateTopics,
     validateName,
     validatePhoneField,
+
+    // NEW
+    validateCallTime,
+
     validatePrivacy,
     validateForm,
     clearSubmitError,

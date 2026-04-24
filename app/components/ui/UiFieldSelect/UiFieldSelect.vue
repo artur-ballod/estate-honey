@@ -6,6 +6,7 @@
 			'is-open': isOpen,
 			'is-disabled': disabled,
 			'is-placeholder': !selectedOption,
+			'is-error': error,
 		}"
 	>
 		<button
@@ -61,6 +62,7 @@
 		name: '',
 		placeholder: '',
 		disabled: false,
+		error: false,
 	})
 
 	const emit = defineEmits<{

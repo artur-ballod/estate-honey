@@ -9,4 +9,5 @@ export interface UiFieldSelectProps {
   placeholder?: string;
   options: UiFieldSelectOption[];
   disabled?: boolean;
+  error?: boolean;
 }

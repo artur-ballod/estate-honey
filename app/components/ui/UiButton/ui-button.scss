@@ -81,6 +81,11 @@
                 --ui-button-shape-bg: #{$primary-color};
             }
         }
+
+        &:disabled {
+            color: transparentize($primary-color, 0.8);
+            pointer-events: none;
+        }
     }
 
     // simple transparent with border

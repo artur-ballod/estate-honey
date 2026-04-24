@@ -52,12 +52,12 @@
 
 				<div class="feedback__fields">
 					<UiFieldInput id="feedback-name" v-model="form.name" name="name" type="text"
-						:placeholder="FEEDBACK_SECTION_CONTENT.namePlaceholder" autocomplete="name" :error="errors.name"
-						@blur="validateName" />
+						:placeholder="FEEDBACK_SECTION_CONTENT.namePlaceholder" autocomplete="name"
+						:error="errors.name" />
 
 					<UiFieldInput id="feedback-phone" v-model="form.phone" name="phone" type="tel"
-						:placeholder="FEEDBACK_SECTION_CONTENT.phonePlaceholder" autocomplete="tel" inputmode="numeric" :required="true" 
-						mask="phone" :error="errors.phone" @blur="validatePhoneField" />
+						:placeholder="FEEDBACK_SECTION_CONTENT.phonePlaceholder" autocomplete="tel" inputmode="numeric"
+						:required="true" mask="phone" :error="errors.phone" @blur="validatePhoneField" />
 				</div>
 
 				<div class="feedback__date">
@@ -66,25 +66,19 @@
 					</UiCaption>
 
 					<div class="feedback__date-controls">
-						<UiFieldRadio v-for="option in FEEDBACK_CALL_DAY_OPTIONS" :key="option.id"
+						<UiFieldRadio v-for="option in FEEDBACK_CALL_DAY_OPTIONS" :id="option.id" :key="option.id"
 							v-model="form.callDay" name="feedback-call-day" :value="option.value"
-							:label="option.label" :id="option.id" />
+							:label="option.label" />
 
 						<UiFieldSelect v-model="form.callTime" name="call-time" :options="FEEDBACK_CALL_TIME_OPTIONS"
-							:placeholder="FEEDBACK_SECTION_CONTENT.callTimePlaceholder" class="feedback__date-select" />
+							:placeholder="FEEDBACK_SECTION_CONTENT.callTimePlaceholder" :error="isCallTimeError"
+							class="feedback__date-select" />
 					</div>
 				</div>
 
-				<UiFieldCheckbox
-					id="feedback-privacy"
-					v-model="form.isPrivacyAccepted"
-					name="privacy"
-					:error="errors.privacy"
-					:required="true"
-					variant="policy"
-					class="feedback__privacy"
-					@blur="validatePrivacy"
-				>
+				<UiFieldCheckbox id="feedback-privacy" v-model="form.isPrivacyAccepted" name="privacy"
+					:error="errors.privacy" :required="true" variant="policy" class="feedback__privacy"
+					@blur="validatePrivacy">
 					<template #label>
 						Согласен с&nbsp;
 						<NuxtLink to="/privacy-policy" class="feedback__privacy-link">
@@ -95,14 +89,15 @@
 				</UiFieldCheckbox>
 
 				<div class="feedback__submit">
-					<UiButton type="submit" :text="FEEDBACK_SECTION_CONTENT.submitText" class="feedback__submit-btn" variant="neutral-border" >
+					<UiButton type="submit" :text="FEEDBACK_SECTION_CONTENT.submitText" class="feedback__submit-btn"
+						variant="neutral-border" :disabled="isSubmitDisabled">
 						<template #right>
 							<UiButtonArrow class="feedback__submit-icon" variant="small" />
 						</template>
 					</UiButton>
 
-					<UiCaption v-if="errors.submit" tag="span" variant="error" class="feedback__submit-error">
-						{{ errors.submit }}
+					<UiCaption v-if="shouldShowSubmitHint" tag="span" variant="error" class="feedback__submit-error">
+						{{ FEEDBACK_SECTION_CONTENT.submitErrorText }}
 					</UiCaption>
 				</div>
 			</div>
@@ -116,39 +111,55 @@
 </template>
 
 <script setup lang="ts">
-	import { computed } from 'vue'
-	import { useFeedbackForm } from '~/composables/forms/useFeedbackForm'
+	import { computed } from "vue";
+	import { useFeedbackForm } from "~/composables/forms/useFeedbackForm";
 	import {
 		FEEDBACK_CALL_DAY_OPTIONS,
 		FEEDBACK_CALL_TIME_OPTIONS,
 		FEEDBACK_SECTION_CONTENT,
 		FEEDBACK_TOPICS,
-	} from './constants'
+	} from "./constants";
 
 	const {
 		form,
 		errors,
+		isSubmitDisabled,
 		setTopic,
-		validateName,
 		validatePhoneField,
 		validatePrivacy,
 		validateForm,
 		getPayload,
-	} = useFeedbackForm()
+	} = useFeedbackForm();
 
-	const descriptionLines = computed(() => FEEDBACK_SECTION_CONTENT.description.split('\n'))
+	const descriptionLines = computed(() => {
+		return FEEDBACK_SECTION_CONTENT.description.split("\n");
+	});
+
+	// NEW: показываем текст возле кнопки, пока submit disabled
+	const shouldShowSubmitHint = computed(() => {
+		return isSubmitDisabled.value;
+	});
+
+	// NEW: select в ошибке, пока не выбрано ни одно значение
+	const isCallTimeError = computed(() => {
+		return !form.callTime;
+	});
 
 	const handleSubmit = () => {
-		if (!validateForm()) {
-			return
+		if (isSubmitDisabled.value) {
+			return;
 		}
 
-		const payload = getPayload()
+		if (!validateForm()) {
+			return;
+		}
 
-		console.log('feedback form submit', payload)
-	}
+		const payload = getPayload();
+
+		console.log("feedback form submit", payload);
+	};
 </script>
 
 <style scoped lang="scss">
-	@use './feedback.scss';
+	@use "./feedback.scss";
 </style>
