@@ -198,7 +198,6 @@
 	import AppHeaderMobileClose from "./AppHeaderMobileClose.vue";
 	import AppHeaderContactLinks from "./AppHeaderContactLinks.vue";
 	import AppHeaderNav from "./AppHeaderNav.vue";
-
 	import {
 		APP_HEADER_MESSENGERS,
 		APP_HEADER_NAV,
@@ -226,12 +225,14 @@
 	const isMobilePanelOpen = ref(false);
 	const mobileView = ref<AppHeaderMobileView>("nav");
 	const openedDropdownId = ref<string | null>(null);
-
+	const runtimeConfig = useRuntimeConfig();
 	const logoSrc = computed(() => {
-		return props.theme === "dark"
-			? "/images/logo-light.svg"
-			: "/images/logo-dark.svg";
-	});
+		const fileName = props.theme === 'dark'
+			? 'logo-light.svg'
+			: 'logo-dark.svg'
+
+		return `${runtimeConfig.app.baseURL}images/${fileName}`
+	})
 
 	const mobileContactGroups = [
 		{
