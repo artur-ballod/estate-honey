@@ -78,6 +78,7 @@
 			transform: rotate(-45deg);
 			transform-origin: center;
 			transition: 0.2s ease-in;
+			--ui-icon-stroke: currentColor;
 		}
 
 		@media screen and (min-width: 1440px) {

@@ -110,6 +110,7 @@
 
 		--ui-icon-w: #{to-rem(15)};
 		--ui-icon-h: #{to-rem(15)};
+		--ui-icon-stroke: currentColor;
 
 		&-icon {
 			width: to-rem(15);
