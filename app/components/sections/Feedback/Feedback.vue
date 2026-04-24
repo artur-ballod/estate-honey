@@ -18,7 +18,7 @@
 			</UiTitle>
 		</div>
 
-		<form class="feedback__form" @submit.prevent="handleSubmit">
+		<form class="feedback__form" novalidate @submit.prevent="handleSubmit">
 			<div class="feedback__card feedback__card--topics">
 				<div class="feedback__card-top">
 					<UiCaption tag="span" variant="description-sm" class="feedback__card-step">
@@ -62,7 +62,7 @@
 
 					<UiFieldInput id="feedback-phone" v-model="form.phone" name="phone" type="tel"
 						:placeholder="FEEDBACK_SECTION_CONTENT.phonePlaceholder" autocomplete="tel" inputmode="numeric"
-						:required="true" mask="phone" :error="errors.phone" @blur="validatePhoneField" />
+						:required="true" mask="phone" :error="errors.phone" />
 				</div>
 
 				<div class="feedback__date">
@@ -82,8 +82,7 @@
 				</div>
 
 				<UiFieldCheckbox id="feedback-privacy" v-model="form.isPrivacyAccepted" name="privacy"
-					:error="errors.privacy" :required="true" variant="policy" class="feedback__privacy"
-					@blur="validatePrivacy">
+					:error="errors.privacy" :required="true" variant="policy" class="feedback__privacy">
 					<template #label>
 						Согласен с&nbsp;
 						<NuxtLink to="/privacy-policy" class="feedback__privacy-link">
@@ -95,13 +94,13 @@
 
 				<div class="feedback__submit">
 					<UiButton type="submit" :text="FEEDBACK_SECTION_CONTENT.submitText" class="feedback__submit-btn"
-						variant="neutral-border" :disabled="isSubmitDisabled">
+						variant="neutral-border" :visually-disabled="isSubmitDisabled">
 						<template #right>
 							<UiButtonArrow class="feedback__submit-icon" variant="small" />
 						</template>
 					</UiButton>
 
-					<UiCaption v-if="shouldShowSubmitHint" tag="span" variant="error" class="feedback__submit-error">
+					<UiCaption v-if="shouldShowSubmitError" tag="span" variant="error" class="feedback__submit-error">
 						{{ FEEDBACK_SECTION_CONTENT.submitErrorText }}
 					</UiCaption>
 				</div>
@@ -111,7 +110,7 @@
 </template>
 
 <script setup lang="ts">
-	import { computed } from "vue";
+	import { computed, ref } from "vue";
 	import { useFeedbackForm } from "~/composables/forms/useFeedbackForm";
 	import {
 		FEEDBACK_CALL_DAY_OPTIONS,
@@ -125,30 +124,26 @@
 		errors,
 		isSubmitDisabled,
 		setTopic,
-		validatePhoneField,
-		validatePrivacy,
 		validateForm,
 		getPayload,
 	} = useFeedbackForm();
+
+	const wasSubmitAttempted = ref(false);
 
 	const descriptionLines = computed(() => {
 		return FEEDBACK_SECTION_CONTENT.description.split("\n");
 	});
 
-	// NEW: показываем текст возле кнопки, пока submit disabled
-	const shouldShowSubmitHint = computed(() => {
-		return isSubmitDisabled.value;
+	const isCallTimeError = computed(() => {
+		return wasSubmitAttempted.value && !form.callTime;
 	});
 
-	// NEW: select в ошибке, пока не выбрано ни одно значение
-	const isCallTimeError = computed(() => {
-		return !form.callTime;
+	const shouldShowSubmitError = computed(() => {
+		return wasSubmitAttempted.value && isSubmitDisabled.value;
 	});
 
 	const handleSubmit = () => {
-		if (isSubmitDisabled.value) {
-			return;
-		}
+		wasSubmitAttempted.value = true;
 
 		if (!validateForm()) {
 			return;

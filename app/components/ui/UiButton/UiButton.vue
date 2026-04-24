@@ -24,6 +24,7 @@
     variant?: 'large' | 'large-shape' | 'large-dark' | 'primary' | 'neutral' | 'transparent' | 'ghost' | 'primary-border' | 'neutral-border' | 'tab' | 'simple' | 'simple-light' | 'simple-purple' | 'map' | 'menu'
     disabled?: boolean
     iconOnly?: boolean
+    visuallyDisabled?: boolean
   }
 
   const props = withDefaults(defineProps<Props>(), {
@@ -36,6 +37,7 @@
     variant: 'primary',
     disabled: false,
     iconOnly: false,
+    visuallyDisabled: false,
   })
 
   const slots = useSlots()
@@ -79,7 +81,7 @@
     {
       'ui-button--with-addon': hasRightSlot.value,
       'ui-button--icon-only': props.iconOnly,
-      'is-disabled': props.disabled,
+      'is-disabled': props.disabled || props.visuallyDisabled,
     },
   ])
 </script>

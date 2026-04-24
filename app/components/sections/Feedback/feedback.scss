@@ -270,13 +270,13 @@
 		margin-bottom: to-rem(15);
 
 		&-link {
-			color: transparentize($secondary-color, 0.5);
+			color: currentColor;
 			text-decoration: none;
 			transition: 0.2s ease-in;
 			
 			@media screen and (min-width: 1440px) {
 				&:hover {
-					color: $secondary-color;
+					color: currentColor;
 				}
 			}
 		}

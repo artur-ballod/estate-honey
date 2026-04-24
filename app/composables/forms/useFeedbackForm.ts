@@ -34,7 +34,8 @@ export const useFeedbackForm = () => {
     );
   });
 
-  // NEW: кнопка disabled, пока не заполнены обязательные поля
+  // NEW: состояние "форма ещё не готова к отправке"
+  // Важно: это НЕ нативный disabled кнопки, а логическое состояние.
   const isSubmitDisabled = computed(() => {
     return (
       !isPhoneValid(form.phone) || !form.callTime || !form.isPrivacyAccepted
@@ -83,15 +84,15 @@ export const useFeedbackForm = () => {
     clearSubmitError();
   };
 
-  // Темы сейчас не блокируют submit.
-  // Метод оставляем, чтобы быстро вернуть обязательность, если ТЗ изменится.
+  // Темы сейчас не обязательные.
+  // Метод оставлен, чтобы быстро вернуть required-логику при изменении ТЗ.
   const validateTopics = (): boolean => {
     errors.topics = "";
     return true;
   };
 
-  // Имя сейчас не блокирует submit.
-  // Метод оставляем, чтобы быстро вернуть обязательность, если ТЗ изменится.
+  // Имя сейчас не обязательное.
+  // Метод оставлен, чтобы быстро вернуть required-логику при изменении ТЗ.
   const validateName = (): boolean => {
     errors.name = "";
     return true;
@@ -112,13 +113,10 @@ export const useFeedbackForm = () => {
     return true;
   };
 
-  // NEW: валидация времени звонка
+  // NEW: время звонка обязательно, но отдельного текста ошибки у него нет
+  // Ошибка отображается через is-error на UiFieldSelect и общий текст возле submit.
   const validateCallTime = (): boolean => {
-    if (!form.callTime) {
-      return false;
-    }
-
-    return true;
+    return Boolean(form.callTime);
   };
 
   const validatePrivacy = (): boolean => {
@@ -139,7 +137,7 @@ export const useFeedbackForm = () => {
 
     const isPrivacyValid = validatePrivacy();
 
-    // NEW: сейчас обязательные поля — телефон, время звонка, согласие
+    // NEW: обязательные поля сейчас — телефон, время звонка, согласие
     const isValid = isPhoneFieldValid && isCallTimeValid && isPrivacyValid;
 
     errors.submit = isValid ? "" : FEEDBACK_SECTION_CONTENT.submitErrorText;
@@ -180,7 +178,7 @@ export const useFeedbackForm = () => {
     },
   );
 
-  // NEW: очищаем submit-error при выборе времени
+  // NEW
   watch(
     () => form.callTime,
     () => {
