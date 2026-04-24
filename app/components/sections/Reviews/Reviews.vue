@@ -45,7 +45,7 @@
 				</ul>
 
 				<ul class="reviews__column reviews__column--right">
-					<li
+					<!-- <li
 						v-for="item in rightColumnItems"
 						:key="item.id"
 						class="reviews__item"
@@ -70,6 +70,32 @@
 							:link-text="item.linkText"
 							:data-type="item.icon"
 						/>
+					</li> -->
+					<li
+						v-for="item in rightColumnItems"
+						:key="`${item.type}-${item.id}`"
+						class="reviews__item"
+					>
+						<ReviewCard
+							v-if="item.type === 'review'"
+							:author="item.author"
+							:rating="item.rating"
+							:title="item.title"
+							:text="item.text"
+							:to="item.to"
+							:link-text="item.linkText"
+						/>
+
+						<ReviewSourceCard
+							v-else-if="item.type === 'source'"
+							:source-name="item.sourceName"
+							:icon="item.icon"
+							:rating="item.rating"
+							:reviews-count="item.reviewsCount"
+							:to="item.to"
+							:link-text="item.linkText"
+							:data-type="item.icon"
+						/>
 					</li>
 				</ul>
 			</div>
@@ -78,6 +104,7 @@
 </template>
 
 <script setup lang="ts">
+	import { computed, onMounted, ref } from 'vue'
 	import { useWindowSize } from '@vueuse/core'
 	import {
 		REVIEWS_SECTION_IMAGE,
@@ -89,31 +116,54 @@
 
 	const MOBILE_BREAKPOINT = 1440
 
+	const isMounted = ref(false)
+
 	const { width } = useWindowSize()
 
-	const isMobile = computed(() => width.value < MOBILE_BREAKPOINT)
+	onMounted(() => {
+		isMounted.value = true
+	})
 
-	const reviewItems = computed(() =>
-		REVIEWS_SECTION_ITEMS.filter((item) => item.type === 'review'),
-	)
+	const isMobile = computed(() => {
+		return isMounted.value && width.value < MOBILE_BREAKPOINT
+	})
 
-	const sourceItems = computed(() =>
-		REVIEWS_SECTION_ITEMS.filter((item) => item.type === 'source'),
-	)
+	const reviewItems = computed(() => {
+		return REVIEWS_SECTION_ITEMS.filter((item) => item.type === 'review')
+	})
 
-	const leftColumnReviewItems = computed(() => reviewItems.value.slice(0, 4))
-	const rightColumnReviewItems = computed(() => reviewItems.value.slice(4, 7))
+	const sourceItems = computed(() => {
+		return REVIEWS_SECTION_ITEMS.filter((item) => item.type === 'source')
+	})
 
-	const desktopRightColumnItems = computed(() => [
-		...rightColumnReviewItems.value,
-		...sourceItems.value,
-	])
+	const leftColumnReviewItems = computed(() => {
+		return reviewItems.value.slice(0, 4)
+	})
 
-	const mobileRightColumnItems = computed(() => sourceItems.value)
+	const rightColumnReviewItems = computed(() => {
+		return reviewItems.value.slice(4, 7)
+	})
 
-	const rightColumnItems = computed(() =>
-		isMobile.value ? mobileRightColumnItems.value : desktopRightColumnItems.value,
-	)
+	const desktopRightColumnItems = computed(() => {
+		return [
+			...rightColumnReviewItems.value,
+			...sourceItems.value,
+		]
+	})
+
+	const mobileRightColumnItems = computed(() => {
+		return sourceItems.value
+	})
+
+	const rightColumnItems = computed(() => {
+		if (!isMounted.value) {
+			return desktopRightColumnItems.value
+		}
+
+		return isMobile.value
+			? mobileRightColumnItems.value
+			: desktopRightColumnItems.value
+	})
 </script>
 
 <style scoped lang="scss">
