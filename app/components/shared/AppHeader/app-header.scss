@@ -77,12 +77,14 @@
 				--ui-icon-w: #{to-rem(20)};
 				--ui-icon-h: #{to-rem(7)};
 				--ui-icon-color: #{$secondary-color};
+				--ui-icon-stroke: currentColor;
 			}
 
 			&[aria-expanded="true"] {
 				--ui-icon-w: #{to-rem(15.14)};
 				--ui-icon-h: #{to-rem(14.28)};
 				--ui-icon-color: #{$secondary-color};
+				--ui-icon-stroke: currentColor;
 			}
 		}
 	}

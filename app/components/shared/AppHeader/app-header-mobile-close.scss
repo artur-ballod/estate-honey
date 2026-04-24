@@ -9,11 +9,13 @@
 		grid-column: 1 / 2;
 		grid-row: 1 / 2;
 		--ui-icon-color: #{$dark-color};
+		--ui-icon-w: #{to-rem(25)};
 	}
 
 	&__cross {
 		grid-column: 1 / 2;
 		grid-row: 1 / 2;
 		--ui-icon-color: #{$secondary-color};
+		--ui-icon-stroke: currentColor;
 	}
 }
